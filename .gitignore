@@ -1,3 +1,6 @@
+# Ignore .idea
+.idea/*
+
 # Cmake Build Debug
 cmake-build-debug/*
 
