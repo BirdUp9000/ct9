@@ -1,11 +1,11 @@
 # Ignore .idea
 .idea/
 
-# Cmake Build Debug
-cmake-build-debug/*
-
 # Prerequisites
 *.d
+
+# Ignore build files
+build/*
 
 # Compiled Object files
 *.slo
