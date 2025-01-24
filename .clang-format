@@ -5,12 +5,24 @@ UseTab: Never
 ColumnLimit: 100
 AlignAfterOpenBracket: Align
 AllowAllParametersOfDeclarationOnNextLine: false
-BreakBeforeBraces: Allman
+
+BreakBeforeBraces: Attach
+BraceWrapping:
+  AfterClass:      false
+  AfterControlStatement: false
+  AfterEnum:       false
+  AfterFunction:   false
+  AfterNamespace:  false
+  AfterStruct:     false
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false
+
 SpaceBeforeParens: ControlStatements
 SpacesInParentheses: false
 DerivePointerAlignment: false
-PointerAlignment: Left
 IndentCaseLabels: true
 AccessModifierOffset: -2
 MaxEmptyLinesToKeep: 1
 KeepEmptyLinesAtTheStartOfBlocks: true
+
