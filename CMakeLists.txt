@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------
 # Project configuration
 # ------------------------------------------------------------------
-cmake_minimum_required(VERSION 3.30)
+cmake_minimum_required(VERSION 3.25)
 
 project(ct9 VERSION 0.0.0
     DESCRIPTION "CT9 - Prefix Tree Text Autocomplete"
@@ -44,7 +44,6 @@ endif()
 # ------------------------------------------------------------------
 add_executable(ct9 
     src/main.cc
-    src/Trie.cc
     include/ct9/Trie.h
 )
 

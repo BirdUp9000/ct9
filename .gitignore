@@ -1,6 +1,9 @@
 # Ignore .idea
 .idea/
 
+# Ignore .vscode
+.vscode/
+
 # Prerequisites
 *.d
 

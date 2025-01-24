@@ -21,5 +21,5 @@ Run the application <br>
 
 ## Requirements
 - C++17 or newer
-- CMake version 3.10 or higher
+- CMake version 3.25 or higher
 - X11 development libraries: Make sure the libX11 library is installed.
