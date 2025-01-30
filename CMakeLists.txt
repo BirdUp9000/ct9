@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------
 # Project configuration
 # ------------------------------------------------------------------
-cmake_minimum_required(VERSION 3.25)
+cmake_minimum_required(VERSION 3.16)
 
 project(ct9 VERSION 0.0.0
     DESCRIPTION "CT9 - Prefix Tree Text Autocomplete"
@@ -27,8 +27,7 @@ endif()
 # ------------------------------------------------------------------
 # Set the C++ standard
 # ------------------------------------------------------------------
-set(CMAKE_CXX_STANDARD 17)
-# set(CMAKE_CXX_STANDARD_REQUIRED ON)  # Uncomment to strictly enforce C++17
+set(CMAKE_CXX_STANDARD 20)
 
 # ------------------------------------------------------------------
 # Default build type: If no build type is specified, use Release.
@@ -75,7 +74,7 @@ if(CMAKE_BUILD_TYPE STREQUAL "Develop")
     FetchContent_MakeAvailable(Catch2)
 
     file(GLOB TEST_SOURCES CONFIGURE_DEPENDS
-        "${CMAKE_CURRENT_SOURCE_DIR}/tests/*.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/tests/*.cc"
     )
     add_executable(run_tests ${TEST_SOURCES})
     target_link_libraries(run_tests PRIVATE Catch2::Catch2WithMain)
