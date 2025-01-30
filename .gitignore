@@ -1,6 +1,9 @@
 # Ignore .idea
 .idea/
 
+#Ignore cmake-build-debug
+cmake-build-debug/
+
 # Ignore .vscode
 .vscode/
 

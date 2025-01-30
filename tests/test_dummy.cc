@@ -74,6 +74,7 @@ TEST_CASE("Trie Insert") {
         REQUIRE(trie.getRoot().children.find('w') != trie.getRoot().children.end());
     }
 
+
     SECTION("Insert overlapping words") {
         trie.insert("cat");
         trie.insert("car");
@@ -87,7 +88,7 @@ TEST_CASE("Trie Insert") {
 
         REQUIRE(a_node->second->children.find('t') != a_node->second->children.end());
         REQUIRE(a_node->second->children.find('r') != a_node->second->children.end());
-    }
+  }
 
     SECTION("Insert duplicate words") {
         trie.insert("hello");
