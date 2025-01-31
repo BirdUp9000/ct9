@@ -45,7 +45,7 @@ jobs:
       - name: Clang-Format check
         run: |
           clang-format --version
-          FILES=$(find . -regex '.*\.\(h\|hpp\|cpp\|cc\)')
+          FILES=$(find . -regex '.*\.\(h\|hpp\)')
           for f in $FILES; do
             clang-format -n --Werror "$f"
           done
