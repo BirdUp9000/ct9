@@ -30,6 +30,11 @@ endif()
 set(CMAKE_CXX_STANDARD 20)
 
 # ------------------------------------------------------------------
+# Generate compile commands
+# ------------------------------------------------------------------
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# ------------------------------------------------------------------
 # Default build type: If no build type is specified, use Release.
 # Possible build types: Release, Develop.
 # ------------------------------------------------------------------
@@ -80,7 +85,7 @@ if(CMAKE_BUILD_TYPE STREQUAL "Develop")
     target_link_libraries(run_tests PRIVATE Catch2::Catch2WithMain)
     add_test(NAME ct9_tests COMMAND run_tests --colour-mode ansi)
 
-    add_custom_target(run_all_tests ALL
+    add_custom_target(run_all_tests
         COMMAND ${CMAKE_CTEST_COMMAND}
         DEPENDS run_tests
         COMMENT "Running tests in Develop mode..."

@@ -1,11 +1,4 @@
-Checks: >
-  -*,                 # Disable all checks first
-  clang-analyzer-*,   # Enable Clang static analyzer checks
-  bugprone-*,         # Catch common bug patterns
-  modernize-*,        # Suggest modern C++ features
-  performance-*,      # Spot potential performance issues
-  readability-*       # Improve code readability
-
-HeaderFilterRegex: '.*'  # Apply checks to all headers and sources
-UseColor: true           # Show colored output if your terminal supports it
+Checks: '-*,clang-analyzer-*,bugprone-*,modernize-*,performance-*,readability-*'
+HeaderFilterRegex: '.*'
+UseColor: true
 

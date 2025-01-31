@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    name: Building and Testing
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            cmake \
+            clang \
+            clang-tidy \
+            clang-format \
+            doxygen \
+            graphviz \
+            xorg-dev
+
+      - name: Configure (CMake)
+        run: |
+          cmake -B build -S . \
+            -DCMAKE_BUILD_TYPE=Develop \
+            -G "Unix Makefiles"
+
+      - name: Build
+        run: cmake --build build -- -j2
+
+      - name: Run tests
+        run: ctest --test-dir build --output-on-failure
+
+      - name: Clang-Tidy check
+        run: clang-tidy -p build include/ct9/*.h --config-file=.clang-tidy
+
+      - name: Clang-Format check
+        run: |
+          clang-format --version
+          FILES=$(find . -regex '.*\.\(h\|hpp\|cpp\|cc\)')
+          for f in $FILES; do
+            clang-format -n --Werror "$f"
+          done
+
+      - name: Generate documentation
+        run: |
+          doxygen --version
+          doxygen Doxyfile
+
+      - name: Upload Docs Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: docs
+          path: docs/html
