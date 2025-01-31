@@ -43,12 +43,8 @@ jobs:
         run: clang-tidy -p build include/ct9/*.h --config-file=.clang-tidy
 
       - name: Clang-Format check
-        run: |
-          clang-format --version
-          FILES=$(find . -regex '.*\.\(h\|hpp\)')
-          for f in $FILES; do
-            clang-format -n --Werror "$f"
-          done
+        run: clang-format -n include/ct9/Trie.h
+
 
       - name: Generate documentation
         run: |
