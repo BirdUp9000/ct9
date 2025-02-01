@@ -56,7 +56,7 @@ jobs:
         uses: EndBug/add-and-commit@v9
         with:
           add: "docs"
-          message: "Update documentation [skip ci]"
+          message: "Update documentation"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
