@@ -3,6 +3,8 @@ name: CI
 on:
   push:
     branches: [ "master" ]
+    paths-ignore:
+      - 'docs/**'
   pull_request:
     branches: [ "master" ]
 
@@ -45,9 +47,16 @@ jobs:
       - name: Clang-Format check
         run: clang-format -n include/ct9/Trie.h
 
-
       - name: Generate documentation
         run: |
           doxygen --version
           doxygen Doxyfile
+
+      - name: Commit generated documentation
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: "docs"
+          message: "Update documentation [skip ci]"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
