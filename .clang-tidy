@@ -1,4 +1,4 @@
-Checks: '-*,clang-analyzer-*,bugprone-*,modernize-*,performance-*,readability-*'
+Checks: '-*,clang-analyzer-*,bugprone-*,modernize-*,-modernize-use-trailing-return-type,performance-*,readability-*'
 HeaderFilterRegex: '.*'
 UseColor: true
 
