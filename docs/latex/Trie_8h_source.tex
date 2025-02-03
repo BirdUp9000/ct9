@@ -1,0 +1,235 @@
+\doxysection{Trie.\+h}
+\hypertarget{Trie_8h_source}{}\label{Trie_8h_source}\index{include/ct9/Trie.h@{include/ct9/Trie.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTrie}{Trie}}\ final\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structTrie_1_1Node}{Node}}\ final\{}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{structTrie_1_1Node}{Node}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00016\ \ \ \ \ \mbox{\hyperlink{structTrie_1_1Node}{\string~Node}}()\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&child\ :\ children)\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ child.second;}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ [[nodiscard]]\ std::queue<std::string>\ \mbox{\hyperlink{structTrie_1_1Node_af9a03f41fa011b23c97968819ba01fd7}{autocompleteNode}}(\textcolor{keyword}{const}\ std::string\&\ prefix)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{template}\ <std::\textcolor{keywordtype}{unsigned}\_\textcolor{keywordtype}{int}egral\ COUNT>}
+\DoxyCodeLine{00024\ \ \ \ \ [[nodiscard]]\ std::queue<std::string>\ \mbox{\hyperlink{structTrie_1_1Node_af9a03f41fa011b23c97968819ba01fd7}{autocompleteNode}}(\textcolor{keyword}{const}\ std::string\&\ prefix,\ COUNT\ count)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ insert(\textcolor{keyword}{const}\ std::string\&\ text,\ \textcolor{keywordtype}{size\_t}\ index,\ \mbox{\hyperlink{structTrie_1_1Node}{Node}}*\ root);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ [[nodiscard]]\ std::queue<std::string>\ find(\textcolor{keywordtype}{char}\ character)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00029\ \ \ \ \ [[nodiscard]]\ std::string\ find()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ std::map<char,\ Node*>\ children;}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{bool}\ end\_of\_word\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00033\ \ \ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \mbox{\hyperlink{structTrie_1_1Node}{Node}}*\ root\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structTrie_1_1Node}{Node}}();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structTrie_1_1Node}{Node}}*\ getRoot()\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{return}\ root;}
+\DoxyCodeLine{00040\ \ \ \}}
+\DoxyCodeLine{00041\ \ \ \mbox{\hyperlink{classTrie}{Trie}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00042\ \ \ \mbox{\hyperlink{classTrie}{\string~Trie}}()\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{delete}\ root;}
+\DoxyCodeLine{00044\ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{classTrie}{Trie}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie);}
+\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classTrie}{Trie}}(\textcolor{keyword}{const}\ std::string\&\ str);}
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classTrie}{Trie}}(\textcolor{keyword}{const}\ std::vector<std::string>\&\ vec\_str);}
+\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{classTrie}{Trie}}(\mbox{\hyperlink{classTrie}{Trie}}\&\&\ trie)\ \textcolor{keyword}{noexcept};}
+\DoxyCodeLine{00050\ \ \ \mbox{\hyperlink{classTrie}{Trie}}\ operator+(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{classTrie}{Trie}}\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ \ \ \mbox{\hyperlink{classTrie}{Trie}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie);}
+\DoxyCodeLine{00053\ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ operator<(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie);}
+\DoxyCodeLine{00054\ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ operator==(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie);}
+\DoxyCodeLine{00055\ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ operator>(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie);}
+\DoxyCodeLine{00056\ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ operator!=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie);}
+\DoxyCodeLine{00057\ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ operator>=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie);}
+\DoxyCodeLine{00058\ \ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ operator<=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \textcolor{keywordtype}{void}\ del(\textcolor{keyword}{const}\ std::string\&\ text);}
+\DoxyCodeLine{00061\ \ \ std::string\ DEBUG(\textcolor{keyword}{const}\ Node*\ node,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ level,\ \textcolor{keywordtype}{int}\ parent\_x,\ \textcolor{keywordtype}{int}\ parent\_y,\ \textcolor{keywordtype}{char}\ letter)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ [[nodiscard]]\ std::queue<std::string>\ \mbox{\hyperlink{classTrie_a3b3a430f41944da7211d61930adc338a}{autocomplete}}(\textcolor{keyword}{const}\ std::string\ \&prefix)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00064\ \ \ \textcolor{keyword}{template}\ <std::\textcolor{keywordtype}{int}egral\ COUNT>}
+\DoxyCodeLine{00065\ \ \ [[nodiscard]]\ std::queue<std::string>\ \mbox{\hyperlink{classTrie_a3b3a430f41944da7211d61930adc338a}{autocomplete}}(\textcolor{keyword}{const}\ std::string\ \&prefix,\ COUNT\ count)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordtype}{void}\ insert(\textcolor{keyword}{const}\ std::string\&\ text);}
+\DoxyCodeLine{00068\ \};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00083\ [[nodiscard]]\ \textcolor{keyword}{inline}\ std::queue<std::string>\ \mbox{\hyperlink{structTrie_1_1Node_af9a03f41fa011b23c97968819ba01fd7}{Trie::Node::autocompleteNode}}(\textcolor{keyword}{const}\ std::string\&\ prefix)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00084\ \ \ std::queue<std::string>\ results;}
+\DoxyCodeLine{00085\ \ \ std::function<void(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTrie_1_1Node}{Node}}*,\ std::string)>\ dfs\ =\ [\&](\textcolor{keyword}{const}\ \mbox{\hyperlink{structTrie_1_1Node}{Node}}*\ node,\ \textcolor{keyword}{const}\ std::string\&\ current)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>end\_of\_word)\ \{\ results.push(current);\ \};}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ [key,\ child]\ :\ node-\/>children)\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ dfs(child,\ current\ +\ key);}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \};}
+\DoxyCodeLine{00091\ \ \ dfs(\textcolor{keyword}{this},\ prefix);}
+\DoxyCodeLine{00092\ \ \ \textcolor{keywordflow}{return}\ results;}
+\DoxyCodeLine{00093\ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{template}\ <std::\textcolor{keywordtype}{unsigned}\_\textcolor{keywordtype}{int}egral\ COUNT>}
+\DoxyCodeLine{00108\ [[nodiscard]]\ std::queue<std::string>\ \mbox{\hyperlink{structTrie_1_1Node_af9a03f41fa011b23c97968819ba01fd7}{Trie::Node::autocompleteNode}}(\textcolor{keyword}{const}\ std::string\&\ prefix,\ \textcolor{keyword}{const}\ COUNT\ count)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00109\ \ \ std::queue<std::string>\ results;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \textcolor{comment}{//\ TODO:\ COUNT\ not\ working\ properly}}
+\DoxyCodeLine{00112\ \ \ std::function<void(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTrie_1_1Node}{Node}}*,\ std::string)>\ dfs\ =\ [\&](\textcolor{keyword}{const}\ \mbox{\hyperlink{structTrie_1_1Node}{Node}}*\ node,\ \textcolor{keyword}{const}\ std::string\&\ current)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>end\_of\_word)\ \{\ results.push(current);\}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{if}\ (results.size()\ ==\ count)\ \{\ \textcolor{keywordflow}{return};\ \}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ [key,\ child]\ :\ node-\/>children)\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (results.size()\ ==\ count)\ \{\ \textcolor{keywordflow}{break};\ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ dfs(child,\ current\ +\ key);}
+\DoxyCodeLine{00118\ \ \ \ \ \}}
+\DoxyCodeLine{00119\ \ \ \};}
+\DoxyCodeLine{00120\ \ \ dfs(\textcolor{keyword}{this},\ prefix);}
+\DoxyCodeLine{00121\ \ \ \textcolor{keywordflow}{return}\ results;}
+\DoxyCodeLine{00122\ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00132\ [[nodiscard]]\ \textcolor{keyword}{inline}\ std::queue<std::string>\ \mbox{\hyperlink{classTrie_a3b3a430f41944da7211d61930adc338a}{Trie::autocomplete}}(\textcolor{keyword}{const}\ std::string\ \&prefix)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00133\ \ \ \mbox{\hyperlink{structTrie_1_1Node}{Node}}*\ tmp\_node\ =\ root;}
+\DoxyCodeLine{00134\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&character\ :\ prefix)\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{if}\ (!tmp\_node-\/>children.contains(character))\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00137\ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ tmp\_node\ =\ tmp\_node-\/>children[character];}
+\DoxyCodeLine{00139\ \ \ \}}
+\DoxyCodeLine{00140\ \ \ \textcolor{keywordflow}{return}\ tmp\_node-\/>\mbox{\hyperlink{structTrie_1_1Node_af9a03f41fa011b23c97968819ba01fd7}{autocompleteNode}}(prefix);}
+\DoxyCodeLine{00141\ \}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00165\ \textcolor{keyword}{template}\ <std::\textcolor{keywordtype}{int}egral\ COUNT>}
+\DoxyCodeLine{00166\ [[nodiscard]]\ std::queue<std::string>\ \mbox{\hyperlink{classTrie_a3b3a430f41944da7211d61930adc338a}{Trie::autocomplete}}(\textcolor{keyword}{const}\ std::string\ \&prefix,\ \textcolor{keyword}{const}\ COUNT\ count)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00167\ \ \ \textcolor{keywordflow}{if}\ (count\ <\ 0)\ \{\ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Trie::autocomplete():\ negative\ count"{}});\ \}}
+\DoxyCodeLine{00168\ \ \ \mbox{\hyperlink{structTrie_1_1Node}{Node}}*\ tmp\_node\ =\ root;}
+\DoxyCodeLine{00169\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&character\ :\ prefix)\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordflow}{if}\ (!tmp\_node-\/>children.contains(character))\ \{}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+\DoxyCodeLine{00173\ \ \ \ \ tmp\_node\ =\ tmp\_node-\/>children[character];}
+\DoxyCodeLine{00174\ \ \ \}}
+\DoxyCodeLine{00175\ \ \ \textcolor{keywordflow}{return}\ tmp\_node-\/>\mbox{\hyperlink{structTrie_1_1Node_af9a03f41fa011b23c97968819ba01fd7}{autocompleteNode}}(prefix,\ \textcolor{keyword}{static\_cast<}std::make\_unsigned\_t<COUNT>\textcolor{keyword}{>}(count));}
+\DoxyCodeLine{00176\ \}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ Trie::insert(\textcolor{keyword}{const}\ std::string\&\ text)\{}
+\DoxyCodeLine{00179\ \ \ root-\/>insert(text,\ 0,\ root);}
+\DoxyCodeLine{00180\ \}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ Trie::Node::insert(\textcolor{keyword}{const}\ std::string\&\ text,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ index,\ Node*\ root)\ \{}
+\DoxyCodeLine{00183\ \ \ \textcolor{keywordflow}{if}\ (index\ ==\ text.size())\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ end\_of\_word\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00186\ \ \ \}}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \textcolor{comment}{//\ If\ our\ char\ is\ hot\ an\ alpha\ char\ the\ word\ has\ ended}}
+\DoxyCodeLine{00189\ \ \ \textcolor{keywordflow}{if}\ (isalpha(text[index])\ ==\ 0)\ \{\ \textcolor{comment}{//\ TODO:\ Should\ we\ add\ end\_of\_word\ =\ true\ if\ we\ have\ last\ char\ in\ string?}}
+\DoxyCodeLine{00190\ \ \ \ \ end\_of\_word\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00191\ \ \ \ \ root-\/>insert(text,\ index\ +\ 1,\ root);}
+\DoxyCodeLine{00192\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordflow}{if}\ (!children.contains(text[index]))\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ children[text[index]]\ =\ \textcolor{keyword}{new}\ Node();}
+\DoxyCodeLine{00195\ \ \ \ \ \}}
+\DoxyCodeLine{00196\ \ \ \ \ children[text[index]]-\/>insert(text,\ index\ +\ 1,\ root);}
+\DoxyCodeLine{00197\ \ \ \}}
+\DoxyCodeLine{00198\ \}}
+\DoxyCodeLine{00199\ \textcolor{comment}{//\ TODO:\ constexpr\ set\ with\ supportable\ chars}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{comment}{//\ possible\ errors\ with\ non\ ASCII\ chars}}
+\DoxyCodeLine{00202\ \textcolor{comment}{//\ inline\ std::string\ to\_lowercase(std::string\&\ word)\ \{}}
+\DoxyCodeLine{00203\ \textcolor{comment}{//\ \ \ for\ (char\&\ c\ :\ word)\ \{}}
+\DoxyCodeLine{00204\ \textcolor{comment}{//\ \ \ \ \ c\ =\ std::tolower(c);}}
+\DoxyCodeLine{00205\ \textcolor{comment}{//\ \ \ \}}}
+\DoxyCodeLine{00206\ \textcolor{comment}{//\ \ \ return\ word;}}
+\DoxyCodeLine{00207\ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{00208\ \textcolor{comment}{//}}
+\DoxyCodeLine{00209\ \textcolor{comment}{//\ inline\ std::vector<std::string>\ text\_to\_words(const\ std::string\&\ text)\ \{}}
+\DoxyCodeLine{00210\ \textcolor{comment}{//\ \ \ std::vector<char>\ delimiters\ =\ \{'\ ',\ '.',\ '!',\ '?',\ '-\/',\ ':',\ ';',','\};}}
+\DoxyCodeLine{00211\ \textcolor{comment}{//\ \ \ std::vector<std::string>\ words;}}
+\DoxyCodeLine{00212\ \textcolor{comment}{//\ \ \ bool\ is\_word\ =\ false;}}
+\DoxyCodeLine{00213\ \textcolor{comment}{//\ \ \ auto\ start\ =\ text.begin();}}
+\DoxyCodeLine{00214\ \textcolor{comment}{//\ \ \ for\ (auto\ end\ =\ text.begin();\ end\ !=\ text.end();\ ++end)\ \{}}
+\DoxyCodeLine{00215\ \textcolor{comment}{//\ \ \ \ \ if\ (std::find(delimiters.begin(),\ delimiters.end(),\ *end)\ ==\ delimiters.end()\ \&\&\ !is\_word)\ \{}}
+\DoxyCodeLine{00216\ \textcolor{comment}{//\ \ \ \ \ \ \ start\ =\ end;}}
+\DoxyCodeLine{00217\ \textcolor{comment}{//\ \ \ \ \ \ \ is\_word\ =\ true;}}
+\DoxyCodeLine{00218\ \textcolor{comment}{//\ \ \ \ \ \}\ else\ if\ (std::find(delimiters.begin(),\ delimiters.end(),\ *end)\ !=\ delimiters.end()\ \&\&\ is\_word)\ \{}}
+\DoxyCodeLine{00219\ \textcolor{comment}{//\ \ \ \ \ \ \ std::string\ word(start,\ end);}}
+\DoxyCodeLine{00220\ \textcolor{comment}{//\ \ \ \ \ \ \ words.push\_back(to\_lowercase(word));}}
+\DoxyCodeLine{00221\ \textcolor{comment}{//\ \ \ \ \ \ \ is\_word\ =\ false;}}
+\DoxyCodeLine{00222\ \textcolor{comment}{//\ \ \ \ \ \}}}
+\DoxyCodeLine{00223\ \textcolor{comment}{//\ \ \ \}}}
+\DoxyCodeLine{00224\ \textcolor{comment}{//\ \ \ if\ (is\_word)\ \{}}
+\DoxyCodeLine{00225\ \textcolor{comment}{//\ \ \ \ \ std::string\ word(start,\ text.end());}}
+\DoxyCodeLine{00226\ \textcolor{comment}{//\ \ \ \ \ words.push\_back(to\_lowercase(word));}}
+\DoxyCodeLine{00227\ \textcolor{comment}{//\ \ \ \}}}
+\DoxyCodeLine{00228\ \textcolor{comment}{//\ \ \ return\ words;}}
+\DoxyCodeLine{00229\ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00232\ \textcolor{comment}{inline\ void\ Trie::insert(const\ std::string\&\ text)\ \{}}
+\DoxyCodeLine{00233\ \textcolor{comment}{\ \ std::vector<std::string>\ all\_words\ =\ text\_to\_words(text);}}
+\DoxyCodeLine{00234\ \textcolor{comment}{\ \ for\ (const\ std::string\&\ word\ :\ all\_words)\ \{}}
+\DoxyCodeLine{00235\ \textcolor{comment}{\ \ \ \ Node*\ tmp\ =\ \&root;}}
+\DoxyCodeLine{00236\ \textcolor{comment}{\ \ \ \ for\ (char\ c\ :\ word)\ \{}}
+\DoxyCodeLine{00237\ \textcolor{comment}{\ \ \ \ \ \ if\ (tmp-\/>children.find(c)\ ==\ tmp-\/>children.end())\ \{}}
+\DoxyCodeLine{00238\ \textcolor{comment}{\ \ \ \ \ \ \ \ tmp-\/>children[c]\ =\ std::make\_unique<Node>();}}
+\DoxyCodeLine{00239\ \textcolor{comment}{\ \ \ \ \ \ \ \ tmp-\/>children[c]-\/>c\ =\ c;}}
+\DoxyCodeLine{00240\ \textcolor{comment}{\ \ \ \ \ \ \}}}
+\DoxyCodeLine{00241\ \textcolor{comment}{\ \ \ \ \ \ tmp\ =\ tmp-\/>children[c].get();}}
+\DoxyCodeLine{00242\ \textcolor{comment}{\ \ \ \ \}}}
+\DoxyCodeLine{00243\ \textcolor{comment}{\ \ \ \ tmp-\/>end\_of\_word\ =\ true;}}
+\DoxyCodeLine{00244\ \textcolor{comment}{\ \ \}}}
+\DoxyCodeLine{00245\ \textcolor{comment}{\}}}
+\DoxyCodeLine{00246\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00250\ \textcolor{comment}{inline\ std::string\ Trie::DEBUG(const\ Node*\ node,\ int\ x,\ int\ y,\ int\ level,\ int\ parent\_x,\ int\ parent\_y,\ const\ char\ letter)\ const\ \{}}
+\DoxyCodeLine{00251\ \textcolor{comment}{\ \ if\ (!node)\ return\ "{}"{};}}
+\DoxyCodeLine{00252\ \textcolor{comment}{}}
+\DoxyCodeLine{00253\ \textcolor{comment}{\ \ std::ostringstream\ svg;}}
+\DoxyCodeLine{00254\ \textcolor{comment}{}}
+\DoxyCodeLine{00255\ \textcolor{comment}{\ \ int\ box\_width\ =\ 20;}}
+\DoxyCodeLine{00256\ \textcolor{comment}{\ \ int\ box\_height\ =\ 20;}}
+\DoxyCodeLine{00257\ \textcolor{comment}{\ \ int\ vertical\_spacing\ =\ 50;}}
+\DoxyCodeLine{00258\ \textcolor{comment}{\ \ int\ horizontal\_spacing\ =\ 10\ *\ std::max(1,\ static\_cast<int>(node-\/>children.size()));}}
+\DoxyCodeLine{00259\ \textcolor{comment}{}}
+\DoxyCodeLine{00260\ \textcolor{comment}{\ \ if\ (level\ >\ 0)\ \{}}
+\DoxyCodeLine{00261\ \textcolor{comment}{\ \ \ \ svg\ <<\ "{}<line\ x1=\(\backslash\)"{}"{}\ <<\ parent\_x\ +\ box\_width\ /\ 2\ <<\ "{}\(\backslash\)"{}\ y1=\(\backslash\)"{}"{}\ <<\ parent\_y\ +\ box\_height}}
+\DoxyCodeLine{00262\ \textcolor{comment}{\ \ \ \ \ \ \ \ <<\ "{}\(\backslash\)"{}\ x2=\(\backslash\)"{}"{}\ <<\ x\ +\ box\_width\ /\ 2\ <<\ "{}\(\backslash\)"{}\ y2=\(\backslash\)"{}"{}\ <<\ y}}
+\DoxyCodeLine{00263\ \textcolor{comment}{\ \ \ \ \ \ \ \ <<\ "{}\(\backslash\)"{}\ stroke=\(\backslash\)"{}black\(\backslash\)"{}\ stroke-\/width=\(\backslash\)"{}2\(\backslash\)"{}\ />\(\backslash\)n"{};}}
+\DoxyCodeLine{00264\ \textcolor{comment}{\ \ \}}}
+\DoxyCodeLine{00265\ \textcolor{comment}{}}
+\DoxyCodeLine{00266\ \textcolor{comment}{\ \ svg\ <<\ "{}<rect\ x=\(\backslash\)"{}"{}\ <<\ x\ <<\ "{}\(\backslash\)"{}\ y=\(\backslash\)"{}"{}\ <<\ y\ <<\ "{}\(\backslash\)"{}\ width=\(\backslash\)"{}"{}\ <<\ box\_width}}
+\DoxyCodeLine{00267\ \textcolor{comment}{\ \ \ \ \ \ <<\ "{}\(\backslash\)"{}\ height=\(\backslash\)"{}"{}\ <<\ box\_height\ <<\ "{}\(\backslash\)"{}\ rx=\(\backslash\)"{}10\(\backslash\)"{}\ ry=\(\backslash\)"{}10\(\backslash\)"{}\ fill=\(\backslash\)"{}blue\(\backslash\)"{}\ />\(\backslash\)n"{};}}
+\DoxyCodeLine{00268\ \textcolor{comment}{}}
+\DoxyCodeLine{00269\ \textcolor{comment}{\ \ svg\ <<\ "{}<text\ x=\(\backslash\)"{}"{}\ <<\ (x\ +\ box\_width\ /\ 2)\ <<\ "{}\(\backslash\)"{}\ y=\(\backslash\)"{}"{}\ <<\ (y\ +\ box\_height\ /\ 2)}}
+\DoxyCodeLine{00270\ \textcolor{comment}{\ \ \ \ \ \ <<\ "{}\(\backslash\)"{}\ font-\/size=\(\backslash\)"{}20\(\backslash\)"{}\ fill=\(\backslash\)"{}white\(\backslash\)"{}\ text-\/anchor=\(\backslash\)"{}middle\(\backslash\)"{}\ dominant-\/baseline=\(\backslash\)"{}middle\(\backslash\)"{}>"{}}}
+\DoxyCodeLine{00271\ \textcolor{comment}{\ \ \ \ \ \ <<\ letter\ <<\ "{}</text>\(\backslash\)n"{};}}
+\DoxyCodeLine{00272\ \textcolor{comment}{}}
+\DoxyCodeLine{00273\ \textcolor{comment}{\ \ int\ num\_children\ =\ node-\/>children.size();}}
+\DoxyCodeLine{00274\ \textcolor{comment}{\ \ int\ start\_x\ =\ x\ -\/\ (num\_children\ -\/\ 1)\ *\ horizontal\_spacing\ /\ 2;}}
+\DoxyCodeLine{00275\ \textcolor{comment}{\ \ int\ child\_x\ =\ start\_x;}}
+\DoxyCodeLine{00276\ \textcolor{comment}{}}
+\DoxyCodeLine{00277\ \textcolor{comment}{\ \ for\ (const\ auto\&\ [key,\ child]\ :\ node-\/>children)\ \{}}
+\DoxyCodeLine{00278\ \textcolor{comment}{\ \ \ \ svg\ <<\ DEBUG(child.get(),\ child\_x,\ y\ +\ vertical\_spacing,\ level\ +\ 1,\ x,\ y,\ key);}}
+\DoxyCodeLine{00279\ \textcolor{comment}{\ \ \ \ child\_x\ +=\ horizontal\_spacing;}}
+\DoxyCodeLine{00280\ \textcolor{comment}{\ \ \}}}
+\DoxyCodeLine{00281\ \textcolor{comment}{}}
+\DoxyCodeLine{00282\ \textcolor{comment}{\ \ return\ svg.str();}}
+\DoxyCodeLine{00283\ \textcolor{comment}{\}}}
+\DoxyCodeLine{00284\ \textcolor{comment}{*/}}
+
+\end{DoxyCode}

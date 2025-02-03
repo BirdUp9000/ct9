@@ -1,0 +1,87 @@
+\doxysection{Trie\+::Node Struct Reference}
+\hypertarget{structTrie_1_1Node}{}\label{structTrie_1_1Node}\index{Trie::Node@{Trie::Node}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::queue$<$ std\+::string $>$ \mbox{\hyperlink{structTrie_1_1Node_af9a03f41fa011b23c97968819ba01fd7}{autocomplete\+Node}} (const std\+::string \&prefix) const
+\begin{DoxyCompactList}\small\item\em Retrieves all autocomplete suggestions that start with the specified prefix. \end{DoxyCompactList}\item 
+{\footnotesize template$<$std\+::unsigned\+\_\+integral COUNT$>$ }\\std\+::queue$<$ std\+::string $>$ \mbox{\hyperlink{structTrie_1_1Node_ae838140511803c17736d22a41b292811}{autocomplete\+Node}} (const std\+::string \&prefix, COUNT count) const
+\begin{DoxyCompactList}\small\item\em Returns up to a given number of autocomplete suggestions starting with the given prefix. \end{DoxyCompactList}\item 
+\Hypertarget{structTrie_1_1Node_a196db9af06d50509138b7c67c5aa7082}\label{structTrie_1_1Node_a196db9af06d50509138b7c67c5aa7082} 
+void {\bfseries insert} (const std\+::string \&text, size\+\_\+t index, \mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*}root)
+\item 
+\Hypertarget{structTrie_1_1Node_a116b1b99ff9b9d8e4a73d10064cd8c01}\label{structTrie_1_1Node_a116b1b99ff9b9d8e4a73d10064cd8c01} 
+std\+::queue$<$ std\+::string $>$ {\bfseries find} (char character) const
+\item 
+\Hypertarget{structTrie_1_1Node_a5cd662665b675b27aba811029825efc9}\label{structTrie_1_1Node_a5cd662665b675b27aba811029825efc9} 
+std\+::string {\bfseries find} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structTrie_1_1Node_a56538e684711e414929b3fb28345870a}\label{structTrie_1_1Node_a56538e684711e414929b3fb28345870a} 
+std\+::map$<$ char, \mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries children}
+\item 
+\Hypertarget{structTrie_1_1Node_aeec99f84d723b56ed52fee9326a7f7e9}\label{structTrie_1_1Node_aeec99f84d723b56ed52fee9326a7f7e9} 
+bool {\bfseries end\+\_\+of\+\_\+word} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structTrie_1_1Node_af9a03f41fa011b23c97968819ba01fd7}\label{structTrie_1_1Node_af9a03f41fa011b23c97968819ba01fd7} 
+\index{Trie::Node@{Trie::Node}!autocompleteNode@{autocompleteNode}}
+\index{autocompleteNode@{autocompleteNode}!Trie::Node@{Trie::Node}}
+\doxysubsubsection{\texorpdfstring{autocompleteNode()}{autocompleteNode()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::queue$<$ std\+::string $>$ Trie\+::\+Node\+::autocomplete\+Node (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{prefix }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all autocomplete suggestions that start with the specified prefix. 
+
+This function performs a depth-\/first search (DFS) starting from the current node to collect all words that begin with the provided prefix. Whenever a node marked as the end of a word is encountered, the accumulated text is added to the result queue.
+
+
+\begin{DoxyParams}{Parameters}
+{\em prefix} & The prefix string used as the starting point for generating autocomplete suggestions. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::queue$<$std\+::string$>$ A queue containing all the autocomplete suggestions found.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The suggestions are collected in the order determined by the DFS traversal. A recursive lambda function is used for the DFS implementation. 
+\end{DoxyNote}
+\Hypertarget{structTrie_1_1Node_ae838140511803c17736d22a41b292811}\label{structTrie_1_1Node_ae838140511803c17736d22a41b292811} 
+\index{Trie::Node@{Trie::Node}!autocompleteNode@{autocompleteNode}}
+\index{autocompleteNode@{autocompleteNode}!Trie::Node@{Trie::Node}}
+\doxysubsubsection{\texorpdfstring{autocompleteNode()}{autocompleteNode()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$std\+::unsigned\+\_\+integral COUNT$>$ \\
+std\+::queue$<$ std\+::string $>$ Trie\+::\+Node\+::autocomplete\+Node (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{prefix,  }\item[{COUNT}]{count }\end{DoxyParamCaption}) const}
+
+
+
+Returns up to a given number of autocomplete suggestions starting with the given prefix. 
+
+This version limits the number of suggestions to the value specified by {\ttfamily count}. \begin{DoxyAttention}{Attention}
+This function has unsigned\+\_\+integral template because this function will be called only from autocomplete function (\doxylink{classTrie}{Trie} class) who checks count to be positive.
+\end{DoxyAttention}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em COUNT} & An unsigned integral type representing the maximum number of suggestions. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em prefix} & The starting prefix. \\
+\hline
+{\em count} & The maximum number of suggestions to collect. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::queue$<$std\+::string$>$ A queue containing up to {\ttfamily count} suggestions. 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/ct9/Trie.\+h\end{DoxyCompactItemize}

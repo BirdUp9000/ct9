@@ -1,0 +1,140 @@
+\doxysection{Trie Class Reference}
+\hypertarget{classTrie}{}\label{classTrie}\index{Trie@{Trie}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structTrie_1_1Node}{Node}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classTrie_a3aec626bb2682f514397cb48c22987b6}\label{classTrie_a3aec626bb2682f514397cb48c22987b6} 
+const \mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Root} ()
+\item 
+\Hypertarget{classTrie_ac81526e95973e2cbfee37851c30b9b61}\label{classTrie_ac81526e95973e2cbfee37851c30b9b61} 
+{\bfseries Trie} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
+\item 
+\Hypertarget{classTrie_aa9a65eb516197711298fb7a12dcb5e60}\label{classTrie_aa9a65eb516197711298fb7a12dcb5e60} 
+{\bfseries Trie} (const std\+::string \&str)
+\item 
+\Hypertarget{classTrie_ae56d4613fe551698218632da34bda1c2}\label{classTrie_ae56d4613fe551698218632da34bda1c2} 
+{\bfseries Trie} (const std\+::vector$<$ std\+::string $>$ \&vec\+\_\+str)
+\item 
+\Hypertarget{classTrie_a8f2f269fc83ce5b8a3010d90c4a92396}\label{classTrie_a8f2f269fc83ce5b8a3010d90c4a92396} 
+{\bfseries Trie} (\mbox{\hyperlink{classTrie}{Trie}} \&\&trie) noexcept
+\item 
+\Hypertarget{classTrie_a1028ddcc66a2c5c606269b4c8136da9e}\label{classTrie_a1028ddcc66a2c5c606269b4c8136da9e} 
+\mbox{\hyperlink{classTrie}{Trie}} {\bfseries operator+} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie) const
+\item 
+\Hypertarget{classTrie_a22ccfa0315e46b7d05bc8e93b3139d74}\label{classTrie_a22ccfa0315e46b7d05bc8e93b3139d74} 
+\mbox{\hyperlink{classTrie}{Trie}} {\bfseries operator-\/} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie) const
+\item 
+\Hypertarget{classTrie_acadfba10d18faea0b83d94a91548cd27}\label{classTrie_acadfba10d18faea0b83d94a91548cd27} 
+\mbox{\hyperlink{classTrie}{Trie}} \& {\bfseries operator=} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
+\item 
+\Hypertarget{classTrie_a6fd6312a05c467ef1a0729be5e8fdd6a}\label{classTrie_a6fd6312a05c467ef1a0729be5e8fdd6a} 
+bool {\bfseries operator$<$} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
+\item 
+\Hypertarget{classTrie_ae85a85f354ad4eed560129f59ef48535}\label{classTrie_ae85a85f354ad4eed560129f59ef48535} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
+\item 
+\Hypertarget{classTrie_a2b5a5ae63e7c3439d942d7c1562dbfc2}\label{classTrie_a2b5a5ae63e7c3439d942d7c1562dbfc2} 
+bool {\bfseries operator$>$} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
+\item 
+\Hypertarget{classTrie_a9bf6708fbfdd41349e7f3d9291ed286d}\label{classTrie_a9bf6708fbfdd41349e7f3d9291ed286d} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
+\item 
+\Hypertarget{classTrie_abbd806b35f4ff8d76c3c8244d0b06741}\label{classTrie_abbd806b35f4ff8d76c3c8244d0b06741} 
+bool {\bfseries operator$>$=} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
+\item 
+\Hypertarget{classTrie_a7f417b706e75f60af3eeac0938f4cb57}\label{classTrie_a7f417b706e75f60af3eeac0938f4cb57} 
+bool {\bfseries operator$<$=} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
+\item 
+\Hypertarget{classTrie_ace9f58292460275b4769e96d4b2b2c10}\label{classTrie_ace9f58292460275b4769e96d4b2b2c10} 
+void {\bfseries del} (const std\+::string \&text)
+\item 
+\Hypertarget{classTrie_a82ba67640c0fd549a59f91ebc7ed67e8}\label{classTrie_a82ba67640c0fd549a59f91ebc7ed67e8} 
+std\+::string {\bfseries DEBUG} (const \mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*}node, int x, int y, int level, int parent\+\_\+x, int parent\+\_\+y, char letter) const
+\item 
+std\+::queue$<$ std\+::string $>$ \mbox{\hyperlink{classTrie_a3b3a430f41944da7211d61930adc338a}{autocomplete}} (const std\+::string \&prefix) const
+\begin{DoxyCompactList}\small\item\em Retrieves all autocomplete suggestions for the given prefix. \end{DoxyCompactList}\item 
+{\footnotesize template$<$std\+::integral COUNT$>$ }\\std\+::queue$<$ std\+::string $>$ \mbox{\hyperlink{classTrie_a9dd619a405174db65b5fbd05ddcdc060}{autocomplete}} (const std\+::string \&prefix, COUNT count) const
+\begin{DoxyCompactList}\small\item\em Retrieves up to a specified number of autocomplete suggestions for the given prefix. \end{DoxyCompactList}\item 
+\Hypertarget{classTrie_a82ded465e0c692fe9c783d471ed4f682}\label{classTrie_a82ded465e0c692fe9c783d471ed4f682} 
+void {\bfseries insert} (const std\+::string \&text)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classTrie_ab16619596d0d3d177bdf44b82b39312d}\label{classTrie_ab16619596d0d3d177bdf44b82b39312d} 
+\mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries root} = new \mbox{\hyperlink{structTrie_1_1Node}{Node}}()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classTrie_a3b3a430f41944da7211d61930adc338a}\label{classTrie_a3b3a430f41944da7211d61930adc338a} 
+\index{Trie@{Trie}!autocomplete@{autocomplete}}
+\index{autocomplete@{autocomplete}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{autocomplete()}{autocomplete()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::queue$<$ std\+::string $>$ Trie\+::autocomplete (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{prefix }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Retrieves all autocomplete suggestions for the given prefix. 
+
+Finds the node corresponding to the prefix and returns all suggestions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em prefix} & The prefix string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::queue$<$std\+::string$>$ A queue containing all suggestions. 
+\end{DoxyReturn}
+\Hypertarget{classTrie_a9dd619a405174db65b5fbd05ddcdc060}\label{classTrie_a9dd619a405174db65b5fbd05ddcdc060} 
+\index{Trie@{Trie}!autocomplete@{autocomplete}}
+\index{autocomplete@{autocomplete}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{autocomplete()}{autocomplete()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$std\+::integral COUNT$>$ \\
+std\+::queue$<$ std\+::string $>$ Trie\+::autocomplete (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{prefix,  }\item[{COUNT}]{count }\end{DoxyParamCaption}) const}
+
+
+
+Retrieves up to a specified number of autocomplete suggestions for the given prefix. 
+
+This function locates the node corresponding to the provided prefix and then returns at most {\ttfamily count} suggestions gathered from that node using a depth-\/first search (DFS) traversal of the \doxylink{classTrie}{Trie}. If a negative value is provided for {\ttfamily count}, the function throws a {\ttfamily std\+::invalid\+\_\+argument} exception.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em COUNT} & An integral type representing the maximum number of suggestions. Negative values are not allowed. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em prefix} & The prefix string used to search within the \doxylink{classTrie}{Trie}. \\
+\hline
+{\em count} & The maximum number of suggestions to return. Must be non-\/negative. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::queue$<$std\+::string$>$ A queue containing up to {\ttfamily count} autocomplete suggestions. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if {\ttfamily count} is negative.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The expression\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static\_cast<}std::make\_unsigned\_t<COUNT>\textcolor{keyword}{>}(count)}
+
+\end{DoxyCode}
+ converts the {\ttfamily count} parameter to its corresponding unsigned type. This ensures that if {\ttfamily COUNT} is a signed integral type (e.\+g., int), it is converted to the appropriate unsigned type (e.\+g., unsigned int) before being passed to the underlying {\ttfamily autocomplete\+Node} function. The conversion is safe because the function throws an exception if {\ttfamily count} is negative. 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/ct9/Trie.\+h\end{DoxyCompactItemize}
