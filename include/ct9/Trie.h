@@ -1,27 +1,27 @@
 #pragma once
+#include <limits.h>
+
 #include <algorithm>
 #include <functional>
 #include <map>
 #include <memory>
 #include <queue>
 #include <sstream>
+#include <stack>
 #include <string>
+#include <utility>
 #include <vector>
-
-
 class Trie final {
 
-  struct Node final{
+  struct Node final {
     Node() = default;
     ~Node() {
-      for (auto &child : children) {
+      for (auto& child : children) {
         delete child.second;
       }
     }
 
-    [[nodiscard]] std::queue<std::string> autocompleteNode(const std::string& prefix) const;
-    template <std::unsigned_integral COUNT>
-    [[nodiscard]] std::queue<std::string> autocompleteNode(const std::string& prefix, COUNT count) const;
+    [[nodiscard]] std::queue<std::string> autocompleteNode(const std::string& prefix, size_t count) const;
 
     void insert(const std::string& text, size_t index, Node* root);
 
@@ -35,13 +35,9 @@ class Trie final {
   Node* root = new Node();
 
 public:
-  const Node* getRoot() {
-    return root;
-  }
+  const Node* getRoot() { return root; }
   Trie() = default;
-  ~Trie() {
-    delete root;
-  }
+  ~Trie() { delete root; }
 
   Trie(const Trie& trie);
   explicit Trie(const std::string& str);
@@ -56,128 +52,45 @@ public:
   [[nodiscard]] bool operator!=(const Trie& trie);
   [[nodiscard]] bool operator>=(const Trie& trie);
   [[nodiscard]] bool operator<=(const Trie& trie);
-
   void del(const std::string& text);
   std::string DEBUG(const Node* node, int x, int y, int level, int parent_x, int parent_y, char letter) const;
-
-  [[nodiscard]] std::queue<std::string> autocomplete(const std::string &prefix) const;
-  template <std::integral COUNT>
-  [[nodiscard]] std::queue<std::string> autocomplete(const std::string &prefix, COUNT count) const;
-
+  [[nodiscard]] std::queue<std::string> autocomplete(const std::string& prefix, size_t count = INT_MAX) const;
   void insert(const std::string& text);
 };
 
-/**
- * @brief Retrieves all autocomplete suggestions that start with the specified prefix.
- *
- * This function performs a depth-first search (DFS) starting from the current node to collect
- * all words that begin with the provided prefix. Whenever a node marked as the end of a word
- * is encountered, the accumulated text is added to the result queue.
- *
- * @param prefix The prefix string used as the starting point for generating autocomplete suggestions.
- * @return std::queue<std::string> A queue containing all the autocomplete suggestions found.
- *
- * @note The suggestions are collected in the order determined by the DFS traversal.
- *       A recursive lambda function is used for the DFS implementation.
- */
-[[nodiscard]] inline std::queue<std::string> Trie::Node::autocompleteNode(const std::string& prefix) const {
-  std::queue<std::string> results;
-  std::function<void(const Node*, std::string)> dfs = [&](const Node* node, const std::string& current) {
-    if (node->end_of_word) { results.push(current); };
-    for (const auto& [key, child] : node->children) {
-      dfs(child, current + key);
-    }
-  };
-  dfs(this, prefix);
-  return results;
-}
+//////////////////////////////////////////////////////////////////////////////////////////
 
-/**
- * @brief Returns up to a given number of autocomplete suggestions starting with the given prefix.
- *
- * This version limits the number of suggestions to the value specified by `count`.
- * @attention This function has unsigned_integral template because this function
- * will be called only from autocomplete function (Trie class) who checks count to be positive.
- *
- * @tparam COUNT An unsigned integral type representing the maximum number of suggestions.
- * @param prefix The starting prefix.
- * @param count The maximum number of suggestions to collect.
- * @return std::queue<std::string> A queue containing up to `count` suggestions.
- */
-template <std::unsigned_integral COUNT>
-[[nodiscard]] std::queue<std::string> Trie::Node::autocompleteNode(const std::string& prefix, const COUNT count) const {
-  std::queue<std::string> results;
-
-  // TODO: COUNT not working properly
-  std::function<void(const Node*, std::string)> dfs = [&](const Node* node, const std::string& current) {
-    if (node->end_of_word) { results.push(current);}
-    if (results.size() == count) { return; }
-    for (const auto& [key, child] : node->children) {
-      if (results.size() == count) { break; }
-      dfs(child, current + key);
-    }
-  };
-  dfs(this, prefix);
-  return results;
-}
-
-/**
- * @brief Retrieves all autocomplete suggestions for the given prefix.
- *
- * Finds the node corresponding to the prefix and returns all suggestions.
- *
- * @param prefix The prefix string.
- * @return std::queue<std::string> A queue containing all suggestions.
- */
-[[nodiscard]] inline std::queue<std::string> Trie::autocomplete(const std::string &prefix) const {
+[[nodiscard]] std::queue<std::string> Trie::autocomplete(const std::string& prefix, size_t count) const {
   Node* tmp_node = root;
-  for (const auto &character : prefix) {
+  for (const auto& character : prefix) {
     if (!tmp_node->children.contains(character)) {
       return {};
     }
     tmp_node = tmp_node->children[character];
   }
-  return tmp_node->autocompleteNode(prefix);
+  return tmp_node->autocompleteNode(prefix, count);
 }
 
-/**
- * @brief Retrieves up to a specified number of autocomplete suggestions for the given prefix.
- *
- * This function locates the node corresponding to the provided prefix and then returns at most
- * `count` suggestions gathered from that node using a depth-first search (DFS) traversal of the Trie.
- * If a negative value is provided for `count`, the function throws a `std::invalid_argument` exception.
- *
- * @tparam COUNT An integral type representing the maximum number of suggestions. Negative values are not allowed.
- * @param prefix The prefix string used to search within the Trie.
- * @param count The maximum number of suggestions to return. Must be non-negative.
- * @return std::queue<std::string> A queue containing up to `count` autocomplete suggestions.
- * @throws std::invalid_argument if `count` is negative.
- *
- * @note The expression:
- *       @code
- *       static_cast<std::make_unsigned_t<COUNT>>(count)
- *       @endcode
- *       converts the `count` parameter to its corresponding unsigned type. This ensures that if
- *       `COUNT` is a signed integral type (e.g., int), it is converted to the appropriate unsigned
- *       type (e.g., unsigned int) before being passed to the underlying `autocompleteNode` function.
- *       The conversion is safe because the function throws an exception if `count` is negative.
- */
-template <std::integral COUNT>
-[[nodiscard]] std::queue<std::string> Trie::autocomplete(const std::string &prefix, const COUNT count) const {
-  if (count < 0) { throw std::invalid_argument("Trie::autocomplete(): negative count"); }
-  Node* tmp_node = root;
-  for (const auto &character : prefix) {
-    if (!tmp_node->children.contains(character)) {
-      return {};
+[[nodiscard]] std::queue<std::string> Trie::Node::autocompleteNode(const std::string& prefix, size_t count) const {
+  std::stack<std::pair<const Node*, std::string>> stack;
+  std::queue<std::string> results;
+  stack.push({this, prefix});
+  while (!stack.empty() && results.size() < count) {
+    auto [current_children, word] = stack.top();
+    stack.pop();
+    if (current_children->end_of_word) {
+      results.push(word);
     }
-    tmp_node = tmp_node->children[character];
+    for (auto it = current_children->children.rbegin(); it != current_children->children.rend(); ++it) {
+      stack.push({it->second, word + it->first});
+    }
   }
-  return tmp_node->autocompleteNode(prefix, static_cast<std::make_unsigned_t<COUNT>>(count));
+  return results;
 }
 
-inline void Trie::insert(const std::string& text){
-  root->insert(text, 0, root);
-}
+//////////////////////////////////////////////////////////////////////////////////////////
+
+inline void Trie::insert(const std::string& text) { root->insert(text, 0, root); }
 
 inline void Trie::Node::insert(const std::string& text, const size_t index, Node* root) {
   if (index == text.size()) {
@@ -186,7 +99,7 @@ inline void Trie::Node::insert(const std::string& text, const size_t index, Node
   }
 
   // If our char is hot an alpha char the word has ended
-  if (isalpha(text[index]) == 0) { // TODO: Should we add end_of_word = true if we have last char in string?
+  if (isalpha(text[index]) == 0) {  // TODO: Should we add end_of_word = true if we have last char in string?
     end_of_word = true;
     root->insert(text, index + 1, root);
   } else {
@@ -196,59 +109,13 @@ inline void Trie::Node::insert(const std::string& text, const size_t index, Node
     children[text[index]]->insert(text, index + 1, root);
   }
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
 // TODO: constexpr set with supportable chars
-
-// possible errors with non ASCII chars
-// inline std::string to_lowercase(std::string& word) {
-//   for (char& c : word) {
-//     c = std::tolower(c);
-//   }
-//   return word;
-// }
-//
-// inline std::vector<std::string> text_to_words(const std::string& text) {
-//   std::vector<char> delimiters = {' ', '.', '!', '?', '-', ':', ';',','};
-//   std::vector<std::string> words;
-//   bool is_word = false;
-//   auto start = text.begin();
-//   for (auto end = text.begin(); end != text.end(); ++end) {
-//     if (std::find(delimiters.begin(), delimiters.end(), *end) == delimiters.end() && !is_word) {
-//       start = end;
-//       is_word = true;
-//     } else if (std::find(delimiters.begin(), delimiters.end(), *end) != delimiters.end() && is_word) {
-//       std::string word(start, end);
-//       words.push_back(to_lowercase(word));
-//       is_word = false;
-//     }
-//   }
-//   if (is_word) {
-//     std::string word(start, text.end());
-//     words.push_back(to_lowercase(word));
-//   }
-//   return words;
-// }
-
 /*
-inline void Trie::insert(const std::string& text) {
-  std::vector<std::string> all_words = text_to_words(text);
-  for (const std::string& word : all_words) {
-    Node* tmp = &root;
-    for (char c : word) {
-      if (tmp->children.find(c) == tmp->children.end()) {
-        tmp->children[c] = std::make_unique<Node>();
-        tmp->children[c]->c = c;
-      }
-      tmp = tmp->children[c].get();
-    }
-    tmp->end_of_word = true;
-  }
-}
-*/
-
-
-/*
-inline std::string Trie::DEBUG(const Node* node, int x, int y, int level, int parent_x, int parent_y, const char letter) const {
-  if (!node) return "";
+inline std::string Trie::DEBUG(const Node* node, int x, int y, int level, int parent_x, int parent_y, const char letter)
+const { if (!node) return "";
 
   std::ostringstream svg;
 
