@@ -20,7 +20,30 @@ class Trie final {
         delete child.second;
       }
     }
-
+    /**
+     * @brief Recursively clears all child nodes of this node.
+     *
+     * This method deletes all child nodes of the current node and clears the
+     * children map. It effectively resets the subtree rooted at this node.
+     *
+     * @note This does not delete the current node itself, only its children.
+     *       The node remains valid for further insertions or operations.
+     *
+     * @warning Ensure that no other references to the deleted child nodes exist,
+     *          as this will lead to dangling pointers.
+     *
+     * @example
+     * Node* root = new Node();
+     * root->insert("apple", 0, root);
+     * root->insert("banana", 0, root);
+     * root->clear();  // The subtree is now empty, but root is still valid.
+     */
+    void clearNode() {
+      for (auto& child : children) {
+        delete child.second;
+      }
+      children.clear();
+    }
     [[nodiscard]] std::queue<std::string> autocompleteNode(const std::string& prefix, size_t count) const;
 
     void insert(const std::string& text, size_t index, Node* root);
@@ -35,10 +58,11 @@ class Trie final {
   Node* root = new Node();
 
 public:
-  const Node* getRoot() { return root; }
+  const Node* getRoot() const { return root; }
+  Node* getRoot() { return root; }
+  void setRoot(Node* root) { this->root = root; }
   Trie() = default;
   ~Trie() { delete root; }
-
   Trie(const Trie& trie);
   explicit Trie(const std::string& str);
   explicit Trie(const std::vector<std::string>& vec_str);
@@ -46,6 +70,7 @@ public:
   Trie operator+(const Trie& trie) const;
   Trie operator-(const Trie& trie) const;
   Trie& operator=(const Trie& trie);
+  Trie& operator=(Trie&& trie) noexcept;  // Move Assignment Operator TODO
   [[nodiscard]] bool operator<(const Trie& trie);
   [[nodiscard]] bool operator==(const Trie& trie);
   [[nodiscard]] bool operator>(const Trie& trie);
@@ -55,11 +80,89 @@ public:
   void del(const std::string& text);
   std::string DEBUG(const Node* node, int x, int y, int level, int parent_x, int parent_y, char letter) const;
   [[nodiscard]] std::queue<std::string> autocomplete(const std::string& prefix, size_t count = INT_MAX) const;
+
   void insert(const std::string& text);
+  /**
+   * @brief Copies all nodes from a source trie to a destination trie.
+   *
+   * This function performs a breadth-first traversal (BFS) of the source trie
+   * and duplicates its structure and data into the destination trie.
+   * It ensures that each node and its respective children are copied correctly.
+   *
+   * @param dstRoot Pointer to the root node of the destination trie, where the copied structure will be stored.
+   * @param srcRoot Pointer to the root node of the source trie, from which the structure and data will be copied.
+   *
+   * @note The destination trie should be initialized before calling this function.
+   *       Existing data in the destination trie may be overwritten.
+   *
+   * @warning This function dynamically allocates memory for each new node in the destination trie.
+   *          Ensure to properly manage memory to avoid leaks.
+   */
+  static void copyNodes(Node* dstRoot, const Node* srcRoot) {
+    dstRoot->clearNode();
+    std::queue<const Node*> srcQueue;
+    std::queue<Node*> dstQueue;
+
+    srcQueue.push(srcRoot);
+    dstQueue.push(dstRoot);
+
+    while (!srcQueue.empty()) {
+      auto currentSrcNode = srcQueue.front();
+      srcQueue.pop();
+
+      auto currentDstNode = dstQueue.front();
+      dstQueue.pop();
+
+      for (auto& child : currentSrcNode->children) {
+        srcQueue.push(child.second);
+
+        char childChar = child.first;
+        Node* newDstNode = new Node;
+        newDstNode->end_of_word = child.second->end_of_word;
+
+        currentDstNode->children[childChar] = newDstNode;
+        dstQueue.push(newDstNode);
+      }
+    }
+  }
 };
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
+Trie::Trie(const Trie& trie) {
+  root = new Node();
+  const Node* new_root = trie.getRoot();
+  Trie::copyNodes(root, new_root);
+}
+
+Trie::Trie(const std::string& str) {
+  root = new Node();
+  this->insert(str);
+}
+Trie::Trie(const std::vector<std::string>& vec_str) {
+  root = new Node();
+  for (std::string word : vec_str) {
+    this->insert(word);
+  }
+}
+Trie::Trie(Trie&& trie) noexcept {
+  root = trie.getRoot();
+  trie.setRoot(nullptr);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * @brief Provides autocomplete suggestions based on the given prefix.
+ *
+ * This function searches the trie for the provided prefix and returns up to
+ * `count` autocomplete suggestions. If the prefix is not found, it returns an empty queue.
+ *
+ * @param prefix The prefix string to search for in the trie.
+ * @param count The maximum number of autocomplete suggestions to return.
+ * @return A queue of strings containing the autocomplete suggestions.
+ *         The results are in lexicographical order.
+ */
 [[nodiscard]] std::queue<std::string> Trie::autocomplete(const std::string& prefix, size_t count) const {
   Node* tmp_node = root;
   for (const auto& character : prefix) {
@@ -71,38 +174,72 @@ public:
   return tmp_node->autocompleteNode(prefix, count);
 }
 
+/**
+ * @brief Helper function to gather autocomplete suggestions from a specific node.
+ *
+ * Performs a depth-first search (DFS) starting from the current node to find all
+ * possible word completions that begin with the given prefix. The search continues
+ * until the specified count of results is collected.
+ *
+ * @param prefix The prefix to append to each found word.
+ * @param count The maximum number of results to return.
+ * @return A queue of strings containing the found words, ordered lexicographically.
+ */
 [[nodiscard]] std::queue<std::string> Trie::Node::autocompleteNode(const std::string& prefix, size_t count) const {
   std::stack<std::pair<const Node*, std::string>> stack;
   std::queue<std::string> results;
   stack.push({this, prefix});
+
   while (!stack.empty() && results.size() < count) {
-    auto [current_children, word] = stack.top();
+    auto [current_node, word] = stack.top();
     stack.pop();
-    if (current_children->end_of_word) {
+
+    if (current_node->end_of_word) {
       results.push(word);
     }
-    for (auto it = current_children->children.rbegin(); it != current_children->children.rend(); ++it) {
+
+    for (auto it = current_node->children.rbegin(); it != current_node->children.rend(); ++it) {
       stack.push({it->second, word + it->first});
     }
   }
+
   return results;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
 
+/**
+ * @brief Inserts a word into the trie.
+ *
+ * This function inserts the provided string into the trie, character by character.
+ * It uses the root node to start the insertion process.
+ *
+ * @param text The word to be inserted into the trie.
+ */
 inline void Trie::insert(const std::string& text) { root->insert(text, 0, root); }
 
+/**
+ * @brief Recursively inserts characters of the string into the trie.
+ *
+ * Inserts characters starting from the specified index. Marks the node as
+ * the end of a word if the string ends or encounters a non-alphabetic character.
+ *
+ * @param text The word being inserted.
+ * @param index The current index of the character being processed in the word.
+ * @param root Pointer to the root node of the trie for recursive insertion.
+ */
 inline void Trie::Node::insert(const std::string& text, const size_t index, Node* root) {
   if (index == text.size()) {
     end_of_word = true;
     return;
   }
 
-  // If our char is hot an alpha char the word has ended
-  if (isalpha(text[index]) == 0) {  // TODO: Should we add end_of_word = true if we have last char in string?
+  // Mark as end of word if a non-alphabetic character is encountered
+  if (isalpha(text[index]) == 0) {
     end_of_word = true;
     root->insert(text, index + 1, root);
   } else {
+    // Create a new node if the current character is not found
     if (!children.contains(text[index])) {
       children[text[index]] = new Node();
     }
