@@ -56,10 +56,9 @@ void {\bfseries del} (const std\+::string \&text)
 \Hypertarget{classTrie_a82ba67640c0fd549a59f91ebc7ed67e8}\label{classTrie_a82ba67640c0fd549a59f91ebc7ed67e8} 
 std\+::string {\bfseries DEBUG} (const \mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*}node, int x, int y, int level, int parent\+\_\+x, int parent\+\_\+y, char letter) const
 \item 
-std\+::queue$<$ std\+::string $>$ \mbox{\hyperlink{classTrie_a3b3a430f41944da7211d61930adc338a}{autocomplete}} (const std\+::string \&prefix) const
-\begin{DoxyCompactList}\small\item\em Retrieves all autocomplete suggestions for the given prefix. \end{DoxyCompactList}\item 
-{\footnotesize template$<$std\+::integral COUNT$>$ }\\std\+::queue$<$ std\+::string $>$ \mbox{\hyperlink{classTrie_a9dd619a405174db65b5fbd05ddcdc060}{autocomplete}} (const std\+::string \&prefix, COUNT count) const
-\begin{DoxyCompactList}\small\item\em Retrieves up to a specified number of autocomplete suggestions for the given prefix. \end{DoxyCompactList}\item 
+\Hypertarget{classTrie_a618ef49a48291bcf6184710e38398a4d}\label{classTrie_a618ef49a48291bcf6184710e38398a4d} 
+std\+::queue$<$ std\+::string $>$ {\bfseries autocomplete} (const std\+::string \&prefix, size\+\_\+t count=INT\+\_\+\+MAX) const
+\item 
 \Hypertarget{classTrie_a82ded465e0c692fe9c783d471ed4f682}\label{classTrie_a82ded465e0c692fe9c783d471ed4f682} 
 void {\bfseries insert} (const std\+::string \&text)
 \end{DoxyCompactItemize}
@@ -69,70 +68,6 @@ void {\bfseries insert} (const std\+::string \&text)
 \Hypertarget{classTrie_ab16619596d0d3d177bdf44b82b39312d}\label{classTrie_ab16619596d0d3d177bdf44b82b39312d} 
 \mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries root} = new \mbox{\hyperlink{structTrie_1_1Node}{Node}}()
 \end{DoxyCompactItemize}
-
-
-\doxysubsection{Member Function Documentation}
-\Hypertarget{classTrie_a3b3a430f41944da7211d61930adc338a}\label{classTrie_a3b3a430f41944da7211d61930adc338a} 
-\index{Trie@{Trie}!autocomplete@{autocomplete}}
-\index{autocomplete@{autocomplete}!Trie@{Trie}}
-\doxysubsubsection{\texorpdfstring{autocomplete()}{autocomplete()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily std\+::queue$<$ std\+::string $>$ Trie\+::autocomplete (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{prefix }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Retrieves all autocomplete suggestions for the given prefix. 
-
-Finds the node corresponding to the prefix and returns all suggestions.
-
-
-\begin{DoxyParams}{Parameters}
-{\em prefix} & The prefix string. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-std\+::queue$<$std\+::string$>$ A queue containing all suggestions. 
-\end{DoxyReturn}
-\Hypertarget{classTrie_a9dd619a405174db65b5fbd05ddcdc060}\label{classTrie_a9dd619a405174db65b5fbd05ddcdc060} 
-\index{Trie@{Trie}!autocomplete@{autocomplete}}
-\index{autocomplete@{autocomplete}!Trie@{Trie}}
-\doxysubsubsection{\texorpdfstring{autocomplete()}{autocomplete()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$std\+::integral COUNT$>$ \\
-std\+::queue$<$ std\+::string $>$ Trie\+::autocomplete (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{prefix,  }\item[{COUNT}]{count }\end{DoxyParamCaption}) const}
-
-
-
-Retrieves up to a specified number of autocomplete suggestions for the given prefix. 
-
-This function locates the node corresponding to the provided prefix and then returns at most {\ttfamily count} suggestions gathered from that node using a depth-\/first search (DFS) traversal of the \doxylink{classTrie}{Trie}. If a negative value is provided for {\ttfamily count}, the function throws a {\ttfamily std\+::invalid\+\_\+argument} exception.
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em COUNT} & An integral type representing the maximum number of suggestions. Negative values are not allowed. \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em prefix} & The prefix string used to search within the \doxylink{classTrie}{Trie}. \\
-\hline
-{\em count} & The maximum number of suggestions to return. Must be non-\/negative. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-std\+::queue$<$std\+::string$>$ A queue containing up to {\ttfamily count} autocomplete suggestions. 
-\end{DoxyReturn}
-
-\begin{DoxyExceptions}{Exceptions}
-{\em std\+::invalid\+\_\+argument} & if {\ttfamily count} is negative.\\
-\hline
-\end{DoxyExceptions}
-\begin{DoxyNote}{Note}
-The expression\+: 
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keyword}{static\_cast<}std::make\_unsigned\_t<COUNT>\textcolor{keyword}{>}(count)}
-
-\end{DoxyCode}
- converts the {\ttfamily count} parameter to its corresponding unsigned type. This ensures that if {\ttfamily COUNT} is a signed integral type (e.\+g., int), it is converted to the appropriate unsigned type (e.\+g., unsigned int) before being passed to the underlying {\ttfamily autocomplete\+Node} function. The conversion is safe because the function throws an exception if {\ttfamily count} is negative. 
-\end{DoxyNote}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

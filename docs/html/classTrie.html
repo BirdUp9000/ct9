@@ -160,13 +160,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>del</b> (const std::s
 <tr class="memitem:a82ba67640c0fd549a59f91ebc7ed67e8" id="r_a82ba67640c0fd549a59f91ebc7ed67e8"><td class="memItemLeft" align="right" valign="top"><a id="a82ba67640c0fd549a59f91ebc7ed67e8" name="a82ba67640c0fd549a59f91ebc7ed67e8"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>DEBUG</b> (const <a class="el" href="structTrie_1_1Node.html">Node</a> *node, int x, int y, int level, int parent_x, int parent_y, char letter) const</td></tr>
 <tr class="separator:a82ba67640c0fd549a59f91ebc7ed67e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b3a430f41944da7211d61930adc338a" id="r_a3b3a430f41944da7211d61930adc338a"><td class="memItemLeft" align="right" valign="top">std::queue&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTrie.html#a3b3a430f41944da7211d61930adc338a">autocomplete</a> (const std::string &amp;prefix) const</td></tr>
-<tr class="memdesc:a3b3a430f41944da7211d61930adc338a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all autocomplete suggestions for the given prefix.  <br /></td></tr>
-<tr class="separator:a3b3a430f41944da7211d61930adc338a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dd619a405174db65b5fbd05ddcdc060" id="r_a9dd619a405174db65b5fbd05ddcdc060"><td class="memTemplParams" colspan="2">template&lt;std::integral COUNT&gt; </td></tr>
-<tr class="memitem:a9dd619a405174db65b5fbd05ddcdc060"><td class="memTemplItemLeft" align="right" valign="top">std::queue&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classTrie.html#a9dd619a405174db65b5fbd05ddcdc060">autocomplete</a> (const std::string &amp;prefix, COUNT count) const</td></tr>
-<tr class="memdesc:a9dd619a405174db65b5fbd05ddcdc060"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves up to a specified number of autocomplete suggestions for the given prefix.  <br /></td></tr>
-<tr class="separator:a9dd619a405174db65b5fbd05ddcdc060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a618ef49a48291bcf6184710e38398a4d" id="r_a618ef49a48291bcf6184710e38398a4d"><td class="memItemLeft" align="right" valign="top"><a id="a618ef49a48291bcf6184710e38398a4d" name="a618ef49a48291bcf6184710e38398a4d"></a>
+std::queue&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>autocomplete</b> (const std::string &amp;prefix, size_t count=INT_MAX) const</td></tr>
+<tr class="separator:a618ef49a48291bcf6184710e38398a4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82ded465e0c692fe9c783d471ed4f682" id="r_a82ded465e0c692fe9c783d471ed4f682"><td class="memItemLeft" align="right" valign="top"><a id="a82ded465e0c692fe9c783d471ed4f682" name="a82ded465e0c692fe9c783d471ed4f682"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>insert</b> (const std::string &amp;text)</td></tr>
 <tr class="separator:a82ded465e0c692fe9c783d471ed4f682"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,98 +173,6 @@ Private Attributes</h2></td></tr>
 <a class="el" href="structTrie_1_1Node.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>root</b> = new <a class="el" href="structTrie_1_1Node.html">Node</a>()</td></tr>
 <tr class="separator:ab16619596d0d3d177bdf44b82b39312d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a3b3a430f41944da7211d61930adc338a" name="a3b3a430f41944da7211d61930adc338a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b3a430f41944da7211d61930adc338a">&#9670;&#160;</a></span>autocomplete() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::queue&lt; std::string &gt; Trie::autocomplete </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>prefix</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Retrieves all autocomplete suggestions for the given prefix. </p>
-<p>Finds the node corresponding to the prefix and returns all suggestions.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">prefix</td><td>The prefix string. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::queue&lt;std::string&gt; A queue containing all suggestions. </dd></dl>
-
-</div>
-</div>
-<a id="a9dd619a405174db65b5fbd05ddcdc060" name="a9dd619a405174db65b5fbd05ddcdc060"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9dd619a405174db65b5fbd05ddcdc060">&#9670;&#160;</a></span>autocomplete() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::integral COUNT&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">std::queue&lt; std::string &gt; Trie::autocomplete </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>prefix</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">COUNT&#160;</td>
-          <td class="paramname"><em>count</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retrieves up to a specified number of autocomplete suggestions for the given prefix. </p>
-<p>This function locates the node corresponding to the provided prefix and then returns at most <code>count</code> suggestions gathered from that node using a depth-first search (DFS) traversal of the <a class="el" href="classTrie.html">Trie</a>. If a negative value is provided for <code>count</code>, the function throws a <code>std::invalid_argument</code> exception.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">COUNT</td><td>An integral type representing the maximum number of suggestions. Negative values are not allowed. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">prefix</td><td>The prefix string used to search within the <a class="el" href="classTrie.html">Trie</a>. </td></tr>
-    <tr><td class="paramname">count</td><td>The maximum number of suggestions to return. Must be non-negative. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::queue&lt;std::string&gt; A queue containing up to <code>count</code> autocomplete suggestions. </dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argument</td><td>if <code>count</code> is negative.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>The expression: <div class="fragment"><div class="line"><span class="keyword">static_cast&lt;</span>std::make_unsigned_t&lt;COUNT&gt;<span class="keyword">&gt;</span>(count)</div>
-</div><!-- fragment --> converts the <code>count</code> parameter to its corresponding unsigned type. This ensures that if <code>COUNT</code> is a signed integral type (e.g., int), it is converted to the appropriate unsigned type (e.g., unsigned int) before being passed to the underlying <code>autocompleteNode</code> function. The conversion is safe because the function throws an exception if <code>count</code> is negative. </dd></dl>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>include/ct9/<a class="el" href="Trie_8h_source.html">Trie.h</a></li>
 </ul>

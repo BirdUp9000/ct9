@@ -106,13 +106,9 @@ $(document).ready(function(){initNavTree('structTrie_1_1Node.html',''); initResi
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af9a03f41fa011b23c97968819ba01fd7" id="r_af9a03f41fa011b23c97968819ba01fd7"><td class="memItemLeft" align="right" valign="top">std::queue&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTrie_1_1Node.html#af9a03f41fa011b23c97968819ba01fd7">autocompleteNode</a> (const std::string &amp;prefix) const</td></tr>
-<tr class="memdesc:af9a03f41fa011b23c97968819ba01fd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all autocomplete suggestions that start with the specified prefix.  <br /></td></tr>
-<tr class="separator:af9a03f41fa011b23c97968819ba01fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae838140511803c17736d22a41b292811" id="r_ae838140511803c17736d22a41b292811"><td class="memTemplParams" colspan="2">template&lt;std::unsigned_integral COUNT&gt; </td></tr>
-<tr class="memitem:ae838140511803c17736d22a41b292811"><td class="memTemplItemLeft" align="right" valign="top">std::queue&lt; std::string &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structTrie_1_1Node.html#ae838140511803c17736d22a41b292811">autocompleteNode</a> (const std::string &amp;prefix, COUNT count) const</td></tr>
-<tr class="memdesc:ae838140511803c17736d22a41b292811"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns up to a given number of autocomplete suggestions starting with the given prefix.  <br /></td></tr>
-<tr class="separator:ae838140511803c17736d22a41b292811"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b355369a59c8d69901736bfdd88b007" id="r_a7b355369a59c8d69901736bfdd88b007"><td class="memItemLeft" align="right" valign="top"><a id="a7b355369a59c8d69901736bfdd88b007" name="a7b355369a59c8d69901736bfdd88b007"></a>
+std::queue&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>autocompleteNode</b> (const std::string &amp;prefix, size_t count) const</td></tr>
+<tr class="separator:a7b355369a59c8d69901736bfdd88b007"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a196db9af06d50509138b7c67c5aa7082" id="r_a196db9af06d50509138b7c67c5aa7082"><td class="memItemLeft" align="right" valign="top"><a id="a196db9af06d50509138b7c67c5aa7082" name="a196db9af06d50509138b7c67c5aa7082"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>insert</b> (const std::string &amp;text, size_t index, <a class="el" href="structTrie_1_1Node.html">Node</a> *root)</td></tr>
 <tr class="separator:a196db9af06d50509138b7c67c5aa7082"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,91 +128,6 @@ std::map&lt; char, <a class="el" href="structTrie_1_1Node.html">Node</a> * &gt;&
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>end_of_word</b> = false</td></tr>
 <tr class="separator:aeec99f84d723b56ed52fee9326a7f7e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="af9a03f41fa011b23c97968819ba01fd7" name="af9a03f41fa011b23c97968819ba01fd7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9a03f41fa011b23c97968819ba01fd7">&#9670;&#160;</a></span>autocompleteNode() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::queue&lt; std::string &gt; Trie::Node::autocompleteNode </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>prefix</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Retrieves all autocomplete suggestions that start with the specified prefix. </p>
-<p>This function performs a depth-first search (DFS) starting from the current node to collect all words that begin with the provided prefix. Whenever a node marked as the end of a word is encountered, the accumulated text is added to the result queue.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">prefix</td><td>The prefix string used as the starting point for generating autocomplete suggestions. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::queue&lt;std::string&gt; A queue containing all the autocomplete suggestions found.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The suggestions are collected in the order determined by the DFS traversal. A recursive lambda function is used for the DFS implementation. </dd></dl>
-
-</div>
-</div>
-<a id="ae838140511803c17736d22a41b292811" name="ae838140511803c17736d22a41b292811"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae838140511803c17736d22a41b292811">&#9670;&#160;</a></span>autocompleteNode() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::unsigned_integral COUNT&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">std::queue&lt; std::string &gt; Trie::Node::autocompleteNode </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>prefix</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">COUNT&#160;</td>
-          <td class="paramname"><em>count</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns up to a given number of autocomplete suggestions starting with the given prefix. </p>
-<p>This version limits the number of suggestions to the value specified by <code>count</code>. </p><dl class="section attention"><dt>Attention</dt><dd>This function has unsigned_integral template because this function will be called only from autocomplete function (<a class="el" href="classTrie.html">Trie</a> class) who checks count to be positive.</dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">COUNT</td><td>An unsigned integral type representing the maximum number of suggestions. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">prefix</td><td>The starting prefix. </td></tr>
-    <tr><td class="paramname">count</td><td>The maximum number of suggestions to collect. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::queue&lt;std::string&gt; A queue containing up to <code>count</code> suggestions. </dd></dl>
-
-</div>
-</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>include/ct9/<a class="el" href="Trie_8h_source.html">Trie.h</a></li>
 </ul>
