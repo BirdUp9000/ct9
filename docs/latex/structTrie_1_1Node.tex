@@ -3,12 +3,13 @@
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{structTrie_1_1Node_a7b355369a59c8d69901736bfdd88b007}\label{structTrie_1_1Node_a7b355369a59c8d69901736bfdd88b007} 
-std\+::queue$<$ std\+::string $>$ {\bfseries autocomplete\+Node} (const std\+::string \&prefix, size\+\_\+t count) const
+\Hypertarget{structTrie_1_1Node_aab520fd7efb71b2c7f45ac56913abeb5}\label{structTrie_1_1Node_aab520fd7efb71b2c7f45ac56913abeb5} 
+void {\bfseries clear\+Node} ()
 \item 
-\Hypertarget{structTrie_1_1Node_a196db9af06d50509138b7c67c5aa7082}\label{structTrie_1_1Node_a196db9af06d50509138b7c67c5aa7082} 
-void {\bfseries insert} (const std\+::string \&text, size\+\_\+t index, \mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*}root)
-\item 
+std\+::queue$<$ std\+::string $>$ \mbox{\hyperlink{structTrie_1_1Node_a7b355369a59c8d69901736bfdd88b007}{autocomplete\+Node}} (const std\+::string \&prefix, size\+\_\+t count) const
+\begin{DoxyCompactList}\small\item\em Helper function to gather autocomplete suggestions from a specific node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structTrie_1_1Node_a196db9af06d50509138b7c67c5aa7082}{insert}} (const std\+::string \&text, size\+\_\+t index, \mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*}root)
+\begin{DoxyCompactList}\small\item\em Recursively inserts characters of the string into the trie. \end{DoxyCompactList}\item 
 \Hypertarget{structTrie_1_1Node_a116b1b99ff9b9d8e4a73d10064cd8c01}\label{structTrie_1_1Node_a116b1b99ff9b9d8e4a73d10064cd8c01} 
 std\+::queue$<$ std\+::string $>$ {\bfseries find} (char character) const
 \item 
@@ -24,6 +25,58 @@ std\+::map$<$ char, \mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{
 \Hypertarget{structTrie_1_1Node_aeec99f84d723b56ed52fee9326a7f7e9}\label{structTrie_1_1Node_aeec99f84d723b56ed52fee9326a7f7e9} 
 bool {\bfseries end\+\_\+of\+\_\+word} = false
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structTrie_1_1Node_a7b355369a59c8d69901736bfdd88b007}\label{structTrie_1_1Node_a7b355369a59c8d69901736bfdd88b007} 
+\index{Trie::Node@{Trie::Node}!autocompleteNode@{autocompleteNode}}
+\index{autocompleteNode@{autocompleteNode}!Trie::Node@{Trie::Node}}
+\doxysubsubsection{\texorpdfstring{autocompleteNode()}{autocompleteNode()}}
+{\footnotesize\ttfamily std\+::queue$<$ std\+::string $>$ Trie\+::\+Node\+::autocomplete\+Node (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{prefix,  }\item[{size\+\_\+t}]{count }\end{DoxyParamCaption}) const}
+
+
+
+Helper function to gather autocomplete suggestions from a specific node. 
+
+Performs a depth-\/first search (DFS) starting from the current node to find all possible word completions that begin with the given prefix. The search continues until the specified count of results is collected.
+
+
+\begin{DoxyParams}{Parameters}
+{\em prefix} & The prefix to append to each found word. \\
+\hline
+{\em count} & The maximum number of results to return. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A queue of strings containing the found words, ordered lexicographically. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
+\Hypertarget{structTrie_1_1Node_a196db9af06d50509138b7c67c5aa7082}\label{structTrie_1_1Node_a196db9af06d50509138b7c67c5aa7082} 
+\index{Trie::Node@{Trie::Node}!insert@{insert}}
+\index{insert@{insert}!Trie::Node@{Trie::Node}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily void Trie\+::\+Node\+::insert (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text,  }\item[{size\+\_\+t}]{index,  }\item[{\mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*}}]{root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Recursively inserts characters of the string into the trie. 
+
+Inserts characters starting from the specified index. Marks the node as the end of a word if the string ends or encounters a non-\/alphabetic character.
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & The word being inserted. \\
+\hline
+{\em index} & The current index of the character being processed in the word. \\
+\hline
+{\em root} & Pointer to the root node of the trie for recursive insertion. \\
+\hline
+\end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}

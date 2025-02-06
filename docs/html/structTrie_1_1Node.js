@@ -1,5 +1,5 @@
 var structTrie_1_1Node =
 [
-    [ "autocompleteNode", "structTrie_1_1Node.html#af9a03f41fa011b23c97968819ba01fd7", null ],
-    [ "autocompleteNode", "structTrie_1_1Node.html#ae838140511803c17736d22a41b292811", null ]
+    [ "autocompleteNode", "structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007", null ],
+    [ "insert", "structTrie_1_1Node.html#a196db9af06d50509138b7c67c5aa7082", null ]
 ];

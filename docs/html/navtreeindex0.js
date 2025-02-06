@@ -1,13 +1,21 @@
 var NAVTREEINDEX0 =
 {
 "Trie_8h_source.html":[1,0,0,0,0],
+"_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example.html":[2,0],
 "annotated.html":[0,0],
 "classTrie.html":[0,0,0],
+"classTrie.html#a618ef49a48291bcf6184710e38398a4d":[0,0,0,1],
+"classTrie.html#a82ded465e0c692fe9c783d471ed4f682":[0,0,0,2],
 "classes.html":[0,1],
 "dir_d44c64559bbebec7f509842c48db8b23.html":[1,0,0],
 "dir_d82bed30e17eec5bc886fa75b1f174a7.html":[1,0,0,0],
+"examples.html":[2],
 "files.html":[1,0],
+"functions.html":[0,2,0],
+"functions_func.html":[0,2,1],
 "index.html":[],
 "pages.html":[],
-"structTrie_1_1Node.html":[0,0,0,0]
+"structTrie_1_1Node.html":[0,0,0,0],
+"structTrie_1_1Node.html#a196db9af06d50509138b7c67c5aa7082":[0,0,0,0,1],
+"structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007":[0,0,0,0,0]
 };
