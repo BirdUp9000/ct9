@@ -70,7 +70,7 @@ public:
   Trie operator+(const Trie& trie) const;
   Trie operator-(const Trie& trie) const;
   Trie& operator=(const Trie& trie);
-  Trie& operator=(Trie&& trie) noexcept;  // Move Assignment Operator TODO
+  Trie& operator=(Trie&& trie) noexcept;  
   [[nodiscard]] bool operator<(const Trie& trie);
   [[nodiscard]] bool operator==(const Trie& trie);
   [[nodiscard]] bool operator>(const Trie& trie);
@@ -130,24 +130,30 @@ public:
 //////////////////////////////////////////////////////////////////////////////////////////
 
 Trie::Trie(const Trie& trie) {
-  root = new Node();
   const Node* new_root = trie.getRoot();
   Trie::copyNodes(root, new_root);
 }
 
 Trie::Trie(const std::string& str) {
-  root = new Node();
   this->insert(str);
 }
 Trie::Trie(const std::vector<std::string>& vec_str) {
-  root = new Node();
   for (std::string word : vec_str) {
     this->insert(word);
   }
 }
 Trie::Trie(Trie&& trie) noexcept {
-  root = trie.getRoot();
-  trie.setRoot(nullptr);
+  this->root = trie.getRoot();  
+  trie.setRoot(nullptr);       
+}
+
+Trie& Trie::operator=(Trie&& trie) noexcept {
+  if(this != &trie) {
+    delete root;
+    root = trie.getRoot();
+    trie.setRoot(nullptr);
+  }
+  return *this;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
