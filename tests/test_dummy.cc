@@ -231,14 +231,6 @@ TEST_CASE("Trie Constructors") {
         true);
     REQUIRE(movedTrie.getRoot()->children['b']->children['a']->children['t']->end_of_word == true);
   }
-
-  SECTION("Assignment operator") {
-    Trie t1("orange");
-    Trie t2("apple");
-    t2 = t1;
-    REQUIRE(t1.getRoot()->children['o']->children['r']->children['a']->children['n']->children['g']->children['e']->end_of_word == true);
-    REQUIRE(t2.getRoot()->children['o']->children['r']->children['a']->children['n']->children['g']->children['e']->end_of_word == true);
-  }
 }
 
 TEST_CASE("Trie Deletion") {
@@ -314,5 +306,36 @@ TEST_CASE("Trie Deletion") {
         REQUIRE(trie.autocomplete("care", 1).size() == 1);
         REQUIRE(trie.autocomplete("cart", 1).size() == 1);
         REQUIRE(trie.getRoot()->children['c']->children['a']->children['r']->children['e']->end_of_word == false);
+    }
+}
+TEST_CASE("Trie Operators", "[Trie]") {
+
+    SECTION("Assignment Operator (=)") {
+        Trie trie1(std::vector<std::string>{"apple", "banana", "cherry"});
+        Trie trie2;
+
+        trie2 = trie1;
+
+        REQUIRE(trie2.autocomplete("", INT_MAX).size() == 3);
+        REQUIRE(trie2.autocomplete("", INT_MAX) == trie1.autocomplete("", INT_MAX));
+    }
+    SECTION("Addition Operator (+)") {
+        Trie trie1(std::vector<std::string>{"hello", "world"});
+        Trie trie2(std::vector<std::string>{"test", "case"});
+
+        Trie result = trie1 + trie2;
+
+        REQUIRE(result.autocomplete("", INT_MAX).size() == 4);
+        REQUIRE(result.autocomplete("", INT_MAX) == std::queue<std::string>({"case","hello","test","world"}));
+    }
+
+    SECTION("Subtraction Operator (-)") {
+        Trie trie1(std::vector<std::string>{"hello", "world", "test"});
+        Trie trie2(std::vector<std::string>{"test"});
+
+        Trie result = trie1 - trie2;
+
+        REQUIRE(result.autocomplete("", INT_MAX).size() == 2);
+        REQUIRE(result.autocomplete("", INT_MAX) == std::queue<std::string>({"hello", "world"}));
     }
 }

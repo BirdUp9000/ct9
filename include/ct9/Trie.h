@@ -5,13 +5,13 @@
 #include <memory>
 #include <queue>
 #include <string>
+#include <unordered_set>
 #include <utility>
 #include <vector>
-
 #ifdef UNIT_TEST
-  #define PRIVATE public
+#define PRIVATE public
 #else
-  #define PRIVATE private
+#define PRIVATE private
 #endif
 
 class Trie final {
@@ -28,11 +28,10 @@ class Trie final {
     bool end_of_word{false};
   };
 
-  PRIVATE:
-    static void copyNodes(Node* dstRoot, const Node* srcRoot);
-    Node* root{nullptr};
+  PRIVATE : static void copyNodes(Node* dstRoot, const Node* srcRoot);
+  Node* root{nullptr};
 
- public:
+public:
   /// Functions for testing
   const Node* getRoot() const { return root; }
   Node* getRoot() { return root; }
@@ -60,12 +59,66 @@ class Trie final {
 };
 
 /**
+ * @brief Combines two Tries into a new Trie containing all unique words.
+ *
+ * This operator merges the current Trie with another Trie and returns a new Trie
+ * that contains all unique words from both Tries.
+ *
+ * @param trie The Trie to merge with.
+ * @return Trie containing all unique words from both Tries.
+ */
+inline Trie Trie::operator+(const Trie& trie) const {
+  Trie new_trie;
+  std::unordered_set<std::string> unique_words;
+
+  std::queue<std::string> trie_words = trie.getRoot()->autocompleteNode("", INT_MAX);
+  std::queue<std::string> this_words = this->root->autocompleteNode("", INT_MAX);
+
+  while (!trie_words.empty()) {
+    unique_words.insert(trie_words.front());
+    trie_words.pop();
+  }
+
+  while (!this_words.empty()) {
+    unique_words.insert(this_words.front());
+    this_words.pop();
+  }
+
+  for (const std::string& word : unique_words) {
+    new_trie.insert(word);
+  }
+
+  return new_trie;
+}
+/**
+ * @brief Creates a new Trie by removing words in the given Trie from this Trie.
+ *
+ * This operator returns a new Trie that contains only the words that are in the
+ * current Trie but not in the given Trie.
+ *
+ * @param trie The Trie whose words should be removed from this Trie.
+ * @return Trie containing only words unique to this Trie.
+ */
+inline Trie Trie::operator-(const Trie& trie) const {
+  std::queue<std::string> trie_words = trie.getRoot()->autocompleteNode("", INT_MAX);
+  Trie new_trie(*this);
+  
+  while (!trie_words.empty()) {
+    std::string word = trie_words.front();
+    trie_words.pop();
+    new_trie.del(word);
+  }
+  
+  return new_trie;
+}
+
+
+
+/**
  * @brief Trie copy constructor.
  * @param trie source of copy.
  */
-inline Trie::Trie(const Trie& trie) : root(new Node()) {
-  copyNodes(root, trie.root);
-}
+inline Trie::Trie(const Trie& trie) : root(new Node()) { copyNodes(root, trie.root); }
 
 /**
  * @brief Assignment operator.
@@ -99,7 +152,7 @@ inline Trie::Node::Node() = default;
  * @warning Add a pointer check.
  */
 inline Trie::Node::~Node() {
-  for (const auto & [key, value] : children) {
+  for (const auto& [key, value] : children) {
     delete value;
   }
 }
@@ -114,9 +167,7 @@ inline Trie::Trie() : root(new Node()) {}
  * @brief Basic Trie destructor.
  * Deletes root node.
  */
-inline Trie::~Trie() {
-  delete root;
-}
+inline Trie::~Trie() { delete root; }
 
 /**
  * @brief Copies all nodes from a source trie to a destination trie.
@@ -173,12 +224,16 @@ inline void Trie::copyNodes(Node* dstRoot, const Node* srcRoot) {
  */
 inline void Trie::del(const std::string& word) const {
   bool is_word = this->autocomplete(word, 1).size() == 1;
-  if (!is_word) {return;}
+  if (!is_word) {
+    return;
+  }
   Node* tmp = root;
   std::vector<Node*> path;
   for (char c : word) {
     path.push_back(tmp);
-    if (tmp->children.find(c) == tmp->children.end()) {return;}
+    if (tmp->children.find(c) == tmp->children.end()) {
+      return;
+    }
     tmp = tmp->children[c];
   }
 
@@ -222,9 +277,7 @@ inline void Trie::Node::clearNode() {
   children.clear();
 }
 
-inline Trie::Trie(const std::string& str) : root(new Node()){
-  this->insert(str);
-}
+inline Trie::Trie(const std::string& str) : root(new Node()) { this->insert(str); }
 
 inline Trie::Trie(const std::vector<std::string>& vec_str) : root(new Node()) {
   for (const std::string& word : vec_str) {
@@ -233,7 +286,7 @@ inline Trie::Trie(const std::vector<std::string>& vec_str) : root(new Node()) {
 }
 
 inline Trie& Trie::operator=(Trie&& trie) noexcept {
-  if(this != &trie) {
+  if (this != &trie) {
     delete root;
     root = trie.getRoot();
     trie.setRoot(nullptr);
@@ -280,21 +333,28 @@ inline Trie& Trie::operator=(Trie&& trie) noexcept {
  * @note The implementation uses backtracking to avoid unnecessary string copying. The recursive DFS
  *       function returns a boolean value to indicate whether the search should be terminated early.
  */
-[[nodiscard]] inline std::queue<std::string> Trie::Node::autocompleteNode(const std::string& prefix, const size_t count) const {
+[[nodiscard]] inline std::queue<std::string> Trie::Node::autocompleteNode(const std::string& prefix,
+                                                                          const size_t count) const {
   std::queue<std::string> results;
   std::string current = prefix;
 
   std::function<bool(const Node*)> dfs = [&](const Node* node) -> bool {
-    if (results.size() >= count) {return true;}
+    if (results.size() >= count) {
+      return true;
+    }
 
     if (node->end_of_word) {
       results.push(current);
-      if (results.size() >= count) {return true;}
+      if (results.size() >= count) {
+        return true;
+      }
     }
 
     for (const auto& [key, child] : node->children) {
       current.push_back(key);
-      if (dfs(child)) {return true;}
+      if (dfs(child)) {
+        return true;
+      }
       current.pop_back();
     }
     return false;
@@ -312,9 +372,7 @@ inline Trie& Trie::operator=(Trie&& trie) noexcept {
  *
  * @param text The word to be inserted into the trie.
  */
-inline void Trie::insert(const std::string& text) {
-  root->insert(text, 0, root);
-}
+inline void Trie::insert(const std::string& text) { root->insert(text, 0, root); }
 
 /**
  * @brief Recursively inserts characters of the string into the trie.
@@ -344,4 +402,3 @@ inline void Trie::Node::insert(const std::string& text, const size_t index, Node
     children[text[index]]->insert(text, index + 1, root);
   }
 }
-
