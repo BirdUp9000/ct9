@@ -59,9 +59,8 @@ bool {\bfseries operator$>$=} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
 \Hypertarget{classTrie_a7f417b706e75f60af3eeac0938f4cb57}\label{classTrie_a7f417b706e75f60af3eeac0938f4cb57} 
 bool {\bfseries operator$<$=} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
 \item 
-\Hypertarget{classTrie_ace9f58292460275b4769e96d4b2b2c10}\label{classTrie_ace9f58292460275b4769e96d4b2b2c10} 
-void {\bfseries del} (const std\+::string \&text)
-\item 
+void \mbox{\hyperlink{classTrie_a202cd798323c86834262486ab35a59fc}{del}} (const std\+::string \&word)
+\begin{DoxyCompactList}\small\item\em Deletes a word from the \doxylink{classTrie}{Trie}. \end{DoxyCompactList}\item 
 \Hypertarget{classTrie_a82ba67640c0fd549a59f91ebc7ed67e8}\label{classTrie_a82ba67640c0fd549a59f91ebc7ed67e8} 
 std\+::string {\bfseries DEBUG} (const \mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*}node, int x, int y, int level, int parent\+\_\+x, int parent\+\_\+y, char letter) const
 \item 
@@ -139,6 +138,30 @@ The destination trie should be initialized before calling this function. Existin
 \begin{DoxyWarning}{Warning}
 This function dynamically allocates memory for each new node in the destination trie. Ensure to properly manage memory to avoid leaks. 
 \end{DoxyWarning}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
+\Hypertarget{classTrie_a202cd798323c86834262486ab35a59fc}\label{classTrie_a202cd798323c86834262486ab35a59fc} 
+\index{Trie@{Trie}!del@{del}}
+\index{del@{del}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{del()}{del()}}
+{\footnotesize\ttfamily void Trie\+::del (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{word }\end{DoxyParamCaption})}
+
+
+
+Deletes a word from the \doxylink{classTrie}{Trie}. 
+
+This function removes a word from the \doxylink{classTrie}{Trie} while ensuring that\+:
+\begin{DoxyItemize}
+\item It only deletes nodes that are no longer part of another word.
+\item It does not mistakenly remove prefixes that are still valid words.
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em word} & The word to be removed from the \doxylink{classTrie}{Trie}. \\
+\hline
+\end{DoxyParams}
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
