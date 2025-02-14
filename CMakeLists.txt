@@ -82,6 +82,9 @@ if(CMAKE_BUILD_TYPE STREQUAL "Develop")
         "${CMAKE_CURRENT_SOURCE_DIR}/tests/*.cc"
     )
     add_executable(run_tests ${TEST_SOURCES})
+
+    target_compile_definitions(run_tests PRIVATE UNIT_TEST)
+
     target_link_libraries(run_tests PRIVATE Catch2::Catch2WithMain)
     add_test(NAME ct9_tests COMMAND run_tests --colour-mode ansi)
 
