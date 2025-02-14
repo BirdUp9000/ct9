@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['copynodes_0',['copyNodes',['../classTrie.html#ae9c02d045830f0d6a0e56e78f30f3168',1,'Trie']]]
+  ['del_0',['del',['../classTrie.html#a286afcf0acdd84b189fe28016304cb00',1,'Trie']]]
 ];
