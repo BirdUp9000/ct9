@@ -70,14 +70,14 @@ public:
   Trie operator+(const Trie& trie) const;
   Trie operator-(const Trie& trie) const;
   Trie& operator=(const Trie& trie);
-  Trie& operator=(Trie&& trie) noexcept;  
+  Trie& operator=(Trie&& trie) noexcept;
   [[nodiscard]] bool operator<(const Trie& trie);
   [[nodiscard]] bool operator==(const Trie& trie);
   [[nodiscard]] bool operator>(const Trie& trie);
   [[nodiscard]] bool operator!=(const Trie& trie);
   [[nodiscard]] bool operator>=(const Trie& trie);
   [[nodiscard]] bool operator<=(const Trie& trie);
-  void del(const std::string& text);
+  void del(const std::string& word);
   std::string DEBUG(const Node* node, int x, int y, int level, int parent_x, int parent_y, char letter) const;
   [[nodiscard]] std::queue<std::string> autocomplete(const std::string& prefix, size_t count = INT_MAX) const;
 
@@ -126,7 +126,41 @@ public:
     }
   }
 };
+//////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * @brief Deletes a word from the Trie.
+ * 
+ * This function removes a word from the Trie while ensuring that:
+ * - It only deletes nodes that are no longer part of another word.
+ * - It does not mistakenly remove prefixes that are still valid words.
+ * 
+ * @param word The word to be removed from the Trie.
+ */
+void Trie::del(const std::string& word) {
+  bool is_word = this->autocomplete(word, 1).size() == 1;
+  if (!is_word) return;
+  Node* tmp = root;
+  std::vector<Node*> path;
+  for (char c : word) {
+    path.push_back(tmp);
+    if (tmp->children.find(c) == tmp->children.end()) return;
+    tmp = tmp->children[c];
+  }
 
+  tmp->end_of_word = false;
+
+  for (int i = path.size() - 1; i >= 0; --i) {
+    Node* parent = path[i];
+    char c = word[i];
+
+    if (parent->children[c]->children.empty() && !parent->children[c]->end_of_word) {
+      delete parent->children[c];
+      parent->children.erase(c);
+    } else {
+      break;
+    }
+  }
+}
 //////////////////////////////////////////////////////////////////////////////////////////
 
 Trie::Trie(const Trie& trie) {
@@ -134,21 +168,19 @@ Trie::Trie(const Trie& trie) {
   Trie::copyNodes(root, new_root);
 }
 
-Trie::Trie(const std::string& str) {
-  this->insert(str);
-}
+Trie::Trie(const std::string& str) { this->insert(str); }
 Trie::Trie(const std::vector<std::string>& vec_str) {
   for (std::string word : vec_str) {
     this->insert(word);
   }
 }
 Trie::Trie(Trie&& trie) noexcept {
-  this->root = trie.getRoot();  
-  trie.setRoot(nullptr);       
+  this->root = trie.getRoot();
+  trie.setRoot(nullptr);
 }
 
 Trie& Trie::operator=(Trie&& trie) noexcept {
-  if(this != &trie) {
+  if (this != &trie) {
     delete root;
     root = trie.getRoot();
     trie.setRoot(nullptr);
