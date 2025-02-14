@@ -3,6 +3,7 @@
 
 #Ignore cmake-build-debug
 cmake-build-debug/
+cmake-build-ct9/
 
 # Ignore .vscode
 .vscode/
