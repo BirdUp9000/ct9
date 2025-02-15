@@ -35,12 +35,10 @@ void {\bfseries set\+Root} (\mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpd
 \begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classTrie_a8f2f269fc83ce5b8a3010d90c4a92396}{Trie}} (\mbox{\hyperlink{classTrie}{Trie}} \&\&trie) noexcept
 \item 
-\Hypertarget{classTrie_a1028ddcc66a2c5c606269b4c8136da9e}\label{classTrie_a1028ddcc66a2c5c606269b4c8136da9e} 
-\mbox{\hyperlink{classTrie}{Trie}} {\bfseries operator+} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie) const
-\item 
-\Hypertarget{classTrie_a22ccfa0315e46b7d05bc8e93b3139d74}\label{classTrie_a22ccfa0315e46b7d05bc8e93b3139d74} 
-\mbox{\hyperlink{classTrie}{Trie}} {\bfseries operator-\/} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie) const
-\item 
+\mbox{\hyperlink{classTrie}{Trie}} \mbox{\hyperlink{classTrie_a1028ddcc66a2c5c606269b4c8136da9e}{operator+}} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie) const
+\begin{DoxyCompactList}\small\item\em Combines two Tries into a new \doxylink{classTrie}{Trie} containing all unique words. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTrie}{Trie}} \mbox{\hyperlink{classTrie_a22ccfa0315e46b7d05bc8e93b3139d74}{operator-\/}} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie) const
+\begin{DoxyCompactList}\small\item\em Creates a new \doxylink{classTrie}{Trie} by removing words in the given \doxylink{classTrie}{Trie} from this \doxylink{classTrie}{Trie}. \end{DoxyCompactList}\item 
 \Hypertarget{classTrie_a0a4ad7f242d621cd1d66e7e9cb350bd5}\label{classTrie_a0a4ad7f242d621cd1d66e7e9cb350bd5} 
 \mbox{\hyperlink{classTrie}{Trie}} \& {\bfseries operator=} (\mbox{\hyperlink{classTrie}{Trie}} \&\&trie) noexcept
 \item 
@@ -169,6 +167,52 @@ This function inserts the provided string into the trie, character by character.
 {\em text} & The word to be inserted into the trie. \\
 \hline
 \end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
+\Hypertarget{classTrie_a1028ddcc66a2c5c606269b4c8136da9e}\label{classTrie_a1028ddcc66a2c5c606269b4c8136da9e} 
+\index{Trie@{Trie}!operator+@{operator+}}
+\index{operator+@{operator+}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTrie}{Trie}} Trie\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Combines two Tries into a new \doxylink{classTrie}{Trie} containing all unique words. 
+
+This operator merges the current \doxylink{classTrie}{Trie} with another \doxylink{classTrie}{Trie} and returns a new \doxylink{classTrie}{Trie} that contains all unique words from both Tries.
+
+
+\begin{DoxyParams}{Parameters}
+{\em trie} & The \doxylink{classTrie}{Trie} to merge with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classTrie}{Trie} containing all unique words from both Tries. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
+\Hypertarget{classTrie_a22ccfa0315e46b7d05bc8e93b3139d74}\label{classTrie_a22ccfa0315e46b7d05bc8e93b3139d74} 
+\index{Trie@{Trie}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTrie}{Trie}} Trie\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new \doxylink{classTrie}{Trie} by removing words in the given \doxylink{classTrie}{Trie} from this \doxylink{classTrie}{Trie}. 
+
+This operator returns a new \doxylink{classTrie}{Trie} that contains only the words that are in the current \doxylink{classTrie}{Trie} but not in the given \doxylink{classTrie}{Trie}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em trie} & The \doxylink{classTrie}{Trie} whose words should be removed from this \doxylink{classTrie}{Trie}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classTrie}{Trie} containing only words unique to this \doxylink{classTrie}{Trie}. 
+\end{DoxyReturn}
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}

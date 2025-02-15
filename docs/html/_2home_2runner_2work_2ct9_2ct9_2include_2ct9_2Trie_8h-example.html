@@ -111,13 +111,13 @@ $(document).ready(function(){initNavTree('_2home_2runner_2work_2ct9_2ct9_2includ
 <div class="line"><span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;queue&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;unordered_set&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;utility&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"> </div>
 <div class="line"><span class="preprocessor">#ifdef UNIT_TEST</span></div>
-<div class="line"><span class="preprocessor">  #define PRIVATE public</span></div>
+<div class="line"><span class="preprocessor">#define PRIVATE public</span></div>
 <div class="line"><span class="preprocessor">#else</span></div>
-<div class="line"><span class="preprocessor">  #define PRIVATE private</span></div>
+<div class="line"><span class="preprocessor">#define PRIVATE private</span></div>
 <div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">class </span><a id="_a0" name="_a0"></a><a class="code hl_class" href="classTrie.html">Trie</a> final {</div>
@@ -134,11 +134,10 @@ $(document).ready(function(){initNavTree('_2home_2runner_2work_2ct9_2ct9_2includ
 <div class="line">    <span class="keywordtype">bool</span> end_of_word{<span class="keyword">false</span>};</div>
 <div class="line">  };</div>
 <div class="line"> </div>
-<div class="line">  PRIVATE:</div>
-<div class="line">    <span class="keyword">static</span> <span class="keywordtype">void</span> copyNodes(Node* dstRoot, <span class="keyword">const</span> Node* srcRoot);</div>
-<div class="line">    Node* root{<span class="keyword">nullptr</span>};</div>
+<div class="line">  PRIVATE : <span class="keyword">static</span> <span class="keywordtype">void</span> copyNodes(Node* dstRoot, <span class="keyword">const</span> Node* srcRoot);</div>
+<div class="line">  Node* root{<span class="keyword">nullptr</span>};</div>
 <div class="line"> </div>
-<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line"><span class="keyword">public</span>:</div>
 <div class="line">  <span class="keyword">const</span> Node* <a id="a5" name="a5"></a><a class="code hl_function" href="classTrie.html#afc2a318e8bf33eac6117fac128c5d37c">getRoot</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> root; }</div>
 <div class="line">  Node* <a class="code hl_function" href="classTrie.html#afc2a318e8bf33eac6117fac128c5d37c">getRoot</a>() { <span class="keywordflow">return</span> root; }</div>
 <div class="line">  <span class="keywordtype">void</span> setRoot(Node* root) { this-&gt;root = root; }</div>
@@ -152,20 +151,56 @@ $(document).ready(function(){initNavTree('_2home_2runner_2work_2ct9_2ct9_2includ
 <div class="line">  <a class="code hl_class" href="classTrie.html">Trie</a>&amp; <a id="a8" name="a8"></a><a class="code hl_function" href="classTrie.html#acadfba10d18faea0b83d94a91548cd27">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie);</div>
 <div class="line">  <a class="code hl_function" href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">Trie</a>(<a class="code hl_class" href="classTrie.html">Trie</a>&amp;&amp; trie) <span class="keyword">noexcept</span>;</div>
 <div class="line"> </div>
-<div class="line">  <a class="code hl_class" href="classTrie.html">Trie</a> operator+(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie) <span class="keyword">const</span>;</div>
-<div class="line">  <a class="code hl_class" href="classTrie.html">Trie</a> operator-(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie) <span class="keyword">const</span>;</div>
+<div class="line">  <a class="code hl_class" href="classTrie.html">Trie</a> <a id="a9" name="a9"></a><a class="code hl_function" href="classTrie.html#a1028ddcc66a2c5c606269b4c8136da9e">operator+</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie) <span class="keyword">const</span>;</div>
+<div class="line">  <a class="code hl_class" href="classTrie.html">Trie</a> <a id="a10" name="a10"></a><a class="code hl_function" href="classTrie.html#a22ccfa0315e46b7d05bc8e93b3139d74">operator-</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie) <span class="keyword">const</span>;</div>
 <div class="line"> </div>
 <div class="line">  <a class="code hl_class" href="classTrie.html">Trie</a>&amp; <a class="code hl_function" href="classTrie.html#acadfba10d18faea0b83d94a91548cd27">operator=</a>(<a class="code hl_class" href="classTrie.html">Trie</a>&amp;&amp; trie) <span class="keyword">noexcept</span>;</div>
-<div class="line">  <span class="keywordtype">void</span> <a id="a9" name="a9"></a><a class="code hl_function" href="classTrie.html#a286afcf0acdd84b189fe28016304cb00">del</a>(<span class="keyword">const</span> std::string&amp; text) <span class="keyword">const</span>;</div>
+<div class="line">  <span class="keywordtype">void</span> <a id="a11" name="a11"></a><a class="code hl_function" href="classTrie.html#a286afcf0acdd84b189fe28016304cb00">del</a>(<span class="keyword">const</span> std::string&amp; text) <span class="keyword">const</span>;</div>
 <div class="line">  std::string DEBUG(<span class="keyword">const</span> Node* node, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> level, <span class="keywordtype">int</span> parent_x, <span class="keywordtype">int</span> parent_y, <span class="keywordtype">char</span> letter) <span class="keyword">const</span>;</div>
-<div class="line">  [[nodiscard]] std::queue&lt;std::string&gt; <a id="a10" name="a10"></a><a class="code hl_function" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">autocomplete</a>(<span class="keyword">const</span> std::string&amp; prefix, <span class="keywordtype">size_t</span> count = INT_MAX) <span class="keyword">const</span>;</div>
+<div class="line">  [[nodiscard]] std::queue&lt;std::string&gt; <a id="a12" name="a12"></a><a class="code hl_function" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">autocomplete</a>(<span class="keyword">const</span> std::string&amp; prefix, <span class="keywordtype">size_t</span> count = INT_MAX) <span class="keyword">const</span>;</div>
 <div class="line"> </div>
-<div class="line">  <span class="keywordtype">void</span> <a id="a11" name="a11"></a><a class="code hl_function" href="classTrie.html#a82ded465e0c692fe9c783d471ed4f682">insert</a>(<span class="keyword">const</span> std::string&amp; text);</div>
+<div class="line">  <span class="keywordtype">void</span> <a id="a13" name="a13"></a><a class="code hl_function" href="classTrie.html#a82ded465e0c692fe9c783d471ed4f682">insert</a>(<span class="keyword">const</span> std::string&amp; text);</div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">inline</span> <a class="code hl_function" href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">Trie::Trie</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie) : root(new Node()) {</div>
-<div class="line">  copyNodes(root, trie.<a id="a12" name="a12"></a>root);</div>
+<div class="line"><span class="keyword">inline</span> <a class="code hl_class" href="classTrie.html">Trie</a> <a class="code hl_function" href="classTrie.html#a1028ddcc66a2c5c606269b4c8136da9e">Trie::operator+</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie)<span class="keyword"> const </span>{</div>
+<div class="line">  <a class="code hl_class" href="classTrie.html">Trie</a> new_trie;</div>
+<div class="line">  std::unordered_set&lt;std::string&gt; unique_words;</div>
+<div class="line"> </div>
+<div class="line">  std::queue&lt;std::string&gt; trie_words = trie.<a class="code hl_function" href="classTrie.html#afc2a318e8bf33eac6117fac128c5d37c">getRoot</a>()-&gt;<a class="code hl_function" href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">autocompleteNode</a>(<span class="stringliteral">&quot;&quot;</span>, INT_MAX);</div>
+<div class="line">  std::queue&lt;std::string&gt; this_words = this-&gt;root-&gt;<a class="code hl_function" href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">autocompleteNode</a>(<span class="stringliteral">&quot;&quot;</span>, INT_MAX);</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">while</span> (!trie_words.empty()) {</div>
+<div class="line">    unique_words.insert(trie_words.front());</div>
+<div class="line">    trie_words.pop();</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">while</span> (!this_words.empty()) {</div>
+<div class="line">    unique_words.insert(this_words.front());</div>
+<div class="line">    this_words.pop();</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">for</span> (<span class="keyword">const</span> std::string&amp; word : unique_words) {</div>
+<div class="line">    new_trie.<a class="code hl_function" href="classTrie.html#a82ded465e0c692fe9c783d471ed4f682">insert</a>(word);</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> new_trie;</div>
 <div class="line">}</div>
+<div class="line"><span class="keyword">inline</span> <a class="code hl_class" href="classTrie.html">Trie</a> <a class="code hl_function" href="classTrie.html#a22ccfa0315e46b7d05bc8e93b3139d74">Trie::operator-</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie)<span class="keyword"> const </span>{</div>
+<div class="line">  std::queue&lt;std::string&gt; trie_words = trie.<a class="code hl_function" href="classTrie.html#afc2a318e8bf33eac6117fac128c5d37c">getRoot</a>()-&gt;<a class="code hl_function" href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">autocompleteNode</a>(<span class="stringliteral">&quot;&quot;</span>, INT_MAX);</div>
+<div class="line">  <a class="code hl_class" href="classTrie.html">Trie</a> new_trie(*<span class="keyword">this</span>);</div>
+<div class="line">  </div>
+<div class="line">  <span class="keywordflow">while</span> (!trie_words.empty()) {</div>
+<div class="line">    std::string word = trie_words.front();</div>
+<div class="line">    trie_words.pop();</div>
+<div class="line">    new_trie.<a class="code hl_function" href="classTrie.html#a286afcf0acdd84b189fe28016304cb00">del</a>(word);</div>
+<div class="line">  }</div>
+<div class="line">  </div>
+<div class="line">  <span class="keywordflow">return</span> new_trie;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">inline</span> <a class="code hl_function" href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">Trie::Trie</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie) : root(new Node()) { copyNodes(root, trie.<a id="a14" name="a14"></a>root); }</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">inline</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; <a class="code hl_function" href="classTrie.html#acadfba10d18faea0b83d94a91548cd27">Trie::operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie) {</div>
 <div class="line">  <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;trie) {</div>
@@ -182,16 +217,14 @@ $(document).ready(function(){initNavTree('_2home_2runner_2work_2ct9_2ct9_2includ
 <div class="line"><span class="keyword">inline</span> <a class="code hl_function" href="structTrie_1_1Node.html#aeb43ae0f05e236bdaac77ea555fe280c">Trie::Node::Node</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">inline</span> <a class="code hl_function" href="structTrie_1_1Node.html#a3962f09c5a788d10c1a4e51d565b4d94">Trie::Node::~Node</a>() {</div>
-<div class="line">  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp; [key, value] : children) {</div>
+<div class="line">  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [key, value] : children) {</div>
 <div class="line">    <span class="keyword">delete</span> value;</div>
 <div class="line">  }</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">inline</span> <a class="code hl_function" href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">Trie::Trie</a>() : root(new Node()) {}</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">inline</span> <a class="code hl_function" href="classTrie.html#abf9d6f48d556e09d1b292412df153a4b">Trie::~Trie</a>() {</div>
-<div class="line">  <span class="keyword">delete</span> root;</div>
-<div class="line">}</div>
+<div class="line"><span class="keyword">inline</span> <a class="code hl_function" href="classTrie.html#abf9d6f48d556e09d1b292412df153a4b">Trie::~Trie</a>() { <span class="keyword">delete</span> root; }</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">inline</span> <span class="keywordtype">void</span> Trie::copyNodes(Node* dstRoot, <span class="keyword">const</span> Node* srcRoot) {</div>
 <div class="line">  dstRoot-&gt;clearNode();</div>
@@ -223,12 +256,16 @@ $(document).ready(function(){initNavTree('_2home_2runner_2work_2ct9_2ct9_2includ
 <div class="line"> </div>
 <div class="line"><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTrie.html#a286afcf0acdd84b189fe28016304cb00">Trie::del</a>(<span class="keyword">const</span> std::string&amp; word)<span class="keyword"> const </span>{</div>
 <div class="line">  <span class="keywordtype">bool</span> is_word = this-&gt;<a class="code hl_function" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">autocomplete</a>(word, 1).size() == 1;</div>
-<div class="line">  <span class="keywordflow">if</span> (!is_word) {<span class="keywordflow">return</span>;}</div>
+<div class="line">  <span class="keywordflow">if</span> (!is_word) {</div>
+<div class="line">    <span class="keywordflow">return</span>;</div>
+<div class="line">  }</div>
 <div class="line">  Node* tmp = root;</div>
 <div class="line">  std::vector&lt;Node*&gt; path;</div>
 <div class="line">  <span class="keywordflow">for</span> (<span class="keywordtype">char</span> c : word) {</div>
 <div class="line">    path.push_back(tmp);</div>
-<div class="line">    <span class="keywordflow">if</span> (tmp-&gt;children.find(c) == tmp-&gt;children.end()) {<span class="keywordflow">return</span>;}</div>
+<div class="line">    <span class="keywordflow">if</span> (tmp-&gt;children.find(c) == tmp-&gt;children.end()) {</div>
+<div class="line">      <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
 <div class="line">    tmp = tmp-&gt;children[c];</div>
 <div class="line">  }</div>
 <div class="line"> </div>
@@ -254,9 +291,7 @@ $(document).ready(function(){initNavTree('_2home_2runner_2work_2ct9_2ct9_2includ
 <div class="line">  children.clear();</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">inline</span> <a class="code hl_function" href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">Trie::Trie</a>(<span class="keyword">const</span> std::string&amp; str) : root(new Node()){</div>
-<div class="line">  this-&gt;insert(str);</div>
-<div class="line">}</div>
+<div class="line"><span class="keyword">inline</span> <a class="code hl_function" href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">Trie::Trie</a>(<span class="keyword">const</span> std::string&amp; str) : root(new Node()) { this-&gt;insert(str); }</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">inline</span> <a class="code hl_function" href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">Trie::Trie</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; vec_str) : root(new Node()) {</div>
 <div class="line">  <span class="keywordflow">for</span> (<span class="keyword">const</span> std::string&amp; word : vec_str) {</div>
@@ -265,10 +300,10 @@ $(document).ready(function(){initNavTree('_2home_2runner_2work_2ct9_2ct9_2includ
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">inline</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; <a class="code hl_function" href="classTrie.html#acadfba10d18faea0b83d94a91548cd27">Trie::operator=</a>(<a class="code hl_class" href="classTrie.html">Trie</a>&amp;&amp; trie) <span class="keyword">noexcept</span> {</div>
-<div class="line">  <span class="keywordflow">if</span>(<span class="keyword">this</span> != &amp;trie) {</div>
+<div class="line">  <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;trie) {</div>
 <div class="line">    <span class="keyword">delete</span> root;</div>
 <div class="line">    root = trie.<a class="code hl_function" href="classTrie.html#afc2a318e8bf33eac6117fac128c5d37c">getRoot</a>();</div>
-<div class="line">    trie.<a id="a13" name="a13"></a>setRoot(<span class="keyword">nullptr</span>);</div>
+<div class="line">    trie.<a id="a15" name="a15"></a>setRoot(<span class="keyword">nullptr</span>);</div>
 <div class="line">  }</div>
 <div class="line">  <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line">}</div>
@@ -284,21 +319,28 @@ $(document).ready(function(){initNavTree('_2home_2runner_2work_2ct9_2ct9_2includ
 <div class="line">  <span class="keywordflow">return</span> tmp_node-&gt;autocompleteNode(prefix, count);</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line">[[nodiscard]] <span class="keyword">inline</span> std::queue&lt;std::string&gt; <a class="code hl_function" href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">Trie::Node::autocompleteNode</a>(<span class="keyword">const</span> std::string&amp; prefix, <span class="keyword">const</span> <span class="keywordtype">size_t</span> count)<span class="keyword"> const </span>{</div>
+<div class="line">[[nodiscard]] <span class="keyword">inline</span> std::queue&lt;std::string&gt; <a class="code hl_function" href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">Trie::Node::autocompleteNode</a>(<span class="keyword">const</span> std::string&amp; prefix,</div>
+<div class="line">                                                                          <span class="keyword">const</span> <span class="keywordtype">size_t</span> count)<span class="keyword"> const </span>{</div>
 <div class="line">  std::queue&lt;std::string&gt; results;</div>
 <div class="line">  std::string current = prefix;</div>
 <div class="line"> </div>
 <div class="line">  std::function&lt;bool(<span class="keyword">const</span> <a class="code hl_function" href="structTrie_1_1Node.html#aeb43ae0f05e236bdaac77ea555fe280c">Node</a>*)&gt; dfs = [&amp;](<span class="keyword">const</span> <a class="code hl_function" href="structTrie_1_1Node.html#aeb43ae0f05e236bdaac77ea555fe280c">Node</a>* node) -&gt; <span class="keywordtype">bool</span> {</div>
-<div class="line">    <span class="keywordflow">if</span> (results.size() &gt;= count) {<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
+<div class="line">    <span class="keywordflow">if</span> (results.size() &gt;= count) {</div>
+<div class="line">      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">if</span> (node-&gt;end_of_word) {</div>
 <div class="line">      results.push(current);</div>
-<div class="line">      <span class="keywordflow">if</span> (results.size() &gt;= count) {<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
+<div class="line">      <span class="keywordflow">if</span> (results.size() &gt;= count) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">      }</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [key, child] : node-&gt;children) {</div>
 <div class="line">      current.push_back(key);</div>
-<div class="line">      <span class="keywordflow">if</span> (dfs(child)) {<span class="keywordflow">return</span> <span class="keyword">true</span>;}</div>
+<div class="line">      <span class="keywordflow">if</span> (dfs(child)) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">      }</div>
 <div class="line">      current.pop_back();</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -308,9 +350,7 @@ $(document).ready(function(){initNavTree('_2home_2runner_2work_2ct9_2ct9_2includ
 <div class="line">  <span class="keywordflow">return</span> results;</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTrie.html#a82ded465e0c692fe9c783d471ed4f682">Trie::insert</a>(<span class="keyword">const</span> std::string&amp; text) {</div>
-<div class="line">  root-&gt;<a class="code hl_function" href="structTrie_1_1Node.html#a196db9af06d50509138b7c67c5aa7082">insert</a>(text, 0, root);</div>
-<div class="line">}</div>
+<div class="line"><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTrie.html#a82ded465e0c692fe9c783d471ed4f682">Trie::insert</a>(<span class="keyword">const</span> std::string&amp; text) { root-&gt;<a class="code hl_function" href="structTrie_1_1Node.html#a196db9af06d50509138b7c67c5aa7082">insert</a>(text, 0, root); }</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structTrie_1_1Node.html#a196db9af06d50509138b7c67c5aa7082">Trie::Node::insert</a>(<span class="keyword">const</span> std::string&amp; text, <span class="keyword">const</span> <span class="keywordtype">size_t</span> index, Node* root) {</div>
 <div class="line">  <span class="keywordflow">if</span> (index == text.size()) {</div>
@@ -330,18 +370,19 @@ $(document).ready(function(){initNavTree('_2home_2runner_2work_2ct9_2ct9_2includ
 <div class="line">    children[text[index]]-&gt;insert(text, index + 1, root);</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-<div class="line"> </div>
 <div class="ttc" id="aclassTrie_html"><div class="ttname"><a href="classTrie.html">Trie</a></div><div class="ttdef"><b>Definition</b> Trie.h:17</div></div>
-<div class="ttc" id="aclassTrie_html_a286afcf0acdd84b189fe28016304cb00"><div class="ttname"><a href="classTrie.html#a286afcf0acdd84b189fe28016304cb00">Trie::del</a></div><div class="ttdeci">void del(const std::string &amp;text) const</div><div class="ttdoc">Deletes a word from the Trie.</div><div class="ttdef"><b>Definition</b> Trie.h:174</div></div>
-<div class="ttc" id="aclassTrie_html_a618ef49a48291bcf6184710e38398a4d"><div class="ttname"><a href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">Trie::autocomplete</a></div><div class="ttdeci">std::queue&lt; std::string &gt; autocomplete(const std::string &amp;prefix, size_t count=INT_MAX) const</div><div class="ttdoc">Provides autocomplete suggestions based on the given prefix.</div><div class="ttdef"><b>Definition</b> Trie.h:255</div></div>
-<div class="ttc" id="aclassTrie_html_a6af57e9f25d0d0a2d59eea5a4a802908"><div class="ttname"><a href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">Trie::Trie</a></div><div class="ttdeci">Trie()</div><div class="ttdoc">Basic Trie constructor. Creating new root node.</div><div class="ttdef"><b>Definition</b> Trie.h:111</div></div>
-<div class="ttc" id="aclassTrie_html_a82ded465e0c692fe9c783d471ed4f682"><div class="ttname"><a href="classTrie.html#a82ded465e0c692fe9c783d471ed4f682">Trie::insert</a></div><div class="ttdeci">void insert(const std::string &amp;text)</div><div class="ttdoc">Inserts a word into the trie.</div><div class="ttdef"><b>Definition</b> Trie.h:315</div></div>
-<div class="ttc" id="aclassTrie_html_abf9d6f48d556e09d1b292412df153a4b"><div class="ttname"><a href="classTrie.html#abf9d6f48d556e09d1b292412df153a4b">Trie::~Trie</a></div><div class="ttdeci">~Trie()</div><div class="ttdoc">Basic Trie destructor. Deletes root node.</div><div class="ttdef"><b>Definition</b> Trie.h:117</div></div>
-<div class="ttc" id="aclassTrie_html_acadfba10d18faea0b83d94a91548cd27"><div class="ttname"><a href="classTrie.html#acadfba10d18faea0b83d94a91548cd27">Trie::operator=</a></div><div class="ttdeci">Trie &amp; operator=(const Trie &amp;trie)</div><div class="ttdoc">Assignment operator.</div><div class="ttdef"><b>Definition</b> Trie.h:75</div></div>
-<div class="ttc" id="aclassTrie_html_afc2a318e8bf33eac6117fac128c5d37c"><div class="ttname"><a href="classTrie.html#afc2a318e8bf33eac6117fac128c5d37c">Trie::getRoot</a></div><div class="ttdeci">const Node * getRoot() const</div><div class="ttdoc">Functions for testing.</div><div class="ttdef"><b>Definition</b> Trie.h:37</div></div>
-<div class="ttc" id="astructTrie_1_1Node_html_a196db9af06d50509138b7c67c5aa7082"><div class="ttname"><a href="structTrie_1_1Node.html#a196db9af06d50509138b7c67c5aa7082">Trie::Node::insert</a></div><div class="ttdeci">void insert(const std::string &amp;text, size_t index, Node *root)</div><div class="ttdoc">Recursively inserts characters of the string into the trie.</div><div class="ttdef"><b>Definition</b> Trie.h:329</div></div>
-<div class="ttc" id="astructTrie_1_1Node_html_a3962f09c5a788d10c1a4e51d565b4d94"><div class="ttname"><a href="structTrie_1_1Node.html#a3962f09c5a788d10c1a4e51d565b4d94">Trie::Node::~Node</a></div><div class="ttdeci">~Node()</div><div class="ttdoc">Node destructor. Deletes all nodes.</div><div class="ttdef"><b>Definition</b> Trie.h:101</div></div>
-<div class="ttc" id="astructTrie_1_1Node_html_a7b355369a59c8d69901736bfdd88b007"><div class="ttname"><a href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">Trie::Node::autocompleteNode</a></div><div class="ttdeci">std::queue&lt; std::string &gt; autocompleteNode(const std::string &amp;prefix, size_t count) const</div><div class="ttdoc">Retrieves autocomplete suggestions starting with a specified prefix.</div><div class="ttdef"><b>Definition</b> Trie.h:283</div></div>
+<div class="ttc" id="aclassTrie_html_a1028ddcc66a2c5c606269b4c8136da9e"><div class="ttname"><a href="classTrie.html#a1028ddcc66a2c5c606269b4c8136da9e">Trie::operator+</a></div><div class="ttdeci">Trie operator+(const Trie &amp;trie) const</div><div class="ttdoc">Combines two Tries into a new Trie containing all unique words.</div><div class="ttdef"><b>Definition</b> Trie.h:70</div></div>
+<div class="ttc" id="aclassTrie_html_a22ccfa0315e46b7d05bc8e93b3139d74"><div class="ttname"><a href="classTrie.html#a22ccfa0315e46b7d05bc8e93b3139d74">Trie::operator-</a></div><div class="ttdeci">Trie operator-(const Trie &amp;trie) const</div><div class="ttdoc">Creates a new Trie by removing words in the given Trie from this Trie.</div><div class="ttdef"><b>Definition</b> Trie.h:102</div></div>
+<div class="ttc" id="aclassTrie_html_a286afcf0acdd84b189fe28016304cb00"><div class="ttname"><a href="classTrie.html#a286afcf0acdd84b189fe28016304cb00">Trie::del</a></div><div class="ttdeci">void del(const std::string &amp;text) const</div><div class="ttdoc">Deletes a word from the Trie.</div><div class="ttdef"><b>Definition</b> Trie.h:225</div></div>
+<div class="ttc" id="aclassTrie_html_a618ef49a48291bcf6184710e38398a4d"><div class="ttname"><a href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">Trie::autocomplete</a></div><div class="ttdeci">std::queue&lt; std::string &gt; autocomplete(const std::string &amp;prefix, size_t count=INT_MAX) const</div><div class="ttdoc">Provides autocomplete suggestions based on the given prefix.</div><div class="ttdef"><b>Definition</b> Trie.h:308</div></div>
+<div class="ttc" id="aclassTrie_html_a6af57e9f25d0d0a2d59eea5a4a802908"><div class="ttname"><a href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">Trie::Trie</a></div><div class="ttdeci">Trie()</div><div class="ttdoc">Basic Trie constructor. Creating new root node.</div><div class="ttdef"><b>Definition</b> Trie.h:164</div></div>
+<div class="ttc" id="aclassTrie_html_a82ded465e0c692fe9c783d471ed4f682"><div class="ttname"><a href="classTrie.html#a82ded465e0c692fe9c783d471ed4f682">Trie::insert</a></div><div class="ttdeci">void insert(const std::string &amp;text)</div><div class="ttdoc">Inserts a word into the trie.</div><div class="ttdef"><b>Definition</b> Trie.h:375</div></div>
+<div class="ttc" id="aclassTrie_html_abf9d6f48d556e09d1b292412df153a4b"><div class="ttname"><a href="classTrie.html#abf9d6f48d556e09d1b292412df153a4b">Trie::~Trie</a></div><div class="ttdeci">~Trie()</div><div class="ttdoc">Basic Trie destructor. Deletes root node.</div><div class="ttdef"><b>Definition</b> Trie.h:170</div></div>
+<div class="ttc" id="aclassTrie_html_acadfba10d18faea0b83d94a91548cd27"><div class="ttname"><a href="classTrie.html#acadfba10d18faea0b83d94a91548cd27">Trie::operator=</a></div><div class="ttdeci">Trie &amp; operator=(const Trie &amp;trie)</div><div class="ttdoc">Assignment operator.</div><div class="ttdef"><b>Definition</b> Trie.h:128</div></div>
+<div class="ttc" id="aclassTrie_html_afc2a318e8bf33eac6117fac128c5d37c"><div class="ttname"><a href="classTrie.html#afc2a318e8bf33eac6117fac128c5d37c">Trie::getRoot</a></div><div class="ttdeci">const Node * getRoot() const</div><div class="ttdoc">Functions for testing.</div><div class="ttdef"><b>Definition</b> Trie.h:36</div></div>
+<div class="ttc" id="astructTrie_1_1Node_html_a196db9af06d50509138b7c67c5aa7082"><div class="ttname"><a href="structTrie_1_1Node.html#a196db9af06d50509138b7c67c5aa7082">Trie::Node::insert</a></div><div class="ttdeci">void insert(const std::string &amp;text, size_t index, Node *root)</div><div class="ttdoc">Recursively inserts characters of the string into the trie.</div><div class="ttdef"><b>Definition</b> Trie.h:387</div></div>
+<div class="ttc" id="astructTrie_1_1Node_html_a3962f09c5a788d10c1a4e51d565b4d94"><div class="ttname"><a href="structTrie_1_1Node.html#a3962f09c5a788d10c1a4e51d565b4d94">Trie::Node::~Node</a></div><div class="ttdeci">~Node()</div><div class="ttdoc">Node destructor. Deletes all nodes.</div><div class="ttdef"><b>Definition</b> Trie.h:154</div></div>
+<div class="ttc" id="astructTrie_1_1Node_html_a7b355369a59c8d69901736bfdd88b007"><div class="ttname"><a href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">Trie::Node::autocompleteNode</a></div><div class="ttdeci">std::queue&lt; std::string &gt; autocompleteNode(const std::string &amp;prefix, size_t count) const</div><div class="ttdoc">Retrieves autocomplete suggestions starting with a specified prefix.</div><div class="ttdef"><b>Definition</b> Trie.h:336</div></div>
 <div class="ttc" id="astructTrie_1_1Node_html_aeb43ae0f05e236bdaac77ea555fe280c"><div class="ttname"><a href="structTrie_1_1Node.html#aeb43ae0f05e236bdaac77ea555fe280c">Trie::Node::Node</a></div><div class="ttdeci">Node()</div><div class="ttdoc">Basic Node constructor.</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->

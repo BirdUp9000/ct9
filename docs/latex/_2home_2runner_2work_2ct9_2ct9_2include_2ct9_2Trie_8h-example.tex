@@ -20,13 +20,13 @@ Node\texorpdfstring{$\ast$}{*} root = new Node(); root-\/\texorpdfstring{$>$}{>}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <memory>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <queue>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <unordered\_set>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <utility>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{preprocessor}{\#ifdef\ UNIT\_TEST}}
-\DoxyCodeLine{\textcolor{preprocessor}{\ \ \#define\ PRIVATE\ public}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ PRIVATE\ public}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{\textcolor{preprocessor}{\ \ \#define\ PRIVATE\ private}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ PRIVATE\ private}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{class\ }\mbox{\hyperlink{classTrie}{Trie}}\ final\ \{}
@@ -43,11 +43,10 @@ Node\texorpdfstring{$\ast$}{*} root = new Node(); root-\/\texorpdfstring{$>$}{>}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{bool}\ end\_of\_word\{\textcolor{keyword}{false}\};}
 \DoxyCodeLine{\ \ \};}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ PRIVATE:}
-\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ copyNodes(Node*\ dstRoot,\ \textcolor{keyword}{const}\ Node*\ srcRoot);}
-\DoxyCodeLine{\ \ \ \ Node*\ root\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{\ \ PRIVATE\ :\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ copyNodes(Node*\ dstRoot,\ \textcolor{keyword}{const}\ Node*\ srcRoot);}
+\DoxyCodeLine{\ \ Node*\ root\{\textcolor{keyword}{nullptr}\};}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
 \DoxyCodeLine{\ \ \textcolor{keyword}{const}\ Node*\ \mbox{\hyperlink{classTrie_afc2a318e8bf33eac6117fac128c5d37c}{getRoot}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ root;\ \}}
 \DoxyCodeLine{\ \ Node*\ \mbox{\hyperlink{classTrie_afc2a318e8bf33eac6117fac128c5d37c}{getRoot}}()\ \{\ \textcolor{keywordflow}{return}\ root;\ \}}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{void}\ setRoot(Node*\ root)\ \{\ this-\/>root\ =\ root;\ \}}
@@ -61,8 +60,8 @@ Node\texorpdfstring{$\ast$}{*} root = new Node(); root-\/\texorpdfstring{$>$}{>}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classTrie}{Trie}}\&\ \mbox{\hyperlink{classTrie_acadfba10d18faea0b83d94a91548cd27}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie);}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classTrie_a6af57e9f25d0d0a2d59eea5a4a802908}{Trie}}(\mbox{\hyperlink{classTrie}{Trie}}\&\&\ trie)\ \textcolor{keyword}{noexcept};}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{classTrie}{Trie}}\ operator+(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{classTrie}{Trie}}\ operator-\/(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classTrie}{Trie}}\ \mbox{\hyperlink{classTrie_a1028ddcc66a2c5c606269b4c8136da9e}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classTrie}{Trie}}\ \mbox{\hyperlink{classTrie_a22ccfa0315e46b7d05bc8e93b3139d74}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\ \textcolor{keyword}{const};}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classTrie}{Trie}}\&\ \mbox{\hyperlink{classTrie_acadfba10d18faea0b83d94a91548cd27}{operator=}}(\mbox{\hyperlink{classTrie}{Trie}}\&\&\ trie)\ \textcolor{keyword}{noexcept};}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTrie_a286afcf0acdd84b189fe28016304cb00}{del}}(\textcolor{keyword}{const}\ std::string\&\ text)\ \textcolor{keyword}{const};}
@@ -72,9 +71,45 @@ Node\texorpdfstring{$\ast$}{*} root = new Node(); root-\/\texorpdfstring{$>$}{>}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTrie_a82ded465e0c692fe9c783d471ed4f682}{insert}}(\textcolor{keyword}{const}\ std::string\&\ text);}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keyword}{inline}\ \mbox{\hyperlink{classTrie_a6af57e9f25d0d0a2d59eea5a4a802908}{Trie::Trie}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\ :\ root(new\ Node())\ \{}
-\DoxyCodeLine{\ \ copyNodes(root,\ trie.root);}
+\DoxyCodeLine{\textcolor{keyword}{inline}\ \mbox{\hyperlink{classTrie}{Trie}}\ \mbox{\hyperlink{classTrie_a1028ddcc66a2c5c606269b4c8136da9e}{Trie::operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classTrie}{Trie}}\ new\_trie;}
+\DoxyCodeLine{\ \ std::unordered\_set<std::string>\ unique\_words;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ std::queue<std::string>\ trie\_words\ =\ trie.\mbox{\hyperlink{classTrie_afc2a318e8bf33eac6117fac128c5d37c}{getRoot}}()-\/>\mbox{\hyperlink{structTrie_1_1Node_a7b355369a59c8d69901736bfdd88b007}{autocompleteNode}}(\textcolor{stringliteral}{"{}"{}},\ INT\_MAX);}
+\DoxyCodeLine{\ \ std::queue<std::string>\ this\_words\ =\ this-\/>root-\/>\mbox{\hyperlink{structTrie_1_1Node_a7b355369a59c8d69901736bfdd88b007}{autocompleteNode}}(\textcolor{stringliteral}{"{}"{}},\ INT\_MAX);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{while}\ (!trie\_words.empty())\ \{}
+\DoxyCodeLine{\ \ \ \ unique\_words.insert(trie\_words.front());}
+\DoxyCodeLine{\ \ \ \ trie\_words.pop();}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{while}\ (!this\_words.empty())\ \{}
+\DoxyCodeLine{\ \ \ \ unique\_words.insert(this\_words.front());}
+\DoxyCodeLine{\ \ \ \ this\_words.pop();}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ std::string\&\ word\ :\ unique\_words)\ \{}
+\DoxyCodeLine{\ \ \ \ new\_trie.\mbox{\hyperlink{classTrie_a82ded465e0c692fe9c783d471ed4f682}{insert}}(word);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ new\_trie;}
 \DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{keyword}{inline}\ \mbox{\hyperlink{classTrie}{Trie}}\ \mbox{\hyperlink{classTrie_a22ccfa0315e46b7d05bc8e93b3139d74}{Trie::operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\ \ std::queue<std::string>\ trie\_words\ =\ trie.\mbox{\hyperlink{classTrie_afc2a318e8bf33eac6117fac128c5d37c}{getRoot}}()-\/>\mbox{\hyperlink{structTrie_1_1Node_a7b355369a59c8d69901736bfdd88b007}{autocompleteNode}}(\textcolor{stringliteral}{"{}"{}},\ INT\_MAX);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classTrie}{Trie}}\ new\_trie(*\textcolor{keyword}{this});}
+\DoxyCodeLine{\ \ }
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{while}\ (!trie\_words.empty())\ \{}
+\DoxyCodeLine{\ \ \ \ std::string\ word\ =\ trie\_words.front();}
+\DoxyCodeLine{\ \ \ \ trie\_words.pop();}
+\DoxyCodeLine{\ \ \ \ new\_trie.\mbox{\hyperlink{classTrie_a286afcf0acdd84b189fe28016304cb00}{del}}(word);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ }
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ new\_trie;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{inline}\ \mbox{\hyperlink{classTrie_a6af57e9f25d0d0a2d59eea5a4a802908}{Trie::Trie}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\ :\ root(new\ Node())\ \{\ copyNodes(root,\ trie.root);\ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{inline}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ \mbox{\hyperlink{classTrie_acadfba10d18faea0b83d94a91548cd27}{Trie::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\ \{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&trie)\ \{}
@@ -91,16 +126,14 @@ Node\texorpdfstring{$\ast$}{*} root = new Node(); root-\/\texorpdfstring{$>$}{>}
 \DoxyCodeLine{\textcolor{keyword}{inline}\ \mbox{\hyperlink{structTrie_1_1Node_aeb43ae0f05e236bdaac77ea555fe280c}{Trie::Node::Node}}()\ =\ \textcolor{keywordflow}{default};}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{inline}\ \mbox{\hyperlink{structTrie_1_1Node_a3962f09c5a788d10c1a4e51d565b4d94}{Trie::Node::\string~Node}}()\ \{}
-\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&\ [key,\ value]\ :\ children)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ [key,\ value]\ :\ children)\ \{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keyword}{delete}\ value;}
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{inline}\ \mbox{\hyperlink{classTrie_a6af57e9f25d0d0a2d59eea5a4a802908}{Trie::Trie}}()\ :\ root(new\ Node())\ \{\}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keyword}{inline}\ \mbox{\hyperlink{classTrie_abf9d6f48d556e09d1b292412df153a4b}{Trie::\string~Trie}}()\ \{}
-\DoxyCodeLine{\ \ \textcolor{keyword}{delete}\ root;}
-\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{keyword}{inline}\ \mbox{\hyperlink{classTrie_abf9d6f48d556e09d1b292412df153a4b}{Trie::\string~Trie}}()\ \{\ \textcolor{keyword}{delete}\ root;\ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ Trie::copyNodes(Node*\ dstRoot,\ \textcolor{keyword}{const}\ Node*\ srcRoot)\ \{}
 \DoxyCodeLine{\ \ dstRoot-\/>clearNode();}
@@ -132,12 +165,16 @@ Node\texorpdfstring{$\ast$}{*} root = new Node(); root-\/\texorpdfstring{$>$}{>}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTrie_a286afcf0acdd84b189fe28016304cb00}{Trie::del}}(\textcolor{keyword}{const}\ std::string\&\ word)\textcolor{keyword}{\ const\ }\{}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{bool}\ is\_word\ =\ this-\/>\mbox{\hyperlink{classTrie_a618ef49a48291bcf6184710e38398a4d}{autocomplete}}(word,\ 1).size()\ ==\ 1;}
-\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!is\_word)\ \{\textcolor{keywordflow}{return};\}}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!is\_word)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{\ \ Node*\ tmp\ =\ root;}
 \DoxyCodeLine{\ \ std::vector<Node*>\ path;}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{char}\ c\ :\ word)\ \{}
 \DoxyCodeLine{\ \ \ \ path.push\_back(tmp);}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (tmp-\/>children.find(c)\ ==\ tmp-\/>children.end())\ \{\textcolor{keywordflow}{return};\}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (tmp-\/>children.find(c)\ ==\ tmp-\/>children.end())\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ tmp\ =\ tmp-\/>children[c];}
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{}
@@ -163,9 +200,7 @@ Node\texorpdfstring{$\ast$}{*} root = new Node(); root-\/\texorpdfstring{$>$}{>}
 \DoxyCodeLine{\ \ children.clear();}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keyword}{inline}\ \mbox{\hyperlink{classTrie_a6af57e9f25d0d0a2d59eea5a4a802908}{Trie::Trie}}(\textcolor{keyword}{const}\ std::string\&\ str)\ :\ root(new\ Node())\{}
-\DoxyCodeLine{\ \ this-\/>insert(str);}
-\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{keyword}{inline}\ \mbox{\hyperlink{classTrie_a6af57e9f25d0d0a2d59eea5a4a802908}{Trie::Trie}}(\textcolor{keyword}{const}\ std::string\&\ str)\ :\ root(new\ Node())\ \{\ this-\/>insert(str);\ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{inline}\ \mbox{\hyperlink{classTrie_a6af57e9f25d0d0a2d59eea5a4a802908}{Trie::Trie}}(\textcolor{keyword}{const}\ std::vector<std::string>\&\ vec\_str)\ :\ root(new\ Node())\ \{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ std::string\&\ word\ :\ vec\_str)\ \{}
@@ -174,7 +209,7 @@ Node\texorpdfstring{$\ast$}{*} root = new Node(); root-\/\texorpdfstring{$>$}{>}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{inline}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ \mbox{\hyperlink{classTrie_acadfba10d18faea0b83d94a91548cd27}{Trie::operator=}}(\mbox{\hyperlink{classTrie}{Trie}}\&\&\ trie)\ \textcolor{keyword}{noexcept}\ \{}
-\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}(\textcolor{keyword}{this}\ !=\ \&trie)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ !=\ \&trie)\ \{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keyword}{delete}\ root;}
 \DoxyCodeLine{\ \ \ \ root\ =\ trie.\mbox{\hyperlink{classTrie_afc2a318e8bf33eac6117fac128c5d37c}{getRoot}}();}
 \DoxyCodeLine{\ \ \ \ trie.setRoot(\textcolor{keyword}{nullptr});}
@@ -193,21 +228,28 @@ Node\texorpdfstring{$\ast$}{*} root = new Node(); root-\/\texorpdfstring{$>$}{>}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ tmp\_node-\/>autocompleteNode(prefix,\ count);}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
-\DoxyCodeLine{[[nodiscard]]\ \textcolor{keyword}{inline}\ std::queue<std::string>\ \mbox{\hyperlink{structTrie_1_1Node_a7b355369a59c8d69901736bfdd88b007}{Trie::Node::autocompleteNode}}(\textcolor{keyword}{const}\ std::string\&\ prefix,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ count)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{[[nodiscard]]\ \textcolor{keyword}{inline}\ std::queue<std::string>\ \mbox{\hyperlink{structTrie_1_1Node_a7b355369a59c8d69901736bfdd88b007}{Trie::Node::autocompleteNode}}(\textcolor{keyword}{const}\ std::string\&\ prefix,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ count)\textcolor{keyword}{\ const\ }\{}
 \DoxyCodeLine{\ \ std::queue<std::string>\ results;}
 \DoxyCodeLine{\ \ std::string\ current\ =\ prefix;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ std::function<bool(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTrie_1_1Node_aeb43ae0f05e236bdaac77ea555fe280c}{Node}}*)>\ dfs\ =\ [\&](\textcolor{keyword}{const}\ \mbox{\hyperlink{structTrie_1_1Node_aeb43ae0f05e236bdaac77ea555fe280c}{Node}}*\ node)\ -\/>\ \textcolor{keywordtype}{bool}\ \{}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (results.size()\ >=\ count)\ \{\textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (results.size()\ >=\ count)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (node-\/>end\_of\_word)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ results.push(current);}
-\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{if}\ (results.size()\ >=\ count)\ \{\textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\}}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{if}\ (results.size()\ >=\ count)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ [key,\ child]\ :\ node-\/>children)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ current.push\_back(key);}
-\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dfs(child))\ \{\textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\}}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dfs(child))\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ current.pop\_back();}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
@@ -217,9 +259,7 @@ Node\texorpdfstring{$\ast$}{*} root = new Node(); root-\/\texorpdfstring{$>$}{>}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ results;}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTrie_a82ded465e0c692fe9c783d471ed4f682}{Trie::insert}}(\textcolor{keyword}{const}\ std::string\&\ text)\ \{}
-\DoxyCodeLine{\ \ root-\/>\mbox{\hyperlink{structTrie_1_1Node_a196db9af06d50509138b7c67c5aa7082}{insert}}(text,\ 0,\ root);}
-\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTrie_a82ded465e0c692fe9c783d471ed4f682}{Trie::insert}}(\textcolor{keyword}{const}\ std::string\&\ text)\ \{\ root-\/>\mbox{\hyperlink{structTrie_1_1Node_a196db9af06d50509138b7c67c5aa7082}{insert}}(text,\ 0,\ root);\ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structTrie_1_1Node_a196db9af06d50509138b7c67c5aa7082}{Trie::Node::insert}}(\textcolor{keyword}{const}\ std::string\&\ text,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ index,\ Node*\ root)\ \{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (index\ ==\ text.size())\ \{}
@@ -239,7 +279,6 @@ Node\texorpdfstring{$\ast$}{*} root = new Node(); root-\/\texorpdfstring{$>$}{>}
 \DoxyCodeLine{\ \ \ \ children[text[index]]-\/>insert(text,\ index\ +\ 1,\ root);}
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{\}}
-\DoxyCodeLine{}
 
 \end{DoxyCodeInclude}
  
