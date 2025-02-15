@@ -26,13 +26,13 @@ jobs:
             clang-tidy \
             clang-format \
             doxygen \
-            graphviz \
             xorg-dev
 
       - name: Configure (CMake)
         run: |
           cmake -B build -S . \
             -DCMAKE_BUILD_TYPE=Develop \
+            -DBUILD_GUI=ON \
             -G "Unix Makefiles"
 
       - name: Build

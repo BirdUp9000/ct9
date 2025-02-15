@@ -160,6 +160,7 @@ int main() {
   XUnmapWindow(dpy, win);
   XDestroyWindow(dpy, win);
   XCloseDisplay(dpy);
+
 #else
 #define MAX_SUGGESTIONS 5
 
