@@ -10,21 +10,6 @@ project(ct9 VERSION 0.0.0
 )
 
 # ------------------------------------------------------------------
-# Ensure we're on Linux
-# ------------------------------------------------------------------
-if(NOT CMAKE_SYSTEM_NAME STREQUAL "Linux")
-    message(FATAL_ERROR "This project can only be built on Linux!")
-endif()
-
-# ------------------------------------------------------------------
-# Find and require X11
-# ------------------------------------------------------------------
-find_package(X11 REQUIRED)
-if(NOT X11_FOUND)
-    message(FATAL_ERROR "X11 library not found. Please install libX11-dev.")
-endif()
-
-# ------------------------------------------------------------------
 # Set the C++ standard
 # ------------------------------------------------------------------
 set(CMAKE_CXX_STANDARD 20)
@@ -44,21 +29,42 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
 endif()
 
 # ------------------------------------------------------------------
-# Add the main executable target: ct9
+# Creating option for compiling GUI
+#   ON  - default
+# ------------------------------------------------------------------
+option(BUILD_GUI "Build X11 graphical interface" ON)
+
+# ------------------------------------------------------------------
+# Console version entrypoint
 # ------------------------------------------------------------------
 add_executable(ct9 
     src/main.cc
     include/ct9/Trie.h
 )
 
-# Include the directory with public headers
 target_include_directories(ct9
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
-# Link the X11 library to our target
-target_link_libraries(ct9 PRIVATE X11::X11)
+# ------------------------------------------------------------------
+# If GUI version is on, find X11 and link GUI files
+# ------------------------------------------------------------------
+if(BUILD_GUI)
+    message(STATUS "Building CT9 with GUI support.")
+    find_package(X11 REQUIRED)
+    if(NOT X11_FOUND)
+        message(FATAL_ERROR "X11 library not found. Please install libX11-dev.")
+    endif()
+
+    target_link_libraries(ct9 PRIVATE X11::X11)
+    # Вместо CT9_GUI=1 — определяем именно BUILD_GUI=1
+    target_compile_definitions(ct9 PRIVATE BUILD_GUI=1)
+
+else()
+    # Если GUI не собираем, задаём BUILD_GUI=0
+    target_compile_definitions(ct9 PRIVATE BUILD_GUI=0)
+endif()
 
 # ------------------------------------------------------------------
 # Develop configuration:
@@ -82,9 +88,7 @@ if(CMAKE_BUILD_TYPE STREQUAL "Develop")
         "${CMAKE_CURRENT_SOURCE_DIR}/tests/*.cc"
     )
     add_executable(run_tests ${TEST_SOURCES})
-
     target_compile_definitions(run_tests PRIVATE UNIT_TEST)
-
     target_link_libraries(run_tests PRIVATE Catch2::Catch2WithMain)
     add_test(NAME ct9_tests COMMAND run_tests --colour-mode ansi)
 
