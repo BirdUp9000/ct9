@@ -9,11 +9,13 @@
 #include <X11/Xutil.h>
 #define POSX 100
 #define POSY 100
-#define WIDTH 200
+#define WIDTH 400
 #define HEIGHT 50
 #define BORDER 1
-#define TEXTBOX_X 5
-#define TEXTBOX_Y 30
+#define TEXTBOX_X 8
+#define TEXTBOX_Y 32
+
+#define TEXTBOX_MAX_CHARS 32
 
 static Display* dpy;
 static Window root;
@@ -34,8 +36,6 @@ int main() {
     t.insert(line);
   }
 
-  std::cout << t.autocomplete("").size() << std::endl;
-
 #if BUILD_GUI
   // Creating window
   dpy = XOpenDisplay(nullptr);
@@ -48,18 +48,28 @@ int main() {
   root = RootWindow(dpy, screen);
 
   // Colors
-  XColor color_gray, color_blue, ignore;
-  XAllocNamedColor(dpy, DefaultColormap(dpy, screen), "Web Gray", &color_gray, &ignore);
-  XAllocNamedColor(dpy, DefaultColormap(dpy, screen), "Light Blue", &color_blue, &ignore);
+  XColor color_border;
+  XColor color_background;
+  XColor color_suggestion;
+  XColor color_input;
+  XColor ignore;
+  // Border
+  XAllocNamedColor(dpy, DefaultColormap(dpy, screen), "SlateBlue", &color_border, &ignore);
+  // Background
+  XAllocNamedColor(dpy, DefaultColormap(dpy, screen), "MidnightBlue", &color_background, &ignore);
+  // Suggestion color
+  XAllocNamedColor(dpy, DefaultColormap(dpy, screen), "DimGray", &color_suggestion, &ignore);
+  // User input text color
+  XAllocNamedColor(dpy, DefaultColormap(dpy, screen), "White", &color_input, &ignore);
 
   const Window win =
-      XCreateSimpleWindow(dpy, root, POSX, POSY, WIDTH, HEIGHT, BORDER, BlackPixel(dpy, screen), color_blue.pixel);
+      XCreateSimpleWindow(dpy, root, POSX, POSY, WIDTH, HEIGHT, BORDER, color_border.pixel, color_background.pixel);
   XSelectInput(dpy, win, ExposureMask | KeyPressMask);
   XMapWindow(dpy, win);
 
-  // Creating inputbox
+  // Creating input box
   GC gc = XCreateGC(dpy, win, 0, nullptr);
-  XSetForeground(dpy, gc, BlackPixel(dpy, screen));
+  XSetForeground(dpy, gc, color_input.pixel);
   std::string inputText;
 
   // Choosing font
@@ -87,7 +97,7 @@ int main() {
     switch (event.type) {
       case Expose:
         XClearWindow(dpy, win);
-        XSetForeground(dpy, gc, BlackPixel(dpy, screen));
+        XSetForeground(dpy, gc, color_input.pixel);
         XDrawString(dpy, win, gc, TEXTBOX_X, TEXTBOX_Y, inputText.c_str(), static_cast<int>(inputText.size()));
         break;
 
@@ -111,13 +121,14 @@ int main() {
           if (!result.empty()) {
             const auto& completed_str = result.front();
             inputText = completed_str;
-            XSetForeground(dpy, gc, BlackPixel(dpy, screen));
-            XDrawString(dpy, win, gc, TEXTBOX_X, TEXTBOX_Y, completed_str.c_str(), static_cast<int>(completed_str.size()));
+            XSetForeground(dpy, gc, color_suggestion.pixel);
+            XDrawString(dpy, win, gc, TEXTBOX_X, TEXTBOX_Y, completed_str.c_str(),
+                        static_cast<int>(completed_str.size()));
           }
         } else if (keysym == XK_space) {
           break;
         } else {
-          if (bytes > 0) {
+          if (bytes > 0 && inputText.size() < TEXTBOX_MAX_CHARS) {
             inputText.append(buffer, bytes);
           }
         }
@@ -125,11 +136,12 @@ int main() {
         auto result = t.autocomplete(inputText, 1);
         if (!result.empty()) {
           const auto& completed_str = result.front();
-          XSetForeground(dpy, gc, color_gray.pixel);
-          XDrawString(dpy, win, gc, TEXTBOX_X, TEXTBOX_Y, completed_str.c_str(), static_cast<int>(completed_str.size()));
+          XSetForeground(dpy, gc, color_suggestion.pixel);
+          XDrawString(dpy, win, gc, TEXTBOX_X, TEXTBOX_Y, completed_str.c_str(),
+                      static_cast<int>(completed_str.size()));
         }
 
-        XSetForeground(dpy, gc, BlackPixel(dpy, screen));
+        XSetForeground(dpy, gc, color_input.pixel);
         XDrawString(dpy, win, gc, TEXTBOX_X, TEXTBOX_Y, inputText.c_str(), static_cast<int>(inputText.size()));
 
         break;
@@ -142,7 +154,6 @@ int main() {
 
   if (fontInfo) {
     XFreeFont(dpy, fontInfo);
-    fontInfo = nullptr;
   }
 
   XFreeGC(dpy, gc);
@@ -150,7 +161,25 @@ int main() {
   XDestroyWindow(dpy, win);
   XCloseDisplay(dpy);
 #else
-  printf("Running without GUI.\n");
+#define MAX_SUGGESTIONS 5
+
+  while (true) {
+    std::cout << "Start writing a word and press Return:" << '\n';
+    std::string input;
+    std::getline(std::cin, input);
+
+    if (input == "quit") {
+      break;
+    }
+
+    std::cout << "Suggested words:" << '\n';
+    auto result = t.autocomplete(input, MAX_SUGGESTIONS);
+    while (!result.empty()) {
+      std::cout << result.front() << '\n';
+      result.pop();
+    }
+    std::cout << '\n';
+  }
 #endif
 
   file.close();
