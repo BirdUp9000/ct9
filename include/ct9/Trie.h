@@ -49,6 +49,12 @@ public:
 
   Trie operator+(const Trie& trie) const;
   Trie operator-(const Trie& trie) const;
+  [[nodiscard]] bool operator<(const Trie& trie);
+  [[nodiscard]] bool operator==(const Trie& trie);
+  [[nodiscard]] bool operator>(const Trie& trie);
+  [[nodiscard]] bool operator!=(const Trie& trie); 
+  [[nodiscard]] bool operator<=(const Trie& trie);
+  [[nodiscard]] bool operator>=(const Trie& trie);
 
   Trie& operator=(Trie&& trie) noexcept;
   void del(const std::string& text) const;
@@ -57,6 +63,65 @@ public:
 
   void insert(const std::string& text);
 };
+/**
+ * @brief Checks if two tries are equal by comparing their stored words.
+ * @note Will be optimized using BFS later.
+ * @param trie The trie to compare with.
+ * @return True if both tries contain the same words, false otherwise.
+ */
+[[nodiscard]] bool Trie::operator==(const Trie& trie) {
+  return this->autocomplete("", INT_MAX) == trie.autocomplete("", INT_MAX);
+}
+
+/**
+ * @brief Checks if two tries are different by comparing their stored words.
+ * @note Will be optimized using BFS later.
+ * @param trie The trie to compare with.
+ * @return True if the tries contain different words, false otherwise.
+ */
+[[nodiscard]] bool Trie::operator!=(const Trie& trie) {
+  return this->autocomplete("", INT_MAX) != trie.autocomplete("", INT_MAX);
+}
+
+/**
+ * @brief Lexicographically compares two tries based on their stored words.
+ * @note Will be optimized using BFS later.
+ * @param trie The trie to compare with.
+ * @return True if this trie is lexicographically smaller.
+ */
+[[nodiscard]] bool Trie::operator<(const Trie& trie) {
+  return this->autocomplete("", INT_MAX) < trie.autocomplete("", INT_MAX);
+}
+
+/**
+ * @brief Lexicographically compares two tries based on their stored words.
+ * @note Will be optimized using BFS later.
+ * @param trie The trie to compare with.
+ * @return True if this trie is lexicographically greater.
+ */
+[[nodiscard]] bool Trie::operator>(const Trie& trie) {
+  return this->autocomplete("", INT_MAX) > trie.autocomplete("", INT_MAX);
+}
+
+/**
+ * @brief Checks if this trie is lexicographically smaller or equal.
+ * @note Will be optimized using BFS later.
+ * @param trie The trie to compare with.
+ * @return True if this trie is smaller or equal.
+ */
+[[nodiscard]] bool Trie::operator<=(const Trie& trie) {
+  return this->autocomplete("", INT_MAX) <= trie.autocomplete("", INT_MAX);
+}
+
+/**
+ * @brief Checks if this trie is lexicographically greater or equal.
+ * @note Will be optimized using BFS later.
+ * @param trie The trie to compare with.
+ * @return True if this trie is greater or equal.
+ */
+[[nodiscard]] bool Trie::operator>=(const Trie& trie) {
+  return this->autocomplete("", INT_MAX) >= trie.autocomplete("", INT_MAX);
+}
 
 /**
  * @brief Combines two Tries into a new Trie containing all unique words.
@@ -102,17 +167,15 @@ inline Trie Trie::operator+(const Trie& trie) const {
 inline Trie Trie::operator-(const Trie& trie) const {
   std::queue<std::string> trie_words = trie.getRoot()->autocompleteNode("", INT_MAX);
   Trie new_trie(*this);
-  
+
   while (!trie_words.empty()) {
     std::string word = trie_words.front();
     trie_words.pop();
     new_trie.del(word);
   }
-  
+
   return new_trie;
 }
-
-
 
 /**
  * @brief Trie copy constructor.

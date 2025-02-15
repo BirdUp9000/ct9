@@ -5,8 +5,6 @@
 
 #include "../include/ct9/Trie.h"
 
-
-
 TEST_CASE("Dummy test example") { REQUIRE(1 == 1); }
 
 TEST_CASE("Trie Insert") {
@@ -235,107 +233,139 @@ TEST_CASE("Trie Constructors") {
 
 TEST_CASE("Trie Deletion") {
 
-    SECTION("Delete a word that exists in the Trie") {
-        Trie trie;
-        trie.insert("apple");
-        trie.insert("bat");
+  SECTION("Delete a word that exists in the Trie") {
+    Trie trie;
+    trie.insert("apple");
+    trie.insert("bat");
 
-        trie.del("apple");
+    trie.del("apple");
 
-        REQUIRE(trie.autocomplete("apple", 1).empty());
-        REQUIRE_FALSE(trie.getRoot()->children['a']);
-        REQUIRE(trie.autocomplete("bat", 1).size() == 1);
-    }
+    REQUIRE(trie.autocomplete("apple", 1).empty());
+    REQUIRE_FALSE(trie.getRoot()->children['a']);
+    REQUIRE(trie.autocomplete("bat", 1).size() == 1);
+  }
 
-    SECTION("Delete a non-existent word") {
-        Trie trie;
-        trie.insert("apple");
-        trie.insert("bat");
+  SECTION("Delete a non-existent word") {
+    Trie trie;
+    trie.insert("apple");
+    trie.insert("bat");
 
-        trie.del("cat");
+    trie.del("cat");
 
-        REQUIRE(trie.autocomplete("apple", 1).size() == 1);
-        REQUIRE(trie.autocomplete("bat", 1).size() == 1);
-    }
+    REQUIRE(trie.autocomplete("apple", 1).size() == 1);
+    REQUIRE(trie.autocomplete("bat", 1).size() == 1);
+  }
 
-    SECTION("Delete a word that is a prefix of another word") {
-        Trie trie;
-        trie.insert("app");
-        trie.insert("apple");
+  SECTION("Delete a word that is a prefix of another word") {
+    Trie trie;
+    trie.insert("app");
+    trie.insert("apple");
 
-        trie.del("app");
+    trie.del("app");
 
-        REQUIRE(trie.autocomplete("app", 2).size() == 1);
-        REQUIRE(trie.autocomplete("apple", 1).size() == 1);
-        REQUIRE(trie.getRoot()->children['a']->children['p']->children['p']->end_of_word == false);
-    }
+    REQUIRE(trie.autocomplete("app", 2).size() == 1);
+    REQUIRE(trie.autocomplete("apple", 1).size() == 1);
+    REQUIRE(trie.getRoot()->children['a']->children['p']->children['p']->end_of_word == false);
+  }
 
-    SECTION("Delete a word that has a common prefix with another word") {
-        Trie trie;
-        trie.insert("bat");
-        trie.insert("batch");
+  SECTION("Delete a word that has a common prefix with another word") {
+    Trie trie;
+    trie.insert("bat");
+    trie.insert("batch");
 
-        trie.del("bat");
+    trie.del("bat");
 
-        REQUIRE(trie.autocomplete("batch", 1).size() == 1);
-        REQUIRE(trie.getRoot()->children['b']->children['a']->children['t']->end_of_word == false);
-    }
+    REQUIRE(trie.autocomplete("batch", 1).size() == 1);
+    REQUIRE(trie.getRoot()->children['b']->children['a']->children['t']->end_of_word == false);
+  }
 
-    SECTION("Delete all words in the Trie") {
-        Trie trie;
-        trie.insert("apple");
-        trie.insert("bat");
+  SECTION("Delete all words in the Trie") {
+    Trie trie;
+    trie.insert("apple");
+    trie.insert("bat");
 
-        trie.del("apple");
-        trie.del("bat");
+    trie.del("apple");
+    trie.del("bat");
 
-        REQUIRE(trie.autocomplete("apple", 1).empty());
-        REQUIRE(trie.autocomplete("bat", 1).empty());
-        REQUIRE(trie.getRoot()->children.empty());
-    }
+    REQUIRE(trie.autocomplete("apple", 1).empty());
+    REQUIRE(trie.autocomplete("bat", 1).empty());
+    REQUIRE(trie.getRoot()->children.empty());
+  }
 
-    SECTION("Delete word in a complex Trie structure") {
-        Trie trie;
-        trie.insert("car");
-        trie.insert("cart");
-        trie.insert("care");
-        trie.insert("careful");
+  SECTION("Delete word in a complex Trie structure") {
+    Trie trie;
+    trie.insert("car");
+    trie.insert("cart");
+    trie.insert("care");
+    trie.insert("careful");
 
-        trie.del("care");
+    trie.del("care");
 
-        REQUIRE(trie.autocomplete("care", 1).size() == 1);
-        REQUIRE(trie.autocomplete("cart", 1).size() == 1);
-        REQUIRE(trie.getRoot()->children['c']->children['a']->children['r']->children['e']->end_of_word == false);
-    }
+    REQUIRE(trie.autocomplete("care", 1).size() == 1);
+    REQUIRE(trie.autocomplete("cart", 1).size() == 1);
+    REQUIRE(trie.getRoot()->children['c']->children['a']->children['r']->children['e']->end_of_word == false);
+  }
 }
+
 TEST_CASE("Trie Operators", "[Trie]") {
 
-    SECTION("Assignment Operator (=)") {
-        Trie trie1(std::vector<std::string>{"apple", "banana", "cherry"});
-        Trie trie2;
+  SECTION("Assignment Operator (=)") {
+    Trie trie1(std::vector<std::string>{"apple", "banana", "cherry"});
+    Trie trie2;
 
-        trie2 = trie1;
+    trie2 = trie1;
 
-        REQUIRE(trie2.autocomplete("", INT_MAX).size() == 3);
-        REQUIRE(trie2.autocomplete("", INT_MAX) == trie1.autocomplete("", INT_MAX));
-    }
-    SECTION("Addition Operator (+)") {
-        Trie trie1(std::vector<std::string>{"hello", "world"});
-        Trie trie2(std::vector<std::string>{"test", "case"});
+    REQUIRE(trie2.autocomplete("", INT_MAX).size() == 3);
+    REQUIRE(trie2.autocomplete("", INT_MAX) == trie1.autocomplete("", INT_MAX));
+  }
+  SECTION("Addition Operator (+)") {
+    Trie trie1(std::vector<std::string>{"hello", "world"});
+    Trie trie2(std::vector<std::string>{"test", "case"});
 
-        Trie result = trie1 + trie2;
+    Trie result = trie1 + trie2;
 
-        REQUIRE(result.autocomplete("", INT_MAX).size() == 4);
-        REQUIRE(result.autocomplete("", INT_MAX) == std::queue<std::string>({"case","hello","test","world"}));
-    }
+    REQUIRE(result.autocomplete("", INT_MAX).size() == 4);
+    REQUIRE(result.autocomplete("", INT_MAX) == std::queue<std::string>({"case", "hello", "test", "world"}));
+  }
 
-    SECTION("Subtraction Operator (-)") {
-        Trie trie1(std::vector<std::string>{"hello", "world", "test"});
-        Trie trie2(std::vector<std::string>{"test"});
+  SECTION("Subtraction Operator (-)") {
+    Trie trie1(std::vector<std::string>{"hello", "world", "test"});
+    Trie trie2(std::vector<std::string>{"test"});
 
-        Trie result = trie1 - trie2;
+    Trie result = trie1 - trie2;
 
-        REQUIRE(result.autocomplete("", INT_MAX).size() == 2);
-        REQUIRE(result.autocomplete("", INT_MAX) == std::queue<std::string>({"hello", "world"}));
-    }
+    REQUIRE(result.autocomplete("", INT_MAX).size() == 2);
+    REQUIRE(result.autocomplete("", INT_MAX) == std::queue<std::string>({"hello", "world"}));
+  }
+  SECTION("Equality and Inequality Operators (==, !=)") {
+    Trie trie1(std::vector<std::string>{"apple", "banana", "cherry"});
+    Trie trie2(std::vector<std::string>{"apple", "banana", "cherry"});
+    Trie trie3(std::vector<std::string>{"apple", "banana"});
+    Trie trie4(std::vector<std::string>{"apple", "banana", "date"});
+
+    REQUIRE(trie1 == trie2);
+    REQUIRE_FALSE(trie1 != trie2);
+    REQUIRE(trie1 != trie3);
+    REQUIRE(trie1 != trie4);
+  }
+
+  SECTION("Comparison Operators (<, <=, >, >=)") {
+    Trie trie1(std::vector<std::string>{"apple", "banana", "cherry"});
+    Trie trie2(std::vector<std::string>{"apple", "banana", "cherry"});
+    Trie trie3(std::vector<std::string>{"apple", "banana"});
+    Trie trie4(std::vector<std::string>{"apple", "banana", "date"});
+
+    REQUIRE(trie3 < trie1);
+    REQUIRE(trie3 <= trie1);
+    REQUIRE(trie1 > trie3);
+    REQUIRE(trie1 >= trie3);
+
+    REQUIRE(trie1 < trie4);
+    REQUIRE(trie1 <= trie4);
+    REQUIRE(trie4 > trie1);
+    REQUIRE(trie4 >= trie1);
+
+    REQUIRE(trie1 <= trie2);
+    REQUIRE(trie1 >= trie2);
+  }
 }
