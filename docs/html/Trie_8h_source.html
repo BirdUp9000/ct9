@@ -151,256 +151,301 @@ $(document).ready(function(){initNavTree('Trie_8h_source.html',''); initResizabl
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <a class="code hl_class" href="classTrie.html">Trie</a> <a class="code hl_function" href="classTrie.html#a1028ddcc66a2c5c606269b4c8136da9e">operator+</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <a class="code hl_class" href="classTrie.html">Trie</a> <a class="code hl_function" href="classTrie.html#a22ccfa0315e46b7d05bc8e93b3139d74">operator-</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  <a class="code hl_class" href="classTrie.html">Trie</a>&amp; <a class="code hl_function" href="classTrie.html#acadfba10d18faea0b83d94a91548cd27">operator=</a>(<a class="code hl_class" href="classTrie.html">Trie</a>&amp;&amp; trie) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classTrie.html#a286afcf0acdd84b189fe28016304cb00">del</a>(<span class="keyword">const</span> std::string&amp; text) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  std::string DEBUG(<span class="keyword">const</span> Node* node, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> level, <span class="keywordtype">int</span> parent_x, <span class="keywordtype">int</span> parent_y, <span class="keywordtype">char</span> letter) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  [[nodiscard]] std::queue&lt;std::string&gt; <a class="code hl_function" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">autocomplete</a>(<span class="keyword">const</span> std::string&amp; prefix, <span class="keywordtype">size_t</span> count = INT_MAX) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classTrie.html#a82ded465e0c692fe9c783d471ed4f682">insert</a>(<span class="keyword">const</span> std::string&amp; text);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>};</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  [[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classTrie.html#a6fd6312a05c467ef1a0729be5e8fdd6a">operator&lt;</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  [[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classTrie.html#ae85a85f354ad4eed560129f59ef48535">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  [[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classTrie.html#a2b5a5ae63e7c3439d942d7c1562dbfc2">operator&gt;</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  [[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classTrie.html#a9bf6708fbfdd41349e7f3d9291ed286d">operator!=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie); </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  [[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classTrie.html#a7f417b706e75f60af3eeac0938f4cb57">operator&lt;=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  [[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classTrie.html#abbd806b35f4ff8d76c3c8244d0b06741">operator&gt;=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  <a class="code hl_class" href="classTrie.html">Trie</a>&amp; <a class="code hl_function" href="classTrie.html#acadfba10d18faea0b83d94a91548cd27">operator=</a>(<a class="code hl_class" href="classTrie.html">Trie</a>&amp;&amp; trie) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classTrie.html#a286afcf0acdd84b189fe28016304cb00">del</a>(<span class="keyword">const</span> std::string&amp; text) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  std::string DEBUG(<span class="keyword">const</span> Node* node, <span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y, <span class="keywordtype">int</span> level, <span class="keywordtype">int</span> parent_x, <span class="keywordtype">int</span> parent_y, <span class="keywordtype">char</span> letter) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  [[nodiscard]] std::queue&lt;std::string&gt; <a class="code hl_function" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">autocomplete</a>(<span class="keyword">const</span> std::string&amp; prefix, <span class="keywordtype">size_t</span> count = INT_MAX) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classTrie.html#a82ded465e0c692fe9c783d471ed4f682">insert</a>(<span class="keyword">const</span> std::string&amp; text);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>};</div>
 </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classTrie.html#a1028ddcc66a2c5c606269b4c8136da9e">   70</a></span><span class="keyword">inline</span> <a class="code hl_class" href="classTrie.html">Trie</a> <a class="code hl_function" href="classTrie.html#a1028ddcc66a2c5c606269b4c8136da9e">Trie::operator+</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  <a class="code hl_class" href="classTrie.html">Trie</a> new_trie;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  std::unordered_set&lt;std::string&gt; unique_words;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  std::queue&lt;std::string&gt; trie_words = trie.<a class="code hl_function" href="classTrie.html#afc2a318e8bf33eac6117fac128c5d37c">getRoot</a>()-&gt;<a class="code hl_function" href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">autocompleteNode</a>(<span class="stringliteral">&quot;&quot;</span>, INT_MAX);</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  std::queue&lt;std::string&gt; this_words = this-&gt;root-&gt;<a class="code hl_function" href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">autocompleteNode</a>(<span class="stringliteral">&quot;&quot;</span>, INT_MAX);</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  <span class="keywordflow">while</span> (!trie_words.empty()) {</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    unique_words.insert(trie_words.front());</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    trie_words.pop();</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  }</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  <span class="keywordflow">while</span> (!this_words.empty()) {</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    unique_words.insert(this_words.front());</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    this_words.pop();</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  }</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> std::string&amp; word : unique_words) {</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    new_trie.<a class="code hl_function" href="classTrie.html#a82ded465e0c692fe9c783d471ed4f682">insert</a>(word);</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  }</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  <span class="keywordflow">return</span> new_trie;</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>}</div>
+<div class="foldopen" id="foldopen00072" data-start="{" data-end="}">
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classTrie.html#ae85a85f354ad4eed560129f59ef48535">   72</a></span>[[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classTrie.html#ae85a85f354ad4eed560129f59ef48535">Trie::operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie) {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  <span class="keywordflow">return</span> this-&gt;<a class="code hl_function" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">autocomplete</a>(<span class="stringliteral">&quot;&quot;</span>, INT_MAX) == trie.<a class="code hl_function" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">autocomplete</a>(<span class="stringliteral">&quot;&quot;</span>, INT_MAX);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}</div>
 </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="foldopen" id="foldopen00082" data-start="{" data-end="}">
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classTrie.html#a9bf6708fbfdd41349e7f3d9291ed286d">   82</a></span>[[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classTrie.html#a9bf6708fbfdd41349e7f3d9291ed286d">Trie::operator!=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie) {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  <span class="keywordflow">return</span> this-&gt;<a class="code hl_function" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">autocomplete</a>(<span class="stringliteral">&quot;&quot;</span>, INT_MAX) != trie.<a class="code hl_function" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">autocomplete</a>(<span class="stringliteral">&quot;&quot;</span>, INT_MAX);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>}</div>
+</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="foldopen" id="foldopen00092" data-start="{" data-end="}">
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classTrie.html#a6fd6312a05c467ef1a0729be5e8fdd6a">   92</a></span>[[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classTrie.html#a6fd6312a05c467ef1a0729be5e8fdd6a">Trie::operator&lt;</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie) {</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  <span class="keywordflow">return</span> this-&gt;<a class="code hl_function" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">autocomplete</a>(<span class="stringliteral">&quot;&quot;</span>, INT_MAX) &lt; trie.<a class="code hl_function" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">autocomplete</a>(<span class="stringliteral">&quot;&quot;</span>, INT_MAX);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>}</div>
+</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
 <div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classTrie.html#a22ccfa0315e46b7d05bc8e93b3139d74">  102</a></span><span class="keyword">inline</span> <a class="code hl_class" href="classTrie.html">Trie</a> <a class="code hl_function" href="classTrie.html#a22ccfa0315e46b7d05bc8e93b3139d74">Trie::operator-</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  std::queue&lt;std::string&gt; trie_words = trie.<a class="code hl_function" href="classTrie.html#afc2a318e8bf33eac6117fac128c5d37c">getRoot</a>()-&gt;<a class="code hl_function" href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">autocompleteNode</a>(<span class="stringliteral">&quot;&quot;</span>, INT_MAX);</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  <a class="code hl_class" href="classTrie.html">Trie</a> new_trie(*<span class="keyword">this</span>);</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>  </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>  <span class="keywordflow">while</span> (!trie_words.empty()) {</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    std::string word = trie_words.front();</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    trie_words.pop();</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    new_trie.<a class="code hl_function" href="classTrie.html#a286afcf0acdd84b189fe28016304cb00">del</a>(word);</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>  }</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>  </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  <span class="keywordflow">return</span> new_trie;</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>}</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classTrie.html#a2b5a5ae63e7c3439d942d7c1562dbfc2">  102</a></span>[[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classTrie.html#a2b5a5ae63e7c3439d942d7c1562dbfc2">Trie::operator&gt;</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie) {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  <span class="keywordflow">return</span> this-&gt;<a class="code hl_function" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">autocomplete</a>(<span class="stringliteral">&quot;&quot;</span>, INT_MAX) &gt; trie.<a class="code hl_function" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">autocomplete</a>(<span class="stringliteral">&quot;&quot;</span>, INT_MAX);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>}</div>
 </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="foldopen" id="foldopen00112" data-start="{" data-end="}">
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="classTrie.html#a7f417b706e75f60af3eeac0938f4cb57">  112</a></span>[[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classTrie.html#a7f417b706e75f60af3eeac0938f4cb57">Trie::operator&lt;=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie) {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>  <span class="keywordflow">return</span> this-&gt;<a class="code hl_function" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">autocomplete</a>(<span class="stringliteral">&quot;&quot;</span>, INT_MAX) &lt;= trie.<a class="code hl_function" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">autocomplete</a>(<span class="stringliteral">&quot;&quot;</span>, INT_MAX);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>}</div>
+</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="classTrie.html#ac81526e95973e2cbfee37851c30b9b61">  121</a></span><span class="keyword">inline</span> <a class="code hl_function" href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">Trie::Trie</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie) : root(new <a class="code hl_struct" href="structTrie_1_1Node.html">Node</a>()) { copyNodes(root, trie.root); }</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="foldopen" id="foldopen00128" data-start="{" data-end="}">
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="classTrie.html#acadfba10d18faea0b83d94a91548cd27">  128</a></span><span class="keyword">inline</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; <a class="code hl_function" href="classTrie.html#acadfba10d18faea0b83d94a91548cd27">Trie::operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie) {</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>  <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;trie) {</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    copyNodes(root, trie.root);</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>  }</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>  <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>}</div>
+<div class="foldopen" id="foldopen00122" data-start="{" data-end="}">
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="classTrie.html#abbd806b35f4ff8d76c3c8244d0b06741">  122</a></span>[[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classTrie.html#abbd806b35f4ff8d76c3c8244d0b06741">Trie::operator&gt;=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie) {</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>  <span class="keywordflow">return</span> this-&gt;<a class="code hl_function" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">autocomplete</a>(<span class="stringliteral">&quot;&quot;</span>, INT_MAX) &gt;= trie.<a class="code hl_function" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">autocomplete</a>(<span class="stringliteral">&quot;&quot;</span>, INT_MAX);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>}</div>
 </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="foldopen" id="foldopen00139" data-start="{" data-end="}">
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="classTrie.html#a8f2f269fc83ce5b8a3010d90c4a92396">  139</a></span><span class="keyword">inline</span> <a class="code hl_function" href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">Trie::Trie</a>(<a class="code hl_class" href="classTrie.html">Trie</a>&amp;&amp; trie) <span class="keyword">noexcept</span> {</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>  root = trie.root;</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>  trie.root = <span class="keyword">new</span> <a class="code hl_struct" href="structTrie_1_1Node.html">Node</a>();</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>}</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="foldopen" id="foldopen00135" data-start="{" data-end="}">
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="classTrie.html#a1028ddcc66a2c5c606269b4c8136da9e">  135</a></span><span class="keyword">inline</span> <a class="code hl_class" href="classTrie.html">Trie</a> <a class="code hl_function" href="classTrie.html#a1028ddcc66a2c5c606269b4c8136da9e">Trie::operator+</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>  <a class="code hl_class" href="classTrie.html">Trie</a> new_trie;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>  std::unordered_set&lt;std::string&gt; unique_words;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>  std::queue&lt;std::string&gt; trie_words = trie.<a class="code hl_function" href="classTrie.html#afc2a318e8bf33eac6117fac128c5d37c">getRoot</a>()-&gt;<a class="code hl_function" href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">autocompleteNode</a>(<span class="stringliteral">&quot;&quot;</span>, INT_MAX);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>  std::queue&lt;std::string&gt; this_words = this-&gt;root-&gt;<a class="code hl_function" href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">autocompleteNode</a>(<span class="stringliteral">&quot;&quot;</span>, INT_MAX);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>  <span class="keywordflow">while</span> (!trie_words.empty()) {</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    unique_words.insert(trie_words.front());</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    trie_words.pop();</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>  }</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>  <span class="keywordflow">while</span> (!this_words.empty()) {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    unique_words.insert(this_words.front());</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    this_words.pop();</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>  }</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> std::string&amp; word : unique_words) {</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    new_trie.<a class="code hl_function" href="classTrie.html#a82ded465e0c692fe9c783d471ed4f682">insert</a>(word);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>  }</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>  <span class="keywordflow">return</span> new_trie;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>}</div>
 </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="keyword">inline</span> <a class="code hl_function" href="structTrie_1_1Node.html#aeb43ae0f05e236bdaac77ea555fe280c">Trie::Node::Node</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
-<div class="foldopen" id="foldopen00154" data-start="{" data-end="}">
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="structTrie_1_1Node.html#a3962f09c5a788d10c1a4e51d565b4d94">  154</a></span><span class="keyword">inline</span> <a class="code hl_function" href="structTrie_1_1Node.html#a3962f09c5a788d10c1a4e51d565b4d94">Trie::Node::~Node</a>() {</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [key, value] : children) {</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keyword">delete</span> value;</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>  }</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>}</div>
+<div class="foldopen" id="foldopen00167" data-start="{" data-end="}">
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="classTrie.html#a22ccfa0315e46b7d05bc8e93b3139d74">  167</a></span><span class="keyword">inline</span> <a class="code hl_class" href="classTrie.html">Trie</a> <a class="code hl_function" href="classTrie.html#a22ccfa0315e46b7d05bc8e93b3139d74">Trie::operator-</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>  std::queue&lt;std::string&gt; trie_words = trie.<a class="code hl_function" href="classTrie.html#afc2a318e8bf33eac6117fac128c5d37c">getRoot</a>()-&gt;<a class="code hl_function" href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">autocompleteNode</a>(<span class="stringliteral">&quot;&quot;</span>, INT_MAX);</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>  <a class="code hl_class" href="classTrie.html">Trie</a> new_trie(*<span class="keyword">this</span>);</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>  <span class="keywordflow">while</span> (!trie_words.empty()) {</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    std::string word = trie_words.front();</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    trie_words.pop();</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    new_trie.<a class="code hl_function" href="classTrie.html#a286afcf0acdd84b189fe28016304cb00">del</a>(word);</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>  }</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>  <span class="keywordflow">return</span> new_trie;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>}</div>
 </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">  164</a></span><span class="keyword">inline</span> <a class="code hl_function" href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">Trie::Trie</a>() : root(new <a class="code hl_struct" href="structTrie_1_1Node.html">Node</a>()) {}</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="classTrie.html#abf9d6f48d556e09d1b292412df153a4b">  170</a></span><span class="keyword">inline</span> <a class="code hl_function" href="classTrie.html#abf9d6f48d556e09d1b292412df153a4b">Trie::~Trie</a>() { <span class="keyword">delete</span> root; }</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="keyword">inline</span> <span class="keywordtype">void</span> Trie::copyNodes(Node* dstRoot, <span class="keyword">const</span> Node* srcRoot) {</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>  dstRoot-&gt;clearNode();</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>  std::queue&lt;const Node*&gt; srcQueue;</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>  std::queue&lt;Node*&gt; dstQueue;</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>  srcQueue.push(srcRoot);</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>  dstQueue.push(dstRoot);</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>  <span class="keywordflow">while</span> (!srcQueue.empty()) {</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keyword">auto</span> currentSrcNode = srcQueue.front();</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    srcQueue.pop();</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    <span class="keyword">auto</span> currentDstNode = dstQueue.front();</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    dstQueue.pop();</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; child : currentSrcNode-&gt;children) {</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>      srcQueue.push(child.second);</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>      <span class="keywordtype">char</span> childChar = child.first;</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>      Node* newDstNode = <span class="keyword">new</span> Node;</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>      newDstNode-&gt;end_of_word = child.second-&gt;end_of_word;</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>      currentDstNode-&gt;children[childChar] = newDstNode;</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>      dstQueue.push(newDstNode);</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    }</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>  }</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>}</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
-<div class="foldopen" id="foldopen00225" data-start="{" data-end="}">
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno"><a class="line" href="classTrie.html#a286afcf0acdd84b189fe28016304cb00">  225</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTrie.html#a286afcf0acdd84b189fe28016304cb00">Trie::del</a>(<span class="keyword">const</span> std::string&amp; word)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>  <span class="keywordtype">bool</span> is_word = this-&gt;<a class="code hl_function" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">autocomplete</a>(word, 1).size() == 1;</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>  <span class="keywordflow">if</span> (!is_word) {</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>  }</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>  <a class="code hl_struct" href="structTrie_1_1Node.html">Node</a>* tmp = root;</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>  std::vector&lt;Node*&gt; path;</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>  <span class="keywordflow">for</span> (<span class="keywordtype">char</span> c : word) {</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    path.push_back(tmp);</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="keywordflow">if</span> (tmp-&gt;children.find(c) == tmp-&gt;children.end()) {</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>      <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    }</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    tmp = tmp-&gt;children[c];</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>  }</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>  tmp-&gt;end_of_word = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = path.size() - 1; i &gt;= 0; --i) {</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <a class="code hl_struct" href="structTrie_1_1Node.html">Node</a>* parent = path[i];</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <span class="keywordtype">char</span> c = word[i];</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <span class="keywordflow">if</span> (parent-&gt;children[c]-&gt;children.empty() &amp;&amp; !parent-&gt;children[c]-&gt;end_of_word) {</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>      <span class="keyword">delete</span> parent-&gt;children[c];</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>      parent-&gt;children.erase(c);</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    }</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>  }</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>}</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="classTrie.html#ac81526e95973e2cbfee37851c30b9b61">  184</a></span><span class="keyword">inline</span> <a class="code hl_function" href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">Trie::Trie</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie) : root(new <a class="code hl_struct" href="structTrie_1_1Node.html">Node</a>()) { copyNodes(root, trie.root); }</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="foldopen" id="foldopen00191" data-start="{" data-end="}">
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="classTrie.html#acadfba10d18faea0b83d94a91548cd27">  191</a></span><span class="keyword">inline</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; <a class="code hl_function" href="classTrie.html#acadfba10d18faea0b83d94a91548cd27">Trie::operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; trie) {</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>  <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;trie) {</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    copyNodes(root, trie.root);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>  }</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>  <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>}</div>
 </div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span><span class="keyword">inline</span> <span class="keywordtype">void</span> Trie::Node::clearNode() {</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; child : children) {</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    <span class="keyword">delete</span> child.second;</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="foldopen" id="foldopen00202" data-start="{" data-end="}">
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="classTrie.html#a8f2f269fc83ce5b8a3010d90c4a92396">  202</a></span><span class="keyword">inline</span> <a class="code hl_function" href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">Trie::Trie</a>(<a class="code hl_class" href="classTrie.html">Trie</a>&amp;&amp; trie) <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>  root = trie.root;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>  trie.root = <span class="keyword">new</span> <a class="code hl_struct" href="structTrie_1_1Node.html">Node</a>();</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>}</div>
+</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="keyword">inline</span> <a class="code hl_function" href="structTrie_1_1Node.html#aeb43ae0f05e236bdaac77ea555fe280c">Trie::Node::Node</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="foldopen" id="foldopen00217" data-start="{" data-end="}">
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="structTrie_1_1Node.html#a3962f09c5a788d10c1a4e51d565b4d94">  217</a></span><span class="keyword">inline</span> <a class="code hl_function" href="structTrie_1_1Node.html#a3962f09c5a788d10c1a4e51d565b4d94">Trie::Node::~Node</a>() {</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [key, value] : children) {</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    <span class="keyword">delete</span> value;</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>  }</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>}</div>
+</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno"><a class="line" href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">  227</a></span><span class="keyword">inline</span> <a class="code hl_function" href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">Trie::Trie</a>() : root(new <a class="code hl_struct" href="structTrie_1_1Node.html">Node</a>()) {}</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno"><a class="line" href="classTrie.html#abf9d6f48d556e09d1b292412df153a4b">  233</a></span><span class="keyword">inline</span> <a class="code hl_function" href="classTrie.html#abf9d6f48d556e09d1b292412df153a4b">Trie::~Trie</a>() { <span class="keyword">delete</span> root; }</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="keyword">inline</span> <span class="keywordtype">void</span> Trie::copyNodes(Node* dstRoot, <span class="keyword">const</span> Node* srcRoot) {</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>  dstRoot-&gt;clearNode();</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>  std::queue&lt;const Node*&gt; srcQueue;</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>  std::queue&lt;Node*&gt; dstQueue;</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>  srcQueue.push(srcRoot);</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>  dstQueue.push(dstRoot);</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>  <span class="keywordflow">while</span> (!srcQueue.empty()) {</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    <span class="keyword">auto</span> currentSrcNode = srcQueue.front();</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    srcQueue.pop();</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    <span class="keyword">auto</span> currentDstNode = dstQueue.front();</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    dstQueue.pop();</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; child : currentSrcNode-&gt;children) {</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>      srcQueue.push(child.second);</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>      <span class="keywordtype">char</span> childChar = child.first;</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>      Node* newDstNode = <span class="keyword">new</span> Node;</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>      newDstNode-&gt;end_of_word = child.second-&gt;end_of_word;</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>      currentDstNode-&gt;children[childChar] = newDstNode;</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>      dstQueue.push(newDstNode);</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    }</div>
 <div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>  }</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>  children.clear();</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>}</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span><span class="keyword">inline</span> <a class="code hl_function" href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">Trie::Trie</a>(<span class="keyword">const</span> std::string&amp; str) : root(new Node()) { this-&gt;<a class="code hl_function" href="classTrie.html#a82ded465e0c692fe9c783d471ed4f682">insert</a>(str); }</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="keyword">inline</span> <a class="code hl_function" href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">Trie::Trie</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; vec_str) : root(new Node()) {</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> std::string&amp; word : vec_str) {</div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    this-&gt;<a class="code hl_function" href="classTrie.html#a82ded465e0c692fe9c783d471ed4f682">insert</a>(word);</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>  }</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>}</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span><span class="keyword">inline</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; <a class="code hl_function" href="classTrie.html#acadfba10d18faea0b83d94a91548cd27">Trie::operator=</a>(<a class="code hl_class" href="classTrie.html">Trie</a>&amp;&amp; trie) <span class="keyword">noexcept</span> {</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>  <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;trie) {</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    <span class="keyword">delete</span> root;</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    root = trie.<a class="code hl_function" href="classTrie.html#afc2a318e8bf33eac6117fac128c5d37c">getRoot</a>();</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    trie.setRoot(<span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>  }</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>  <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>}</div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span> </div>
-<div class="foldopen" id="foldopen00308" data-start="{" data-end="}">
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno"><a class="line" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">  308</a></span>[[nodiscard]] std::queue&lt;std::string&gt; <a class="code hl_function" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">Trie::autocomplete</a>(<span class="keyword">const</span> std::string&amp; prefix, <span class="keywordtype">size_t</span> count)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>  <a class="code hl_struct" href="structTrie_1_1Node.html">Node</a>* tmp_node = root;</div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; character : prefix) {</div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    <span class="keywordflow">if</span> (!tmp_node-&gt;children.contains(character)) {</div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>      <span class="keywordflow">return</span> {};</div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    }</div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    tmp_node = tmp_node-&gt;children[character];</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>}</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
+<div class="foldopen" id="foldopen00288" data-start="{" data-end="}">
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno"><a class="line" href="classTrie.html#a286afcf0acdd84b189fe28016304cb00">  288</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTrie.html#a286afcf0acdd84b189fe28016304cb00">Trie::del</a>(<span class="keyword">const</span> std::string&amp; word)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>  <span class="keywordtype">bool</span> is_word = this-&gt;<a class="code hl_function" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">autocomplete</a>(word, 1).size() == 1;</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>  <span class="keywordflow">if</span> (!is_word) {</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>  }</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>  <a class="code hl_struct" href="structTrie_1_1Node.html">Node</a>* tmp = root;</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>  std::vector&lt;Node*&gt; path;</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>  <span class="keywordflow">for</span> (<span class="keywordtype">char</span> c : word) {</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    path.push_back(tmp);</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    <span class="keywordflow">if</span> (tmp-&gt;children.find(c) == tmp-&gt;children.end()) {</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>      <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    }</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    tmp = tmp-&gt;children[c];</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>  }</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span> </div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>  tmp-&gt;end_of_word = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span> </div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = path.size() - 1; i &gt;= 0; --i) {</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    <a class="code hl_struct" href="structTrie_1_1Node.html">Node</a>* parent = path[i];</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    <span class="keywordtype">char</span> c = word[i];</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span> </div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    <span class="keywordflow">if</span> (parent-&gt;children[c]-&gt;children.empty() &amp;&amp; !parent-&gt;children[c]-&gt;end_of_word) {</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>      <span class="keyword">delete</span> parent-&gt;children[c];</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>      parent-&gt;children.erase(c);</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    }</div>
 <div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>  }</div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>  <span class="keywordflow">return</span> tmp_node-&gt;<a class="code hl_function" href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">autocompleteNode</a>(prefix, count);</div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>}</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>}</div>
 </div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span> </div>
-<div class="foldopen" id="foldopen00336" data-start="{" data-end="}">
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno"><a class="line" href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">  336</a></span>[[nodiscard]] <span class="keyword">inline</span> std::queue&lt;std::string&gt; <a class="code hl_function" href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">Trie::Node::autocompleteNode</a>(<span class="keyword">const</span> std::string&amp; prefix,</div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>                                                                          <span class="keyword">const</span> <span class="keywordtype">size_t</span> count)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>  std::queue&lt;std::string&gt; results;</div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>  std::string current = prefix;</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>  std::function&lt;bool(<span class="keyword">const</span> <a class="code hl_struct" href="structTrie_1_1Node.html">Node</a>*)&gt; dfs = [&amp;](<span class="keyword">const</span> <a class="code hl_struct" href="structTrie_1_1Node.html">Node</a>* node) -&gt; <span class="keywordtype">bool</span> {</div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    <span class="keywordflow">if</span> (results.size() &gt;= count) {</div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>    }</div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span> </div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    <span class="keywordflow">if</span> (node-&gt;end_of_word) {</div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>      results.push(current);</div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>      <span class="keywordflow">if</span> (results.size() &gt;= count) {</div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>      }</div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>    }</div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span> </div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [key, child] : node-&gt;children) {</div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>      current.push_back(key);</div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>      <span class="keywordflow">if</span> (dfs(child)) {</div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>      }</div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>      current.pop_back();</div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>    }</div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>  };</div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span> </div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>  <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(dfs(<span class="keyword">this</span>));</div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>  <span class="keywordflow">return</span> results;</div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>}</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span><span class="keyword">inline</span> <span class="keywordtype">void</span> Trie::Node::clearNode() {</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; child : children) {</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>    <span class="keyword">delete</span> child.second;</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>  }</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>  children.clear();</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>}</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span> </div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span><span class="keyword">inline</span> <a class="code hl_function" href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">Trie::Trie</a>(<span class="keyword">const</span> std::string&amp; str) : root(new Node()) { this-&gt;<a class="code hl_function" href="classTrie.html#a82ded465e0c692fe9c783d471ed4f682">insert</a>(str); }</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span> </div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span><span class="keyword">inline</span> <a class="code hl_function" href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">Trie::Trie</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; vec_str) : root(new Node()) {</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> std::string&amp; word : vec_str) {</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>    this-&gt;<a class="code hl_function" href="classTrie.html#a82ded465e0c692fe9c783d471ed4f682">insert</a>(word);</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>  }</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>}</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span> </div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span><span class="keyword">inline</span> <a class="code hl_class" href="classTrie.html">Trie</a>&amp; <a class="code hl_function" href="classTrie.html#acadfba10d18faea0b83d94a91548cd27">Trie::operator=</a>(<a class="code hl_class" href="classTrie.html">Trie</a>&amp;&amp; trie) <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>  <span class="keywordflow">if</span> (<span class="keyword">this</span> != &amp;trie) {</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    <span class="keyword">delete</span> root;</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>    root = trie.<a class="code hl_function" href="classTrie.html#afc2a318e8bf33eac6117fac128c5d37c">getRoot</a>();</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>    trie.setRoot(<span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>  }</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>  <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>}</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span> </div>
+<div class="foldopen" id="foldopen00371" data-start="{" data-end="}">
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno"><a class="line" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">  371</a></span>[[nodiscard]] std::queue&lt;std::string&gt; <a class="code hl_function" href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">Trie::autocomplete</a>(<span class="keyword">const</span> std::string&amp; prefix, <span class="keywordtype">size_t</span> count)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>  <a class="code hl_struct" href="structTrie_1_1Node.html">Node</a>* tmp_node = root;</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; character : prefix) {</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>    <span class="keywordflow">if</span> (!tmp_node-&gt;children.contains(character)) {</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>      <span class="keywordflow">return</span> {};</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>    }</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>    tmp_node = tmp_node-&gt;children[character];</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>  }</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>  <span class="keywordflow">return</span> tmp_node-&gt;<a class="code hl_function" href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">autocompleteNode</a>(prefix, count);</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>}</div>
 </div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span> </div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno"><a class="line" href="classTrie.html#a82ded465e0c692fe9c783d471ed4f682">  375</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTrie.html#a82ded465e0c692fe9c783d471ed4f682">Trie::insert</a>(<span class="keyword">const</span> std::string&amp; text) { root-&gt;<a class="code hl_function" href="structTrie_1_1Node.html#a196db9af06d50509138b7c67c5aa7082">insert</a>(text, 0, root); }</div>
-<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span> </div>
-<div class="foldopen" id="foldopen00387" data-start="{" data-end="}">
-<div class="line"><a id="l00387" name="l00387"></a><span class="lineno"><a class="line" href="structTrie_1_1Node.html#a196db9af06d50509138b7c67c5aa7082">  387</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structTrie_1_1Node.html#a196db9af06d50509138b7c67c5aa7082">Trie::Node::insert</a>(<span class="keyword">const</span> std::string&amp; text, <span class="keyword">const</span> <span class="keywordtype">size_t</span> index, <a class="code hl_struct" href="structTrie_1_1Node.html">Node</a>* root) {</div>
-<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>  <span class="keywordflow">if</span> (index == text.size()) {</div>
-<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>    end_of_word = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>  }</div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span> </div>
-<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>  <span class="comment">// Mark as end of word if a non-alphabetic character is encountered</span></div>
-<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>  <span class="keywordflow">if</span> (isalpha(text[index]) == 0) {</div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>    end_of_word = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>    root-&gt;<a class="code hl_function" href="structTrie_1_1Node.html#a196db9af06d50509138b7c67c5aa7082">insert</a>(text, index + 1, root);</div>
-<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>  } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>    <span class="comment">// Create a new node if the current character is not found</span></div>
-<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>    <span class="keywordflow">if</span> (!children.contains(text[index])) {</div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>      children[text[index]] = <span class="keyword">new</span> <a class="code hl_struct" href="structTrie_1_1Node.html">Node</a>();</div>
-<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>    }</div>
-<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>    children[text[index]]-&gt;insert(text, index + 1, root);</div>
-<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>  }</div>
-<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>}</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span> </div>
+<div class="foldopen" id="foldopen00399" data-start="{" data-end="}">
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno"><a class="line" href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">  399</a></span>[[nodiscard]] <span class="keyword">inline</span> std::queue&lt;std::string&gt; <a class="code hl_function" href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">Trie::Node::autocompleteNode</a>(<span class="keyword">const</span> std::string&amp; prefix,</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>                                                                          <span class="keyword">const</span> <span class="keywordtype">size_t</span> count)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>  std::queue&lt;std::string&gt; results;</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>  std::string current = prefix;</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span> </div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>  std::function&lt;bool(<span class="keyword">const</span> <a class="code hl_struct" href="structTrie_1_1Node.html">Node</a>*)&gt; dfs = [&amp;](<span class="keyword">const</span> <a class="code hl_struct" href="structTrie_1_1Node.html">Node</a>* node) -&gt; <span class="keywordtype">bool</span> {</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>    <span class="keywordflow">if</span> (results.size() &gt;= count) {</div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>    }</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span> </div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    <span class="keywordflow">if</span> (node-&gt;end_of_word) {</div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>      results.push(current);</div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>      <span class="keywordflow">if</span> (results.size() &gt;= count) {</div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>      }</div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    }</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span> </div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [key, child] : node-&gt;children) {</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>      current.push_back(key);</div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>      <span class="keywordflow">if</span> (dfs(child)) {</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>      }</div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>      current.pop_back();</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>    }</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>  };</div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span> </div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>  <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(dfs(<span class="keyword">this</span>));</div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>  <span class="keywordflow">return</span> results;</div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>}</div>
+</div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span> </div>
+<div class="line"><a id="l00438" name="l00438"></a><span class="lineno"><a class="line" href="classTrie.html#a82ded465e0c692fe9c783d471ed4f682">  438</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTrie.html#a82ded465e0c692fe9c783d471ed4f682">Trie::insert</a>(<span class="keyword">const</span> std::string&amp; text) { root-&gt;<a class="code hl_function" href="structTrie_1_1Node.html#a196db9af06d50509138b7c67c5aa7082">insert</a>(text, 0, root); }</div>
+<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span> </div>
+<div class="foldopen" id="foldopen00450" data-start="{" data-end="}">
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno"><a class="line" href="structTrie_1_1Node.html#a196db9af06d50509138b7c67c5aa7082">  450</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="structTrie_1_1Node.html#a196db9af06d50509138b7c67c5aa7082">Trie::Node::insert</a>(<span class="keyword">const</span> std::string&amp; text, <span class="keyword">const</span> <span class="keywordtype">size_t</span> index, <a class="code hl_struct" href="structTrie_1_1Node.html">Node</a>* root) {</div>
+<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>  <span class="keywordflow">if</span> (index == text.size()) {</div>
+<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>    end_of_word = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>  }</div>
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span> </div>
+<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span>  <span class="comment">// Mark as end of word if a non-alphabetic character is encountered</span></div>
+<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>  <span class="keywordflow">if</span> (isalpha(text[index]) == 0) {</div>
+<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>    end_of_word = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span>    root-&gt;<a class="code hl_function" href="structTrie_1_1Node.html#a196db9af06d50509138b7c67c5aa7082">insert</a>(text, index + 1, root);</div>
+<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span>  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span>    <span class="comment">// Create a new node if the current character is not found</span></div>
+<div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span>    <span class="keywordflow">if</span> (!children.contains(text[index])) {</div>
+<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span>      children[text[index]] = <span class="keyword">new</span> <a class="code hl_struct" href="structTrie_1_1Node.html">Node</a>();</div>
+<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span>    }</div>
+<div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span>    children[text[index]]-&gt;insert(text, index + 1, root);</div>
+<div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span>  }</div>
+<div class="line"><a id="l00467" name="l00467"></a><span class="lineno">  467</span>}</div>
 </div>
 <div class="ttc" id="aclassTrie_html"><div class="ttname"><a href="classTrie.html">Trie</a></div><div class="ttdef"><b>Definition</b> Trie.h:17</div></div>
-<div class="ttc" id="aclassTrie_html_a1028ddcc66a2c5c606269b4c8136da9e"><div class="ttname"><a href="classTrie.html#a1028ddcc66a2c5c606269b4c8136da9e">Trie::operator+</a></div><div class="ttdeci">Trie operator+(const Trie &amp;trie) const</div><div class="ttdoc">Combines two Tries into a new Trie containing all unique words.</div><div class="ttdef"><b>Definition</b> Trie.h:70</div></div>
-<div class="ttc" id="aclassTrie_html_a22ccfa0315e46b7d05bc8e93b3139d74"><div class="ttname"><a href="classTrie.html#a22ccfa0315e46b7d05bc8e93b3139d74">Trie::operator-</a></div><div class="ttdeci">Trie operator-(const Trie &amp;trie) const</div><div class="ttdoc">Creates a new Trie by removing words in the given Trie from this Trie.</div><div class="ttdef"><b>Definition</b> Trie.h:102</div></div>
-<div class="ttc" id="aclassTrie_html_a286afcf0acdd84b189fe28016304cb00"><div class="ttname"><a href="classTrie.html#a286afcf0acdd84b189fe28016304cb00">Trie::del</a></div><div class="ttdeci">void del(const std::string &amp;text) const</div><div class="ttdoc">Deletes a word from the Trie.</div><div class="ttdef"><b>Definition</b> Trie.h:225</div></div>
-<div class="ttc" id="aclassTrie_html_a618ef49a48291bcf6184710e38398a4d"><div class="ttname"><a href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">Trie::autocomplete</a></div><div class="ttdeci">std::queue&lt; std::string &gt; autocomplete(const std::string &amp;prefix, size_t count=INT_MAX) const</div><div class="ttdoc">Provides autocomplete suggestions based on the given prefix.</div><div class="ttdef"><b>Definition</b> Trie.h:308</div></div>
-<div class="ttc" id="aclassTrie_html_a6af57e9f25d0d0a2d59eea5a4a802908"><div class="ttname"><a href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">Trie::Trie</a></div><div class="ttdeci">Trie()</div><div class="ttdoc">Basic Trie constructor. Creating new root node.</div><div class="ttdef"><b>Definition</b> Trie.h:164</div></div>
-<div class="ttc" id="aclassTrie_html_a82ded465e0c692fe9c783d471ed4f682"><div class="ttname"><a href="classTrie.html#a82ded465e0c692fe9c783d471ed4f682">Trie::insert</a></div><div class="ttdeci">void insert(const std::string &amp;text)</div><div class="ttdoc">Inserts a word into the trie.</div><div class="ttdef"><b>Definition</b> Trie.h:375</div></div>
-<div class="ttc" id="aclassTrie_html_abf9d6f48d556e09d1b292412df153a4b"><div class="ttname"><a href="classTrie.html#abf9d6f48d556e09d1b292412df153a4b">Trie::~Trie</a></div><div class="ttdeci">~Trie()</div><div class="ttdoc">Basic Trie destructor. Deletes root node.</div><div class="ttdef"><b>Definition</b> Trie.h:170</div></div>
-<div class="ttc" id="aclassTrie_html_acadfba10d18faea0b83d94a91548cd27"><div class="ttname"><a href="classTrie.html#acadfba10d18faea0b83d94a91548cd27">Trie::operator=</a></div><div class="ttdeci">Trie &amp; operator=(const Trie &amp;trie)</div><div class="ttdoc">Assignment operator.</div><div class="ttdef"><b>Definition</b> Trie.h:128</div></div>
+<div class="ttc" id="aclassTrie_html_a1028ddcc66a2c5c606269b4c8136da9e"><div class="ttname"><a href="classTrie.html#a1028ddcc66a2c5c606269b4c8136da9e">Trie::operator+</a></div><div class="ttdeci">Trie operator+(const Trie &amp;trie) const</div><div class="ttdoc">Combines two Tries into a new Trie containing all unique words.</div><div class="ttdef"><b>Definition</b> Trie.h:135</div></div>
+<div class="ttc" id="aclassTrie_html_a22ccfa0315e46b7d05bc8e93b3139d74"><div class="ttname"><a href="classTrie.html#a22ccfa0315e46b7d05bc8e93b3139d74">Trie::operator-</a></div><div class="ttdeci">Trie operator-(const Trie &amp;trie) const</div><div class="ttdoc">Creates a new Trie by removing words in the given Trie from this Trie.</div><div class="ttdef"><b>Definition</b> Trie.h:167</div></div>
+<div class="ttc" id="aclassTrie_html_a286afcf0acdd84b189fe28016304cb00"><div class="ttname"><a href="classTrie.html#a286afcf0acdd84b189fe28016304cb00">Trie::del</a></div><div class="ttdeci">void del(const std::string &amp;text) const</div><div class="ttdoc">Deletes a word from the Trie.</div><div class="ttdef"><b>Definition</b> Trie.h:288</div></div>
+<div class="ttc" id="aclassTrie_html_a2b5a5ae63e7c3439d942d7c1562dbfc2"><div class="ttname"><a href="classTrie.html#a2b5a5ae63e7c3439d942d7c1562dbfc2">Trie::operator&gt;</a></div><div class="ttdeci">bool operator&gt;(const Trie &amp;trie)</div><div class="ttdoc">Lexicographically compares two tries based on their stored words.</div><div class="ttdef"><b>Definition</b> Trie.h:102</div></div>
+<div class="ttc" id="aclassTrie_html_a618ef49a48291bcf6184710e38398a4d"><div class="ttname"><a href="classTrie.html#a618ef49a48291bcf6184710e38398a4d">Trie::autocomplete</a></div><div class="ttdeci">std::queue&lt; std::string &gt; autocomplete(const std::string &amp;prefix, size_t count=INT_MAX) const</div><div class="ttdoc">Provides autocomplete suggestions based on the given prefix.</div><div class="ttdef"><b>Definition</b> Trie.h:371</div></div>
+<div class="ttc" id="aclassTrie_html_a6af57e9f25d0d0a2d59eea5a4a802908"><div class="ttname"><a href="classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908">Trie::Trie</a></div><div class="ttdeci">Trie()</div><div class="ttdoc">Basic Trie constructor. Creating new root node.</div><div class="ttdef"><b>Definition</b> Trie.h:227</div></div>
+<div class="ttc" id="aclassTrie_html_a6fd6312a05c467ef1a0729be5e8fdd6a"><div class="ttname"><a href="classTrie.html#a6fd6312a05c467ef1a0729be5e8fdd6a">Trie::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const Trie &amp;trie)</div><div class="ttdoc">Lexicographically compares two tries based on their stored words.</div><div class="ttdef"><b>Definition</b> Trie.h:92</div></div>
+<div class="ttc" id="aclassTrie_html_a7f417b706e75f60af3eeac0938f4cb57"><div class="ttname"><a href="classTrie.html#a7f417b706e75f60af3eeac0938f4cb57">Trie::operator&lt;=</a></div><div class="ttdeci">bool operator&lt;=(const Trie &amp;trie)</div><div class="ttdoc">Checks if this trie is lexicographically smaller or equal.</div><div class="ttdef"><b>Definition</b> Trie.h:112</div></div>
+<div class="ttc" id="aclassTrie_html_a82ded465e0c692fe9c783d471ed4f682"><div class="ttname"><a href="classTrie.html#a82ded465e0c692fe9c783d471ed4f682">Trie::insert</a></div><div class="ttdeci">void insert(const std::string &amp;text)</div><div class="ttdoc">Inserts a word into the trie.</div><div class="ttdef"><b>Definition</b> Trie.h:438</div></div>
+<div class="ttc" id="aclassTrie_html_a9bf6708fbfdd41349e7f3d9291ed286d"><div class="ttname"><a href="classTrie.html#a9bf6708fbfdd41349e7f3d9291ed286d">Trie::operator!=</a></div><div class="ttdeci">bool operator!=(const Trie &amp;trie)</div><div class="ttdoc">Checks if two tries are different by comparing their stored words.</div><div class="ttdef"><b>Definition</b> Trie.h:82</div></div>
+<div class="ttc" id="aclassTrie_html_abbd806b35f4ff8d76c3c8244d0b06741"><div class="ttname"><a href="classTrie.html#abbd806b35f4ff8d76c3c8244d0b06741">Trie::operator&gt;=</a></div><div class="ttdeci">bool operator&gt;=(const Trie &amp;trie)</div><div class="ttdoc">Checks if this trie is lexicographically greater or equal.</div><div class="ttdef"><b>Definition</b> Trie.h:122</div></div>
+<div class="ttc" id="aclassTrie_html_abf9d6f48d556e09d1b292412df153a4b"><div class="ttname"><a href="classTrie.html#abf9d6f48d556e09d1b292412df153a4b">Trie::~Trie</a></div><div class="ttdeci">~Trie()</div><div class="ttdoc">Basic Trie destructor. Deletes root node.</div><div class="ttdef"><b>Definition</b> Trie.h:233</div></div>
+<div class="ttc" id="aclassTrie_html_acadfba10d18faea0b83d94a91548cd27"><div class="ttname"><a href="classTrie.html#acadfba10d18faea0b83d94a91548cd27">Trie::operator=</a></div><div class="ttdeci">Trie &amp; operator=(const Trie &amp;trie)</div><div class="ttdoc">Assignment operator.</div><div class="ttdef"><b>Definition</b> Trie.h:191</div></div>
+<div class="ttc" id="aclassTrie_html_ae85a85f354ad4eed560129f59ef48535"><div class="ttname"><a href="classTrie.html#ae85a85f354ad4eed560129f59ef48535">Trie::operator==</a></div><div class="ttdeci">bool operator==(const Trie &amp;trie)</div><div class="ttdoc">Checks if two tries are equal by comparing their stored words.</div><div class="ttdef"><b>Definition</b> Trie.h:72</div></div>
 <div class="ttc" id="aclassTrie_html_afc2a318e8bf33eac6117fac128c5d37c"><div class="ttname"><a href="classTrie.html#afc2a318e8bf33eac6117fac128c5d37c">Trie::getRoot</a></div><div class="ttdeci">const Node * getRoot() const</div><div class="ttdoc">Functions for testing.</div><div class="ttdef"><b>Definition</b> Trie.h:36</div></div>
 <div class="ttc" id="astructTrie_1_1Node_html"><div class="ttname"><a href="structTrie_1_1Node.html">Trie::Node</a></div><div class="ttdef"><b>Definition</b> Trie.h:18</div></div>
-<div class="ttc" id="astructTrie_1_1Node_html_a196db9af06d50509138b7c67c5aa7082"><div class="ttname"><a href="structTrie_1_1Node.html#a196db9af06d50509138b7c67c5aa7082">Trie::Node::insert</a></div><div class="ttdeci">void insert(const std::string &amp;text, size_t index, Node *root)</div><div class="ttdoc">Recursively inserts characters of the string into the trie.</div><div class="ttdef"><b>Definition</b> Trie.h:387</div></div>
-<div class="ttc" id="astructTrie_1_1Node_html_a3962f09c5a788d10c1a4e51d565b4d94"><div class="ttname"><a href="structTrie_1_1Node.html#a3962f09c5a788d10c1a4e51d565b4d94">Trie::Node::~Node</a></div><div class="ttdeci">~Node()</div><div class="ttdoc">Node destructor. Deletes all nodes.</div><div class="ttdef"><b>Definition</b> Trie.h:154</div></div>
-<div class="ttc" id="astructTrie_1_1Node_html_a7b355369a59c8d69901736bfdd88b007"><div class="ttname"><a href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">Trie::Node::autocompleteNode</a></div><div class="ttdeci">std::queue&lt; std::string &gt; autocompleteNode(const std::string &amp;prefix, size_t count) const</div><div class="ttdoc">Retrieves autocomplete suggestions starting with a specified prefix.</div><div class="ttdef"><b>Definition</b> Trie.h:336</div></div>
+<div class="ttc" id="astructTrie_1_1Node_html_a196db9af06d50509138b7c67c5aa7082"><div class="ttname"><a href="structTrie_1_1Node.html#a196db9af06d50509138b7c67c5aa7082">Trie::Node::insert</a></div><div class="ttdeci">void insert(const std::string &amp;text, size_t index, Node *root)</div><div class="ttdoc">Recursively inserts characters of the string into the trie.</div><div class="ttdef"><b>Definition</b> Trie.h:450</div></div>
+<div class="ttc" id="astructTrie_1_1Node_html_a3962f09c5a788d10c1a4e51d565b4d94"><div class="ttname"><a href="structTrie_1_1Node.html#a3962f09c5a788d10c1a4e51d565b4d94">Trie::Node::~Node</a></div><div class="ttdeci">~Node()</div><div class="ttdoc">Node destructor. Deletes all nodes.</div><div class="ttdef"><b>Definition</b> Trie.h:217</div></div>
+<div class="ttc" id="astructTrie_1_1Node_html_a7b355369a59c8d69901736bfdd88b007"><div class="ttname"><a href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">Trie::Node::autocompleteNode</a></div><div class="ttdeci">std::queue&lt; std::string &gt; autocompleteNode(const std::string &amp;prefix, size_t count) const</div><div class="ttdoc">Retrieves autocomplete suggestions starting with a specified prefix.</div><div class="ttdef"><b>Definition</b> Trie.h:399</div></div>
 <div class="ttc" id="astructTrie_1_1Node_html_aeb43ae0f05e236bdaac77ea555fe280c"><div class="ttname"><a href="structTrie_1_1Node.html#aeb43ae0f05e236bdaac77ea555fe280c">Trie::Node::Node</a></div><div class="ttdeci">Node()</div><div class="ttdoc">Basic Node constructor.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -39,6 +39,18 @@ void {\bfseries set\+Root} (\mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpd
 \begin{DoxyCompactList}\small\item\em Combines two Tries into a new \doxylink{classTrie}{Trie} containing all unique words. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classTrie}{Trie}} \mbox{\hyperlink{classTrie_a22ccfa0315e46b7d05bc8e93b3139d74}{operator-\/}} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie) const
 \begin{DoxyCompactList}\small\item\em Creates a new \doxylink{classTrie}{Trie} by removing words in the given \doxylink{classTrie}{Trie} from this \doxylink{classTrie}{Trie}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTrie_a6fd6312a05c467ef1a0729be5e8fdd6a}{operator$<$}} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
+\begin{DoxyCompactList}\small\item\em Lexicographically compares two tries based on their stored words. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTrie_ae85a85f354ad4eed560129f59ef48535}{operator==}} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
+\begin{DoxyCompactList}\small\item\em Checks if two tries are equal by comparing their stored words. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTrie_a2b5a5ae63e7c3439d942d7c1562dbfc2}{operator$>$}} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
+\begin{DoxyCompactList}\small\item\em Lexicographically compares two tries based on their stored words. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTrie_a9bf6708fbfdd41349e7f3d9291ed286d}{operator!=}} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
+\begin{DoxyCompactList}\small\item\em Checks if two tries are different by comparing their stored words. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTrie_a7f417b706e75f60af3eeac0938f4cb57}{operator$<$=}} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
+\begin{DoxyCompactList}\small\item\em Checks if this trie is lexicographically smaller or equal. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTrie_abbd806b35f4ff8d76c3c8244d0b06741}{operator$>$=}} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
+\begin{DoxyCompactList}\small\item\em Checks if this trie is lexicographically greater or equal. \end{DoxyCompactList}\item 
 \Hypertarget{classTrie_a0a4ad7f242d621cd1d66e7e9cb350bd5}\label{classTrie_a0a4ad7f242d621cd1d66e7e9cb350bd5} 
 \mbox{\hyperlink{classTrie}{Trie}} \& {\bfseries operator=} (\mbox{\hyperlink{classTrie}{Trie}} \&\&trie) noexcept
 \item 
@@ -170,6 +182,30 @@ This function inserts the provided string into the trie, character by character.
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
+\Hypertarget{classTrie_a9bf6708fbfdd41349e7f3d9291ed286d}\label{classTrie_a9bf6708fbfdd41349e7f3d9291ed286d} 
+\index{Trie@{Trie}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Trie\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption})}
+
+
+
+Checks if two tries are different by comparing their stored words. 
+
+\begin{DoxyNote}{Note}
+Will be optimized using BFS later. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em trie} & The trie to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the tries contain different words, false otherwise. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
 \Hypertarget{classTrie_a1028ddcc66a2c5c606269b4c8136da9e}\label{classTrie_a1028ddcc66a2c5c606269b4c8136da9e} 
 \index{Trie@{Trie}!operator+@{operator+}}
 \index{operator+@{operator+}!Trie@{Trie}}
@@ -216,6 +252,54 @@ This operator returns a new \doxylink{classTrie}{Trie} that contains only the wo
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
+\Hypertarget{classTrie_a6fd6312a05c467ef1a0729be5e8fdd6a}\label{classTrie_a6fd6312a05c467ef1a0729be5e8fdd6a} 
+\index{Trie@{Trie}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Trie\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption})}
+
+
+
+Lexicographically compares two tries based on their stored words. 
+
+\begin{DoxyNote}{Note}
+Will be optimized using BFS later. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em trie} & The trie to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this trie is lexicographically smaller. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
+\Hypertarget{classTrie_a7f417b706e75f60af3eeac0938f4cb57}\label{classTrie_a7f417b706e75f60af3eeac0938f4cb57} 
+\index{Trie@{Trie}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily bool Trie\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption})}
+
+
+
+Checks if this trie is lexicographically smaller or equal. 
+
+\begin{DoxyNote}{Note}
+Will be optimized using BFS later. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em trie} & The trie to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this trie is smaller or equal. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
 \Hypertarget{classTrie_acadfba10d18faea0b83d94a91548cd27}\label{classTrie_acadfba10d18faea0b83d94a91548cd27} 
 \index{Trie@{Trie}!operator=@{operator=}}
 \index{operator=@{operator=}!Trie@{Trie}}
@@ -233,6 +317,78 @@ Assignment operator.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 New \doxylink{classTrie}{Trie}. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
+\Hypertarget{classTrie_ae85a85f354ad4eed560129f59ef48535}\label{classTrie_ae85a85f354ad4eed560129f59ef48535} 
+\index{Trie@{Trie}!operator==@{operator==}}
+\index{operator==@{operator==}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Trie\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption})}
+
+
+
+Checks if two tries are equal by comparing their stored words. 
+
+\begin{DoxyNote}{Note}
+Will be optimized using BFS later. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em trie} & The trie to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if both tries contain the same words, false otherwise. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
+\Hypertarget{classTrie_a2b5a5ae63e7c3439d942d7c1562dbfc2}\label{classTrie_a2b5a5ae63e7c3439d942d7c1562dbfc2} 
+\index{Trie@{Trie}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool Trie\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption})}
+
+
+
+Lexicographically compares two tries based on their stored words. 
+
+\begin{DoxyNote}{Note}
+Will be optimized using BFS later. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em trie} & The trie to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this trie is lexicographically greater. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
+\Hypertarget{classTrie_abbd806b35f4ff8d76c3c8244d0b06741}\label{classTrie_abbd806b35f4ff8d76c3c8244d0b06741} 
+\index{Trie@{Trie}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily bool Trie\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption})}
+
+
+
+Checks if this trie is lexicographically greater or equal. 
+
+\begin{DoxyNote}{Note}
+Will be optimized using BFS later. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em trie} & The trie to compare with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if this trie is greater or equal. 
 \end{DoxyReturn}
 \begin{Desc}
 \item[Examples]\par
