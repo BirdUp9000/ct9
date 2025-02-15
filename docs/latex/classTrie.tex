@@ -10,56 +10,39 @@ struct \mbox{\hyperlink{structTrie_1_1Node}{Node}}
 \item 
 \Hypertarget{classTrie_afc2a318e8bf33eac6117fac128c5d37c}\label{classTrie_afc2a318e8bf33eac6117fac128c5d37c} 
 const \mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Root} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Functions for testing. \end{DoxyCompactList}\item 
 \Hypertarget{classTrie_aa638ad44eca56ca4ff2c5b1610c76472}\label{classTrie_aa638ad44eca56ca4ff2c5b1610c76472} 
 \mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries get\+Root} ()
 \item 
 \Hypertarget{classTrie_ad2b9d67b6dbde510bd2089cf362da52e}\label{classTrie_ad2b9d67b6dbde510bd2089cf362da52e} 
 void {\bfseries set\+Root} (\mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*}root)
 \item 
-\Hypertarget{classTrie_ac81526e95973e2cbfee37851c30b9b61}\label{classTrie_ac81526e95973e2cbfee37851c30b9b61} 
-{\bfseries Trie} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
-\item 
+\Hypertarget{classTrie_a6af57e9f25d0d0a2d59eea5a4a802908}\label{classTrie_a6af57e9f25d0d0a2d59eea5a4a802908} 
+{\bfseries Trie} ()
+\begin{DoxyCompactList}\small\item\em Basic \doxylink{classTrie}{Trie} constructor. Creating new root node. \end{DoxyCompactList}\item 
+\Hypertarget{classTrie_abf9d6f48d556e09d1b292412df153a4b}\label{classTrie_abf9d6f48d556e09d1b292412df153a4b} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Trie} ()
+\begin{DoxyCompactList}\small\item\em Basic \doxylink{classTrie}{Trie} destructor. Deletes root node. \end{DoxyCompactList}\item 
 \Hypertarget{classTrie_aa9a65eb516197711298fb7a12dcb5e60}\label{classTrie_aa9a65eb516197711298fb7a12dcb5e60} 
 {\bfseries Trie} (const std\+::string \&str)
 \item 
 \Hypertarget{classTrie_ae56d4613fe551698218632da34bda1c2}\label{classTrie_ae56d4613fe551698218632da34bda1c2} 
 {\bfseries Trie} (const std\+::vector$<$ std\+::string $>$ \&vec\+\_\+str)
 \item 
-\Hypertarget{classTrie_a8f2f269fc83ce5b8a3010d90c4a92396}\label{classTrie_a8f2f269fc83ce5b8a3010d90c4a92396} 
-{\bfseries Trie} (\mbox{\hyperlink{classTrie}{Trie}} \&\&trie) noexcept
+\mbox{\hyperlink{classTrie_ac81526e95973e2cbfee37851c30b9b61}{Trie}} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
+\begin{DoxyCompactList}\small\item\em \doxylink{classTrie}{Trie} copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTrie}{Trie}} \& \mbox{\hyperlink{classTrie_acadfba10d18faea0b83d94a91548cd27}{operator=}} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTrie_a8f2f269fc83ce5b8a3010d90c4a92396}{Trie}} (\mbox{\hyperlink{classTrie}{Trie}} \&\&trie) noexcept
 \item 
-\Hypertarget{classTrie_a1028ddcc66a2c5c606269b4c8136da9e}\label{classTrie_a1028ddcc66a2c5c606269b4c8136da9e} 
-\mbox{\hyperlink{classTrie}{Trie}} {\bfseries operator+} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie) const
-\item 
-\Hypertarget{classTrie_a22ccfa0315e46b7d05bc8e93b3139d74}\label{classTrie_a22ccfa0315e46b7d05bc8e93b3139d74} 
-\mbox{\hyperlink{classTrie}{Trie}} {\bfseries operator-\/} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie) const
-\item 
-\Hypertarget{classTrie_acadfba10d18faea0b83d94a91548cd27}\label{classTrie_acadfba10d18faea0b83d94a91548cd27} 
-\mbox{\hyperlink{classTrie}{Trie}} \& {\bfseries operator=} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
-\item 
+\mbox{\hyperlink{classTrie}{Trie}} \mbox{\hyperlink{classTrie_a1028ddcc66a2c5c606269b4c8136da9e}{operator+}} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie) const
+\begin{DoxyCompactList}\small\item\em Combines two Tries into a new \doxylink{classTrie}{Trie} containing all unique words. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTrie}{Trie}} \mbox{\hyperlink{classTrie_a22ccfa0315e46b7d05bc8e93b3139d74}{operator-\/}} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie) const
+\begin{DoxyCompactList}\small\item\em Creates a new \doxylink{classTrie}{Trie} by removing words in the given \doxylink{classTrie}{Trie} from this \doxylink{classTrie}{Trie}. \end{DoxyCompactList}\item 
 \Hypertarget{classTrie_a0a4ad7f242d621cd1d66e7e9cb350bd5}\label{classTrie_a0a4ad7f242d621cd1d66e7e9cb350bd5} 
 \mbox{\hyperlink{classTrie}{Trie}} \& {\bfseries operator=} (\mbox{\hyperlink{classTrie}{Trie}} \&\&trie) noexcept
 \item 
-\Hypertarget{classTrie_a6fd6312a05c467ef1a0729be5e8fdd6a}\label{classTrie_a6fd6312a05c467ef1a0729be5e8fdd6a} 
-bool {\bfseries operator$<$} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
-\item 
-\Hypertarget{classTrie_ae85a85f354ad4eed560129f59ef48535}\label{classTrie_ae85a85f354ad4eed560129f59ef48535} 
-bool {\bfseries operator==} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
-\item 
-\Hypertarget{classTrie_a2b5a5ae63e7c3439d942d7c1562dbfc2}\label{classTrie_a2b5a5ae63e7c3439d942d7c1562dbfc2} 
-bool {\bfseries operator$>$} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
-\item 
-\Hypertarget{classTrie_a9bf6708fbfdd41349e7f3d9291ed286d}\label{classTrie_a9bf6708fbfdd41349e7f3d9291ed286d} 
-bool {\bfseries operator!=} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
-\item 
-\Hypertarget{classTrie_abbd806b35f4ff8d76c3c8244d0b06741}\label{classTrie_abbd806b35f4ff8d76c3c8244d0b06741} 
-bool {\bfseries operator$>$=} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
-\item 
-\Hypertarget{classTrie_a7f417b706e75f60af3eeac0938f4cb57}\label{classTrie_a7f417b706e75f60af3eeac0938f4cb57} 
-bool {\bfseries operator$<$=} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
-\item 
-void \mbox{\hyperlink{classTrie_a202cd798323c86834262486ab35a59fc}{del}} (const std\+::string \&word)
+void \mbox{\hyperlink{classTrie_a286afcf0acdd84b189fe28016304cb00}{del}} (const std\+::string \&text) const
 \begin{DoxyCompactList}\small\item\em Deletes a word from the \doxylink{classTrie}{Trie}. \end{DoxyCompactList}\item 
 \Hypertarget{classTrie_a82ba67640c0fd549a59f91ebc7ed67e8}\label{classTrie_a82ba67640c0fd549a59f91ebc7ed67e8} 
 std\+::string {\bfseries DEBUG} (const \mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*}node, int x, int y, int level, int parent\+\_\+x, int parent\+\_\+y, char letter) const
@@ -68,16 +51,17 @@ std\+::queue$<$ std\+::string $>$ \mbox{\hyperlink{classTrie_a618ef49a48291bcf61
 \begin{DoxyCompactList}\small\item\em Provides autocomplete suggestions based on the given prefix. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classTrie_a82ded465e0c692fe9c783d471ed4f682}{insert}} (const std\+::string \&text)
 \begin{DoxyCompactList}\small\item\em Inserts a word into the trie. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Static Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-static void \mbox{\hyperlink{classTrie_ae9c02d045830f0d6a0e56e78f30f3168}{copy\+Nodes}} (\mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*}dst\+Root, const \mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*}src\+Root)
-\begin{DoxyCompactList}\small\item\em Copies all nodes from a source trie to a destination trie. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
+\Hypertarget{classTrie_a224e2288312d7f41ec5dbead3985c397}\label{classTrie_a224e2288312d7f41ec5dbead3985c397} 
+PRIVATE \+: static void copy\+Nodes(\mbox{\hyperlink{structTrie_1_1Node}{Node}}\texorpdfstring{$\ast$}{*} dst\+Root
+\item 
+\Hypertarget{classTrie_a55c5c3cd717ee508fcc438aa9f8af26b}\label{classTrie_a55c5c3cd717ee508fcc438aa9f8af26b} 
+PRIVATE const \mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries src\+Root}
+\item 
 \Hypertarget{classTrie_ab16619596d0d3d177bdf44b82b39312d}\label{classTrie_ab16619596d0d3d177bdf44b82b39312d} 
-\mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries root} = new \mbox{\hyperlink{structTrie_1_1Node}{Node}}()
+\mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*} {\bfseries root} \{nullptr\}
 \end{DoxyCompactItemize}
 
 
@@ -85,6 +69,35 @@ static void \mbox{\hyperlink{classTrie_ae9c02d045830f0d6a0e56e78f30f3168}{copy\+
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classTrie_ac81526e95973e2cbfee37851c30b9b61}\label{classTrie_ac81526e95973e2cbfee37851c30b9b61} 
+\index{Trie@{Trie}!Trie@{Trie}}
+\index{Trie@{Trie}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{Trie()}{Trie()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Trie\+::\+Trie (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxylink{classTrie}{Trie} copy constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trie} & source of copy. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTrie_a8f2f269fc83ce5b8a3010d90c4a92396}\label{classTrie_a8f2f269fc83ce5b8a3010d90c4a92396} 
+\index{Trie@{Trie}!Trie@{Trie}}
+\index{Trie@{Trie}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{Trie()}{Trie()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Trie\+::\+Trie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTrie}{Trie}} \&\&}]{trie }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Move constructor. 
+\begin{DoxyParams}{Parameters}
+{\em trie} & source of move. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -113,39 +126,11 @@ A queue of strings containing the autocomplete suggestions. The results are in l
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
-\Hypertarget{classTrie_ae9c02d045830f0d6a0e56e78f30f3168}\label{classTrie_ae9c02d045830f0d6a0e56e78f30f3168} 
-\index{Trie@{Trie}!copyNodes@{copyNodes}}
-\index{copyNodes@{copyNodes}!Trie@{Trie}}
-\doxysubsubsection{\texorpdfstring{copyNodes()}{copyNodes()}}
-{\footnotesize\ttfamily static void Trie\+::copy\+Nodes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*}}]{dst\+Root,  }\item[{const \mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*}}]{src\+Root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
-
-
-
-Copies all nodes from a source trie to a destination trie. 
-
-This function performs a breadth-\/first traversal (BFS) of the source trie and duplicates its structure and data into the destination trie. It ensures that each node and its respective children are copied correctly.
-
-
-\begin{DoxyParams}{Parameters}
-{\em dst\+Root} & Pointer to the root node of the destination trie, where the copied structure will be stored. \\
-\hline
-{\em src\+Root} & Pointer to the root node of the source trie, from which the structure and data will be copied.\\
-\hline
-\end{DoxyParams}
-\begin{DoxyNote}{Note}
-The destination trie should be initialized before calling this function. Existing data in the destination trie may be overwritten.
-\end{DoxyNote}
-\begin{DoxyWarning}{Warning}
-This function dynamically allocates memory for each new node in the destination trie. Ensure to properly manage memory to avoid leaks. 
-\end{DoxyWarning}
-\begin{Desc}
-\item[Examples]\par
-\mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
-\Hypertarget{classTrie_a202cd798323c86834262486ab35a59fc}\label{classTrie_a202cd798323c86834262486ab35a59fc} 
+\Hypertarget{classTrie_a286afcf0acdd84b189fe28016304cb00}\label{classTrie_a286afcf0acdd84b189fe28016304cb00} 
 \index{Trie@{Trie}!del@{del}}
 \index{del@{del}!Trie@{Trie}}
 \doxysubsubsection{\texorpdfstring{del()}{del()}}
-{\footnotesize\ttfamily void Trie\+::del (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{word }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Trie\+::del (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{word }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -182,6 +167,73 @@ This function inserts the provided string into the trie, character by character.
 {\em text} & The word to be inserted into the trie. \\
 \hline
 \end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
+\Hypertarget{classTrie_a1028ddcc66a2c5c606269b4c8136da9e}\label{classTrie_a1028ddcc66a2c5c606269b4c8136da9e} 
+\index{Trie@{Trie}!operator+@{operator+}}
+\index{operator+@{operator+}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTrie}{Trie}} Trie\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Combines two Tries into a new \doxylink{classTrie}{Trie} containing all unique words. 
+
+This operator merges the current \doxylink{classTrie}{Trie} with another \doxylink{classTrie}{Trie} and returns a new \doxylink{classTrie}{Trie} that contains all unique words from both Tries.
+
+
+\begin{DoxyParams}{Parameters}
+{\em trie} & The \doxylink{classTrie}{Trie} to merge with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classTrie}{Trie} containing all unique words from both Tries. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
+\Hypertarget{classTrie_a22ccfa0315e46b7d05bc8e93b3139d74}\label{classTrie_a22ccfa0315e46b7d05bc8e93b3139d74} 
+\index{Trie@{Trie}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTrie}{Trie}} Trie\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a new \doxylink{classTrie}{Trie} by removing words in the given \doxylink{classTrie}{Trie} from this \doxylink{classTrie}{Trie}. 
+
+This operator returns a new \doxylink{classTrie}{Trie} that contains only the words that are in the current \doxylink{classTrie}{Trie} but not in the given \doxylink{classTrie}{Trie}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em trie} & The \doxylink{classTrie}{Trie} whose words should be removed from this \doxylink{classTrie}{Trie}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classTrie}{Trie} containing only words unique to this \doxylink{classTrie}{Trie}. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
+\Hypertarget{classTrie_acadfba10d18faea0b83d94a91548cd27}\label{classTrie_acadfba10d18faea0b83d94a91548cd27} 
+\index{Trie@{Trie}!operator=@{operator=}}
+\index{operator=@{operator=}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTrie}{Trie}} \& Trie\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Assignment operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em trie} & source. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+New \doxylink{classTrie}{Trie}. 
+\end{DoxyReturn}
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}

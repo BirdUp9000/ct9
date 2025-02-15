@@ -3,11 +3,19 @@
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\Hypertarget{structTrie_1_1Node_aeb43ae0f05e236bdaac77ea555fe280c}\label{structTrie_1_1Node_aeb43ae0f05e236bdaac77ea555fe280c} 
+{\bfseries Node} ()
+\begin{DoxyCompactList}\small\item\em Basic \doxylink{structTrie_1_1Node}{Node} constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structTrie_1_1Node_a3962f09c5a788d10c1a4e51d565b4d94}{\texorpdfstring{$\sim$}{\string~}\+Node}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{structTrie_1_1Node}{Node} destructor. Deletes all nodes. \end{DoxyCompactList}\item 
+\Hypertarget{structTrie_1_1Node_a5ffe900355224def07e71618953b4376}\label{structTrie_1_1Node_a5ffe900355224def07e71618953b4376} 
+{\bfseries Node} (const \mbox{\hyperlink{structTrie_1_1Node}{Node}} \&)
+\item 
 \Hypertarget{structTrie_1_1Node_aab520fd7efb71b2c7f45ac56913abeb5}\label{structTrie_1_1Node_aab520fd7efb71b2c7f45ac56913abeb5} 
 void {\bfseries clear\+Node} ()
 \item 
 std\+::queue$<$ std\+::string $>$ \mbox{\hyperlink{structTrie_1_1Node_a7b355369a59c8d69901736bfdd88b007}{autocomplete\+Node}} (const std\+::string \&prefix, size\+\_\+t count) const
-\begin{DoxyCompactList}\small\item\em Helper function to gather autocomplete suggestions from a specific node. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Retrieves autocomplete suggestions starting with a specified prefix. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{structTrie_1_1Node_a196db9af06d50509138b7c67c5aa7082}{insert}} (const std\+::string \&text, size\+\_\+t index, \mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*}root)
 \begin{DoxyCompactList}\small\item\em Recursively inserts characters of the string into the trie. \end{DoxyCompactList}\item 
 \Hypertarget{structTrie_1_1Node_a116b1b99ff9b9d8e4a73d10064cd8c01}\label{structTrie_1_1Node_a116b1b99ff9b9d8e4a73d10064cd8c01} 
@@ -23,8 +31,27 @@ std\+::string {\bfseries find} () const
 std\+::map$<$ char, \mbox{\hyperlink{structTrie_1_1Node}{Node}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries children}
 \item 
 \Hypertarget{structTrie_1_1Node_aeec99f84d723b56ed52fee9326a7f7e9}\label{structTrie_1_1Node_aeec99f84d723b56ed52fee9326a7f7e9} 
-bool {\bfseries end\+\_\+of\+\_\+word} = false
+bool {\bfseries end\+\_\+of\+\_\+word} \{false\}
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structTrie_1_1Node_a3962f09c5a788d10c1a4e51d565b4d94}\label{structTrie_1_1Node_a3962f09c5a788d10c1a4e51d565b4d94} 
+\index{Trie::Node@{Trie::Node}!````~Node@{\texorpdfstring{$\sim$}{\string~}Node}}
+\index{````~Node@{\texorpdfstring{$\sim$}{\string~}Node}!Trie::Node@{Trie::Node}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Node()}{\string~Node()}}
+{\footnotesize\ttfamily Trie\+::\+Node\+::\texorpdfstring{$\sim$}{\string~}\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxylink{structTrie_1_1Node}{Node} destructor. Deletes all nodes. 
+
+\begin{DoxyWarning}{Warning}
+Add a pointer check. 
+\end{DoxyWarning}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
 
 
 \doxysubsection{Member Function Documentation}
@@ -32,24 +59,27 @@ bool {\bfseries end\+\_\+of\+\_\+word} = false
 \index{Trie::Node@{Trie::Node}!autocompleteNode@{autocompleteNode}}
 \index{autocompleteNode@{autocompleteNode}!Trie::Node@{Trie::Node}}
 \doxysubsubsection{\texorpdfstring{autocompleteNode()}{autocompleteNode()}}
-{\footnotesize\ttfamily std\+::queue$<$ std\+::string $>$ Trie\+::\+Node\+::autocomplete\+Node (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{prefix,  }\item[{size\+\_\+t}]{count }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily std\+::queue$<$ std\+::string $>$ Trie\+::\+Node\+::autocomplete\+Node (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{prefix,  }\item[{size\+\_\+t}]{count }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Helper function to gather autocomplete suggestions from a specific node. 
+Retrieves autocomplete suggestions starting with a specified prefix. 
 
-Performs a depth-\/first search (DFS) starting from the current node to find all possible word completions that begin with the given prefix. The search continues until the specified count of results is collected.
+This function performs a depth-\/first search (DFS) from the current trie node to collect words that begin with the given prefix. A recursive lambda function is used for traversal. The {\ttfamily current} string serves as a mutable buffer that holds the current path in the trie. When a node marking the end of a valid word is encountered, the accumulated string in {\ttfamily current} is added to the {\ttfamily results} queue. The DFS terminates early once the number of collected suggestions reaches the specified limit.
 
 
 \begin{DoxyParams}{Parameters}
-{\em prefix} & The prefix to append to each found word. \\
+{\em prefix} & The prefix string used as the starting point for generating autocomplete suggestions. \\
 \hline
-{\em count} & The maximum number of results to return. \\
+{\em count} & The maximum number of autocomplete suggestions to retrieve. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A queue of strings containing the found words, ordered lexicographically. 
+std\+::queue$<$std\+::string$>$ A queue containing the autocomplete suggestions in DFS traversal order.
 \end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The implementation uses backtracking to avoid unnecessary string copying. The recursive DFS function returns a boolean value to indicate whether the search should be terminated early. 
+\end{DoxyNote}
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}

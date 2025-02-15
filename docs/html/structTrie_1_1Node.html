@@ -106,11 +106,21 @@ $(document).ready(function(){initNavTree('structTrie_1_1Node.html',''); initResi
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:aeb43ae0f05e236bdaac77ea555fe280c" id="r_aeb43ae0f05e236bdaac77ea555fe280c"><td class="memItemLeft" align="right" valign="top"><a id="aeb43ae0f05e236bdaac77ea555fe280c" name="aeb43ae0f05e236bdaac77ea555fe280c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Node</b> ()</td></tr>
+<tr class="memdesc:aeb43ae0f05e236bdaac77ea555fe280c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic <a class="el" href="structTrie_1_1Node.html">Node</a> constructor. <br /></td></tr>
+<tr class="separator:aeb43ae0f05e236bdaac77ea555fe280c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3962f09c5a788d10c1a4e51d565b4d94" id="r_a3962f09c5a788d10c1a4e51d565b4d94"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTrie_1_1Node.html#a3962f09c5a788d10c1a4e51d565b4d94">~Node</a> ()</td></tr>
+<tr class="memdesc:a3962f09c5a788d10c1a4e51d565b4d94"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structTrie_1_1Node.html">Node</a> destructor. Deletes all nodes.  <br /></td></tr>
+<tr class="separator:a3962f09c5a788d10c1a4e51d565b4d94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ffe900355224def07e71618953b4376" id="r_a5ffe900355224def07e71618953b4376"><td class="memItemLeft" align="right" valign="top"><a id="a5ffe900355224def07e71618953b4376" name="a5ffe900355224def07e71618953b4376"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Node</b> (const <a class="el" href="structTrie_1_1Node.html">Node</a> &amp;)</td></tr>
+<tr class="separator:a5ffe900355224def07e71618953b4376"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab520fd7efb71b2c7f45ac56913abeb5" id="r_aab520fd7efb71b2c7f45ac56913abeb5"><td class="memItemLeft" align="right" valign="top"><a id="aab520fd7efb71b2c7f45ac56913abeb5" name="aab520fd7efb71b2c7f45ac56913abeb5"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>clearNode</b> ()</td></tr>
 <tr class="separator:aab520fd7efb71b2c7f45ac56913abeb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b355369a59c8d69901736bfdd88b007" id="r_a7b355369a59c8d69901736bfdd88b007"><td class="memItemLeft" align="right" valign="top">std::queue&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007">autocompleteNode</a> (const std::string &amp;prefix, size_t count) const</td></tr>
-<tr class="memdesc:a7b355369a59c8d69901736bfdd88b007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function to gather autocomplete suggestions from a specific node.  <br /></td></tr>
+<tr class="memdesc:a7b355369a59c8d69901736bfdd88b007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves autocomplete suggestions starting with a specified prefix.  <br /></td></tr>
 <tr class="separator:a7b355369a59c8d69901736bfdd88b007"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a196db9af06d50509138b7c67c5aa7082" id="r_a196db9af06d50509138b7c67c5aa7082"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTrie_1_1Node.html#a196db9af06d50509138b7c67c5aa7082">insert</a> (const std::string &amp;text, size_t index, <a class="el" href="structTrie_1_1Node.html">Node</a> *root)</td></tr>
 <tr class="memdesc:a196db9af06d50509138b7c67c5aa7082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recursively inserts characters of the string into the trie.  <br /></td></tr>
@@ -128,15 +138,49 @@ Public Attributes</h2></td></tr>
 std::map&lt; char, <a class="el" href="structTrie_1_1Node.html">Node</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>children</b></td></tr>
 <tr class="separator:a56538e684711e414929b3fb28345870a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeec99f84d723b56ed52fee9326a7f7e9" id="r_aeec99f84d723b56ed52fee9326a7f7e9"><td class="memItemLeft" align="right" valign="top"><a id="aeec99f84d723b56ed52fee9326a7f7e9" name="aeec99f84d723b56ed52fee9326a7f7e9"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>end_of_word</b> = false</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>end_of_word</b> {false}</td></tr>
 <tr class="separator:aeec99f84d723b56ed52fee9326a7f7e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a3962f09c5a788d10c1a4e51d565b4d94" name="a3962f09c5a788d10c1a4e51d565b4d94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3962f09c5a788d10c1a4e51d565b4d94">&#9670;&#160;</a></span>~Node()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Trie::Node::~Node </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><a class="el" href="structTrie_1_1Node.html">Node</a> destructor. Deletes all nodes. </p>
+<dl class="section warning"><dt>Warning</dt><dd>Add a pointer check. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example.html#a2">/home/runner/work/ct9/ct9/include/ct9/Trie.h</a>.</dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a7b355369a59c8d69901736bfdd88b007" name="a7b355369a59c8d69901736bfdd88b007"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7b355369a59c8d69901736bfdd88b007">&#9670;&#160;</a></span>autocompleteNode()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::queue&lt; std::string &gt; Trie::Node::autocompleteNode </td>
@@ -156,19 +200,25 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>end_of_word</b> = fal
           <td></td><td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Helper function to gather autocomplete suggestions from a specific node. </p>
-<p>Performs a depth-first search (DFS) starting from the current node to find all possible word completions that begin with the given prefix. The search continues until the specified count of results is collected.</p>
+<p>Retrieves autocomplete suggestions starting with a specified prefix. </p>
+<p>This function performs a depth-first search (DFS) from the current trie node to collect words that begin with the given prefix. A recursive lambda function is used for traversal. The <code>current</code> string serves as a mutable buffer that holds the current path in the trie. When a node marking the end of a valid word is encountered, the accumulated string in <code>current</code> is added to the <code>results</code> queue. The DFS terminates early once the number of collected suggestions reaches the specified limit.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">prefix</td><td>The prefix to append to each found word. </td></tr>
-    <tr><td class="paramname">count</td><td>The maximum number of results to return. </td></tr>
+    <tr><td class="paramname">prefix</td><td>The prefix string used as the starting point for generating autocomplete suggestions. </td></tr>
+    <tr><td class="paramname">count</td><td>The maximum number of autocomplete suggestions to retrieve. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A queue of strings containing the found words, ordered lexicographically. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example.html#a1">/home/runner/work/ct9/ct9/include/ct9/Trie.h</a>.</dd>
+<dl class="section return"><dt>Returns</dt><dd>std::queue&lt;std::string&gt; A queue containing the autocomplete suggestions in DFS traversal order.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The implementation uses backtracking to avoid unnecessary string copying. The recursive DFS function returns a boolean value to indicate whether the search should be terminated early. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example.html#a3">/home/runner/work/ct9/ct9/include/ct9/Trie.h</a>.</dd>
 </dl>
 
 </div>
@@ -223,7 +273,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>end_of_word</b> = fal
   </table>
   </dd>
 </dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example.html#a2">/home/runner/work/ct9/ct9/include/ct9/Trie.h</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example.html#a4">/home/runner/work/ct9/ct9/include/ct9/Trie.h</a>.</dd>
 </dl>
 
 </div>
