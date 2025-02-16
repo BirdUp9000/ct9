@@ -26,7 +26,7 @@ TEST_CASE("Size test on trie with many words.") {
 TEST_CASE("Size test on trie after deletion.") {
   Trie t{};
   t.insert("hello");
-  t.delete("hello");
+  t.del("hello");
   REQUIRE(t.size() == 0);
 }
 

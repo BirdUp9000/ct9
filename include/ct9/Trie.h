@@ -61,18 +61,29 @@ public:
   Trie& operator=(Trie&& trie) noexcept;
   void del(const std::string& text) const;
   std::string DEBUG(const Node* node, int x, int y, int level, int parent_x, int parent_y, char letter) const;
-  [[nodiscard]] std::queue<std::string> autocomplete(const std::string& prefix, size_t count = INT_MAX) const;
-
+  [[nodiscard]] inline std::queue<std::string> autocomplete(const std::string& prefix, size_t count = INT_MAX) const;
   void insert(const std::string& text);
+  [[nodiscard]] bool contain(const std::string& word) const;
 };
-
+/**
+ * @brief Checks if a given word exists in the Trie.
+ *
+ * This method attempts to autocomplete the given word with a maximum result count of 1.
+ * If exactly one result is found, the word is considered to be present in the Trie.
+ *
+ * @param word The word to search for in the Trie.
+ * @return true if the word exists in the Trie, false otherwise.
+ */
+inline bool Trie::contain(const std::string& word) const {
+  return this->autocomplete(word,1).size() == 1;
+}
 /**
  * @brief Checks if two tries are equal by comparing their stored words.
  * @note Will be optimized using BFS later.
  * @param trie The trie to compare with.
  * @return True if both tries contain the same words, false otherwise.
  */
-[[nodiscard]] bool Trie::operator==(const Trie& trie) {
+[[nodiscard]] inline bool Trie::operator==(const Trie& trie) {
   return this->autocomplete("", INT_MAX) == trie.autocomplete("", INT_MAX);
 }
 
@@ -82,7 +93,7 @@ public:
  * @param trie The trie to compare with.
  * @return True if the tries contain different words, false otherwise.
  */
-[[nodiscard]] bool Trie::operator!=(const Trie& trie) {
+[[nodiscard]] inline bool Trie::operator!=(const Trie& trie) {
   return this->autocomplete("", INT_MAX) != trie.autocomplete("", INT_MAX);
 }
 
@@ -92,7 +103,7 @@ public:
  * @param trie The trie to compare with.
  * @return True if this trie is lexicographically smaller.
  */
-[[nodiscard]] bool Trie::operator<(const Trie& trie) {
+[[nodiscard]] inline bool Trie::operator<(const Trie& trie) {
   return this->autocomplete("", INT_MAX) < trie.autocomplete("", INT_MAX);
 }
 
@@ -102,7 +113,7 @@ public:
  * @param trie The trie to compare with.
  * @return True if this trie is lexicographically greater.
  */
-[[nodiscard]] bool Trie::operator>(const Trie& trie) {
+[[nodiscard]] inline bool Trie::operator>(const Trie& trie) {
   return this->autocomplete("", INT_MAX) > trie.autocomplete("", INT_MAX);
 }
 
@@ -112,7 +123,7 @@ public:
  * @param trie The trie to compare with.
  * @return True if this trie is smaller or equal.
  */
-[[nodiscard]] bool Trie::operator<=(const Trie& trie) {
+[[nodiscard]] inline bool Trie::operator<=(const Trie& trie) {
   return this->autocomplete("", INT_MAX) <= trie.autocomplete("", INT_MAX);
 }
 
@@ -122,7 +133,7 @@ public:
  * @param trie The trie to compare with.
  * @return True if this trie is greater or equal.
  */
-[[nodiscard]] bool Trie::operator>=(const Trie& trie) {
+[[nodiscard]] inline bool Trie::operator>=(const Trie& trie) {
   return this->autocomplete("", INT_MAX) >= trie.autocomplete("", INT_MAX);
 }
 
