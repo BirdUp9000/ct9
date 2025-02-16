@@ -24,6 +24,7 @@ class Trie final {
     void insert(const std::string& text, size_t index, Node* root);
     [[nodiscard]] std::queue<std::string> find(char character) const;
     [[nodiscard]] std::string find() const;
+    [[nodiscard]] size_t size() const;
     std::map<char, Node*> children;
     bool end_of_word{false};
   };
@@ -55,6 +56,7 @@ public:
   [[nodiscard]] bool operator!=(const Trie& trie); 
   [[nodiscard]] bool operator<=(const Trie& trie);
   [[nodiscard]] bool operator>=(const Trie& trie);
+  [[nodiscard]] size_t size() const;
 
   Trie& operator=(Trie&& trie) noexcept;
   void del(const std::string& text) const;
@@ -63,6 +65,7 @@ public:
 
   void insert(const std::string& text);
 };
+
 /**
  * @brief Checks if two tries are equal by comparing their stored words.
  * @note Will be optimized using BFS later.
@@ -231,6 +234,26 @@ inline Trie::Trie() : root(new Node()) {}
  * Deletes root node.
  */
 inline Trie::~Trie() { delete root; }
+
+/**
+ * @brief Counts all nodes under the current node, including itself.
+ * @return The total number of nodes in the subtree rooted at this node.
+ */
+inline size_t Trie::Node::size() const {
+  size_t current_node_childrens_size = children.size();
+  for (const auto& [key, value] : children) {
+    current_node_childrens_size += value->size();
+  }
+  return current_node_childrens_size;
+}
+
+/**
+ * @brief Returns the total number of nodes in the Trie.
+ * @return The number of nodes in the entire tree.
+ */
+inline size_t Trie::size() const {
+  return root->size();
+}
 
 /**
  * @brief Copies all nodes from a source trie to a destination trie.
