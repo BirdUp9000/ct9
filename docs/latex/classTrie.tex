@@ -64,7 +64,9 @@ std\+::string {\bfseries DEBUG} (const \mbox{\hyperlink{structTrie_1_1Node}{Node
 std\+::queue$<$ std\+::string $>$ \mbox{\hyperlink{classTrie_a618ef49a48291bcf6184710e38398a4d}{autocomplete}} (const std\+::string \&prefix, size\+\_\+t count=INT\+\_\+\+MAX) const
 \begin{DoxyCompactList}\small\item\em Provides autocomplete suggestions based on the given prefix. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classTrie_a82ded465e0c692fe9c783d471ed4f682}{insert}} (const std\+::string \&text)
-\begin{DoxyCompactList}\small\item\em Inserts a word into the trie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Inserts a word into the trie. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTrie_a78c7331de43334c84a6f368657561ef5}{contain}} (const std\+::string \&word) const
+\begin{DoxyCompactList}\small\item\em Checks if a given word exists in the \doxylink{classTrie}{Trie}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -119,7 +121,7 @@ Move constructor.
 \index{Trie@{Trie}!autocomplete@{autocomplete}}
 \index{autocomplete@{autocomplete}!Trie@{Trie}}
 \doxysubsubsection{\texorpdfstring{autocomplete()}{autocomplete()}}
-{\footnotesize\ttfamily std\+::queue$<$ std\+::string $>$ Trie\+::autocomplete (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{prefix,  }\item[{size\+\_\+t}]{count = {\ttfamily INT\+\_\+MAX} }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily std\+::queue$<$ std\+::string $>$ Trie\+::autocomplete (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{prefix,  }\item[{size\+\_\+t}]{count = {\ttfamily INT\+\_\+MAX} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -136,6 +138,29 @@ This function searches the trie for the provided prefix and returns up to {\ttfa
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 A queue of strings containing the autocomplete suggestions. The results are in lexicographical order. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
+\Hypertarget{classTrie_a78c7331de43334c84a6f368657561ef5}\label{classTrie_a78c7331de43334c84a6f368657561ef5} 
+\index{Trie@{Trie}!contain@{contain}}
+\index{contain@{contain}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{contain()}{contain()}}
+{\footnotesize\ttfamily bool Trie\+::contain (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{word }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if a given word exists in the \doxylink{classTrie}{Trie}. 
+
+This method attempts to autocomplete the given word with a maximum result count of 1. If exactly one result is found, the word is considered to be present in the \doxylink{classTrie}{Trie}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em word} & The word to search for in the \doxylink{classTrie}{Trie}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the word exists in the \doxylink{classTrie}{Trie}, false otherwise. 
 \end{DoxyReturn}
 \begin{Desc}
 \item[Examples]\par
@@ -188,7 +213,7 @@ This function inserts the provided string into the trie, character by character.
 \index{Trie@{Trie}!operator"!=@{operator"!=}}
 \index{operator"!=@{operator"!=}!Trie@{Trie}}
 \doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
-{\footnotesize\ttfamily bool Trie\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Trie\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -258,7 +283,7 @@ This operator returns a new \doxylink{classTrie}{Trie} that contains only the wo
 \index{Trie@{Trie}!operator$<$@{operator$<$}}
 \index{operator$<$@{operator$<$}!Trie@{Trie}}
 \doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
-{\footnotesize\ttfamily bool Trie\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Trie\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -282,7 +307,7 @@ True if this trie is lexicographically smaller.
 \index{Trie@{Trie}!operator$<$=@{operator$<$=}}
 \index{operator$<$=@{operator$<$=}!Trie@{Trie}}
 \doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
-{\footnotesize\ttfamily bool Trie\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Trie\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -327,7 +352,7 @@ New \doxylink{classTrie}{Trie}.
 \index{Trie@{Trie}!operator==@{operator==}}
 \index{operator==@{operator==}!Trie@{Trie}}
 \doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
-{\footnotesize\ttfamily bool Trie\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Trie\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -351,7 +376,7 @@ True if both tries contain the same words, false otherwise.
 \index{Trie@{Trie}!operator$>$@{operator$>$}}
 \index{operator$>$@{operator$>$}!Trie@{Trie}}
 \doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
-{\footnotesize\ttfamily bool Trie\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Trie\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -375,7 +400,7 @@ True if this trie is lexicographically greater.
 \index{Trie@{Trie}!operator$>$=@{operator$>$=}}
 \index{operator$>$=@{operator$>$=}!Trie@{Trie}}
 \doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
-{\footnotesize\ttfamily bool Trie\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Trie\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTrie}{Trie}} \&}]{trie }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 

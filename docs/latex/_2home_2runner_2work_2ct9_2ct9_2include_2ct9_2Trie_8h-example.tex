@@ -74,32 +74,34 @@ Node\texorpdfstring{$\ast$}{*} root = new Node(); root-\/\texorpdfstring{$>$}{>}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classTrie}{Trie}}\&\ \mbox{\hyperlink{classTrie_acadfba10d18faea0b83d94a91548cd27}{operator=}}(\mbox{\hyperlink{classTrie}{Trie}}\&\&\ trie)\ \textcolor{keyword}{noexcept};}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTrie_a286afcf0acdd84b189fe28016304cb00}{del}}(\textcolor{keyword}{const}\ std::string\&\ text)\ \textcolor{keyword}{const};}
 \DoxyCodeLine{\ \ std::string\ DEBUG(\textcolor{keyword}{const}\ Node*\ node,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ level,\ \textcolor{keywordtype}{int}\ parent\_x,\ \textcolor{keywordtype}{int}\ parent\_y,\ \textcolor{keywordtype}{char}\ letter)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{\ \ [[nodiscard]]\ std::queue<std::string>\ \mbox{\hyperlink{classTrie_a618ef49a48291bcf6184710e38398a4d}{autocomplete}}(\textcolor{keyword}{const}\ std::string\&\ prefix,\ \textcolor{keywordtype}{size\_t}\ count\ =\ INT\_MAX)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{}
+\DoxyCodeLine{\ \ [[nodiscard]]\ \textcolor{keyword}{inline}\ std::queue<std::string>\ \mbox{\hyperlink{classTrie_a618ef49a48291bcf6184710e38398a4d}{autocomplete}}(\textcolor{keyword}{const}\ std::string\&\ prefix,\ \textcolor{keywordtype}{size\_t}\ count\ =\ INT\_MAX)\ \textcolor{keyword}{const};}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTrie_a82ded465e0c692fe9c783d471ed4f682}{insert}}(\textcolor{keyword}{const}\ std::string\&\ text);}
+\DoxyCodeLine{\ \ [[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTrie_a78c7331de43334c84a6f368657561ef5}{contain}}(\textcolor{keyword}{const}\ std::string\&\ word)\ \textcolor{keyword}{const};}
 \DoxyCodeLine{\};}
-\DoxyCodeLine{}
-\DoxyCodeLine{[[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTrie_ae85a85f354ad4eed560129f59ef48535}{Trie::operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\ \{}
+\DoxyCodeLine{\textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTrie_a78c7331de43334c84a6f368657561ef5}{Trie::contain}}(\textcolor{keyword}{const}\ std::string\&\ word)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classTrie_a618ef49a48291bcf6184710e38398a4d}{autocomplete}}(word,1).size()\ ==\ 1;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{[[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTrie_ae85a85f354ad4eed560129f59ef48535}{Trie::operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\ \{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classTrie_a618ef49a48291bcf6184710e38398a4d}{autocomplete}}(\textcolor{stringliteral}{"{}"{}},\ INT\_MAX)\ ==\ trie.\mbox{\hyperlink{classTrie_a618ef49a48291bcf6184710e38398a4d}{autocomplete}}(\textcolor{stringliteral}{"{}"{}},\ INT\_MAX);}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
-\DoxyCodeLine{[[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTrie_a9bf6708fbfdd41349e7f3d9291ed286d}{Trie::operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\ \{}
+\DoxyCodeLine{[[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTrie_a9bf6708fbfdd41349e7f3d9291ed286d}{Trie::operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\ \{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classTrie_a618ef49a48291bcf6184710e38398a4d}{autocomplete}}(\textcolor{stringliteral}{"{}"{}},\ INT\_MAX)\ !=\ trie.\mbox{\hyperlink{classTrie_a618ef49a48291bcf6184710e38398a4d}{autocomplete}}(\textcolor{stringliteral}{"{}"{}},\ INT\_MAX);}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
-\DoxyCodeLine{[[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTrie_a6fd6312a05c467ef1a0729be5e8fdd6a}{Trie::operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\ \{}
+\DoxyCodeLine{[[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTrie_a6fd6312a05c467ef1a0729be5e8fdd6a}{Trie::operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\ \{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classTrie_a618ef49a48291bcf6184710e38398a4d}{autocomplete}}(\textcolor{stringliteral}{"{}"{}},\ INT\_MAX)\ <\ trie.\mbox{\hyperlink{classTrie_a618ef49a48291bcf6184710e38398a4d}{autocomplete}}(\textcolor{stringliteral}{"{}"{}},\ INT\_MAX);}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
-\DoxyCodeLine{[[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTrie_a2b5a5ae63e7c3439d942d7c1562dbfc2}{Trie::operator>}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\ \{}
+\DoxyCodeLine{[[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTrie_a2b5a5ae63e7c3439d942d7c1562dbfc2}{Trie::operator>}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\ \{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classTrie_a618ef49a48291bcf6184710e38398a4d}{autocomplete}}(\textcolor{stringliteral}{"{}"{}},\ INT\_MAX)\ >\ trie.\mbox{\hyperlink{classTrie_a618ef49a48291bcf6184710e38398a4d}{autocomplete}}(\textcolor{stringliteral}{"{}"{}},\ INT\_MAX);}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
-\DoxyCodeLine{[[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTrie_a7f417b706e75f60af3eeac0938f4cb57}{Trie::operator<=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\ \{}
+\DoxyCodeLine{[[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTrie_a7f417b706e75f60af3eeac0938f4cb57}{Trie::operator<=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\ \{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classTrie_a618ef49a48291bcf6184710e38398a4d}{autocomplete}}(\textcolor{stringliteral}{"{}"{}},\ INT\_MAX)\ <=\ trie.\mbox{\hyperlink{classTrie_a618ef49a48291bcf6184710e38398a4d}{autocomplete}}(\textcolor{stringliteral}{"{}"{}},\ INT\_MAX);}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
-\DoxyCodeLine{[[nodiscard]]\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTrie_abbd806b35f4ff8d76c3c8244d0b06741}{Trie::operator>=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\ \{}
+\DoxyCodeLine{[[nodiscard]]\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTrie_abbd806b35f4ff8d76c3c8244d0b06741}{Trie::operator>=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTrie}{Trie}}\&\ trie)\ \{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{classTrie_a618ef49a48291bcf6184710e38398a4d}{autocomplete}}(\textcolor{stringliteral}{"{}"{}},\ INT\_MAX)\ >=\ trie.\mbox{\hyperlink{classTrie_a618ef49a48291bcf6184710e38398a4d}{autocomplete}}(\textcolor{stringliteral}{"{}"{}},\ INT\_MAX);}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}

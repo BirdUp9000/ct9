@@ -6,6 +6,7 @@ var classTrie =
     [ "Trie", "classTrie.html#ac81526e95973e2cbfee37851c30b9b61", null ],
     [ "Trie", "classTrie.html#a8f2f269fc83ce5b8a3010d90c4a92396", null ],
     [ "autocomplete", "classTrie.html#a618ef49a48291bcf6184710e38398a4d", null ],
+    [ "contain", "classTrie.html#a78c7331de43334c84a6f368657561ef5", null ],
     [ "del", "classTrie.html#a286afcf0acdd84b189fe28016304cb00", null ],
     [ "getRoot", "classTrie.html#afc2a318e8bf33eac6117fac128c5d37c", null ],
     [ "insert", "classTrie.html#a82ded465e0c692fe9c783d471ed4f682", null ],

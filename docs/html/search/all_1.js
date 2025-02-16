@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['del_0',['del',['../classTrie.html#a286afcf0acdd84b189fe28016304cb00',1,'Trie']]]
+  ['contain_0',['contain',['../classTrie.html#a78c7331de43334c84a6f368657561ef5',1,'Trie']]]
 ];

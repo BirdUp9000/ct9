@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['node_0',['node',['../structTrie_1_1Node.html',1,'Trie::Node'],['../structTrie_1_1Node.html#aeb43ae0f05e236bdaac77ea555fe280c',1,'Trie::Node::Node()']]]
+  ['insert_0',['insert',['../structTrie_1_1Node.html#a196db9af06d50509138b7c67c5aa7082',1,'Trie::Node::insert()'],['../classTrie.html#a82ded465e0c692fe9c783d471ed4f682',1,'Trie::insert()']]]
 ];
