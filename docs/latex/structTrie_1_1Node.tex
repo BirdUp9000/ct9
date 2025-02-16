@@ -23,7 +23,9 @@ std\+::queue$<$ std\+::string $>$ {\bfseries find} (char character) const
 \item 
 \Hypertarget{structTrie_1_1Node_a5cd662665b675b27aba811029825efc9}\label{structTrie_1_1Node_a5cd662665b675b27aba811029825efc9} 
 std\+::string {\bfseries find} () const
-\end{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{structTrie_1_1Node_ae3ca27033ac53aa4c00ae74c154c75d1}{size}} () const
+\begin{DoxyCompactList}\small\item\em Counts all nodes under the current node, including itself. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -104,6 +106,22 @@ Inserts characters starting from the specified index. Marks the node as the end 
 {\em root} & Pointer to the root node of the trie for recursive insertion. \\
 \hline
 \end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
+\Hypertarget{structTrie_1_1Node_ae3ca27033ac53aa4c00ae74c154c75d1}\label{structTrie_1_1Node_ae3ca27033ac53aa4c00ae74c154c75d1} 
+\index{Trie::Node@{Trie::Node}!size@{size}}
+\index{size@{size}!Trie::Node@{Trie::Node}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily size\+\_\+t Trie\+::\+Node\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Counts all nodes under the current node, including itself. 
+
+\begin{DoxyReturn}{Returns}
+The total number of nodes in the subtree rooted at this node. 
+\end{DoxyReturn}
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}

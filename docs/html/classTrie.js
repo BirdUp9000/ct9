@@ -17,5 +17,6 @@ var classTrie =
     [ "operator=", "classTrie.html#acadfba10d18faea0b83d94a91548cd27", null ],
     [ "operator==", "classTrie.html#ae85a85f354ad4eed560129f59ef48535", null ],
     [ "operator>", "classTrie.html#a2b5a5ae63e7c3439d942d7c1562dbfc2", null ],
-    [ "operator>=", "classTrie.html#abbd806b35f4ff8d76c3c8244d0b06741", null ]
+    [ "operator>=", "classTrie.html#abbd806b35f4ff8d76c3c8244d0b06741", null ],
+    [ "size", "classTrie.html#a75d48b3af03e36cb22128a85c58d83cc", null ]
 ];

@@ -51,6 +51,8 @@ bool \mbox{\hyperlink{classTrie_a7f417b706e75f60af3eeac0938f4cb57}{operator$<$=}
 \begin{DoxyCompactList}\small\item\em Checks if this trie is lexicographically smaller or equal. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classTrie_abbd806b35f4ff8d76c3c8244d0b06741}{operator$>$=}} (const \mbox{\hyperlink{classTrie}{Trie}} \&trie)
 \begin{DoxyCompactList}\small\item\em Checks if this trie is lexicographically greater or equal. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classTrie_a75d48b3af03e36cb22128a85c58d83cc}{size}} () const
+\begin{DoxyCompactList}\small\item\em Returns the total number of nodes in the \doxylink{classTrie}{Trie}. \end{DoxyCompactList}\item 
 \Hypertarget{classTrie_a0a4ad7f242d621cd1d66e7e9cb350bd5}\label{classTrie_a0a4ad7f242d621cd1d66e7e9cb350bd5} 
 \mbox{\hyperlink{classTrie}{Trie}} \& {\bfseries operator=} (\mbox{\hyperlink{classTrie}{Trie}} \&\&trie) noexcept
 \item 
@@ -389,6 +391,22 @@ Will be optimized using BFS later.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 True if this trie is greater or equal. 
+\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2ct9_2ct9_2include_2ct9_2Trie_8h-example}{/home/runner/work/ct9/ct9/include/ct9/\+Trie.\+h}}.\end{Desc}
+\Hypertarget{classTrie_a75d48b3af03e36cb22128a85c58d83cc}\label{classTrie_a75d48b3af03e36cb22128a85c58d83cc} 
+\index{Trie@{Trie}!size@{size}}
+\index{size@{size}!Trie@{Trie}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily size\+\_\+t Trie\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the total number of nodes in the \doxylink{classTrie}{Trie}. 
+
+\begin{DoxyReturn}{Returns}
+The number of nodes in the entire tree. 
 \end{DoxyReturn}
 \begin{Desc}
 \item[Examples]\par

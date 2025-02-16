@@ -11,6 +11,7 @@ var NAVTREEINDEX0 =
 "classTrie.html#a618ef49a48291bcf6184710e38398a4d":[0,0,0,5],
 "classTrie.html#a6af57e9f25d0d0a2d59eea5a4a802908":[0,0,0,1],
 "classTrie.html#a6fd6312a05c467ef1a0729be5e8fdd6a":[0,0,0,12],
+"classTrie.html#a75d48b3af03e36cb22128a85c58d83cc":[0,0,0,18],
 "classTrie.html#a7f417b706e75f60af3eeac0938f4cb57":[0,0,0,13],
 "classTrie.html#a82ded465e0c692fe9c783d471ed4f682":[0,0,0,8],
 "classTrie.html#a8f2f269fc83ce5b8a3010d90c4a92396":[0,0,0,4],
@@ -34,5 +35,6 @@ var NAVTREEINDEX0 =
 "structTrie_1_1Node.html#a196db9af06d50509138b7c67c5aa7082":[0,0,0,0,3],
 "structTrie_1_1Node.html#a3962f09c5a788d10c1a4e51d565b4d94":[0,0,0,0,1],
 "structTrie_1_1Node.html#a7b355369a59c8d69901736bfdd88b007":[0,0,0,0,2],
+"structTrie_1_1Node.html#ae3ca27033ac53aa4c00ae74c154c75d1":[0,0,0,0,4],
 "structTrie_1_1Node.html#aeb43ae0f05e236bdaac77ea555fe280c":[0,0,0,0,0]
 };
