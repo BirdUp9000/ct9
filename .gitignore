@@ -1,5 +1,6 @@
 # Ignore .idea
 .idea/
+.cache/
 
 #Ignore cmake-build-debug
 cmake-build-debug/
