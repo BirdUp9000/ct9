@@ -65,6 +65,7 @@ public:
   void insert(const std::string& text);
   [[nodiscard]] bool contain(const std::string& word) const;
 };
+
 /**
  * @brief Checks if a given word exists in the Trie.
  *
